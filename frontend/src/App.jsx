@@ -1,9 +1,24 @@
 import React from 'react'
-
+import Login from './pages/Login'
+import Register from './pages/Register'
+import Home from './pages/Home'
+import { Routes ,Route } from 'react-router-dom'
+import Productdeatils from './components/Productdeatils'
 const App = () => {
   return (
-    <div>App</div>
+    <div className="bg-[#FFFEFEFF] w-screen h-screen overflow-x-hidden flex  ">
+      <Routes>
+        <Route path='/' element={<Home/>} />
+        <Route path='/details/:id' element={<Productdeatils/>} />
+        <Route path="/login" element={<Login/>} />
+        <Route path="/register" element={<Register/>} />
+        
+      </Routes>
+    </div>
+    
   )
-}
 
+
+}
+ 
 export default App

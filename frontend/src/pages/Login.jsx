@@ -78,7 +78,7 @@ const Login = () => {
 
                         <button
                             type="submit"
-                            className="w-full bg-[#190634] text-white font-semibold py-3 text-lg rounded-lg hover:opacity-90 mt-5"
+                            className="w-full bg-[#046664] text-white font-semibold py-3 text-lg rounded-lg hover:opacity-90 mt-5"
                         >
                             Sign In
                         </button>
@@ -88,7 +88,7 @@ const Login = () => {
                 {/* Right Section: Welcome Back Message */}
                 <div
                     className="flex flex-col items-center justify-center bg-cover bg-top text-white p-8 w-full md:w-[30vw] md:h-[80vh] md:ml-[40%] md:rounded-xl rounded-b-xl shadow-2xl"
-                    style={{ backgroundImage: "url('https://i.pinimg.com/736x/8f/30/a2/8f30a29f719661001a01ac4cb9acf521.jpg')" }}
+                    style={{ backgroundImage: "url('https://plus.unsplash.com/premium_photo-1672337320279-3428f30d5226?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" }}
                 >
                     <div className="text-center">
                         <h2 className="text-2xl md:text-4xl font-bold">Welcome Back!</h2>
@@ -96,7 +96,7 @@ const Login = () => {
 
                         <Link
                             to={"/register"}
-                            className="bg-black/50 hover:bg-black text-white font-semibold px-14 py-3  rounded-full shadow-md transition-all duration-300"
+                            className="bg-[#046664]/50 hover:bg-[#046664] text-white font-semibold px-14 py-3  rounded-full shadow-md transition-all duration-300"
                         >
                             Sign Up
                         </Link>
