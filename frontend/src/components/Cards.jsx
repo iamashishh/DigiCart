@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom"; 
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { asyncgetproducts } from "../store/actions/ProudectAction";
+import { asyncgetproducts } from "../store/actions/ProductAction";
 
 const Cards = () => {
-  const { products } = useSelector((state) => state.products) || { products: [] }; // Added fallback for safety
+  const { products } = useSelector((state) => state.products) || { products: [] };
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -12,8 +12,10 @@ const Cards = () => {
   }, [dispatch]);
 
   return (
-    <div className="flex flex-wrap  py-5 w-full h-full px-[5%]">
-      {products.length > 0 ? (
+    <div className="flex  flex-wrap  py-5 w-full h-full ">
+      <h1 className="text-3xl font-bold text-[#242424FF] mb-10">Products</h1>
+   <div className="flex flex-wrap gap-10 justify-center">
+   {products.length > 0 ? (
         products.map((p) => (
           <Link
             key={p.id}
@@ -49,10 +51,11 @@ const Cards = () => {
           </Link>
         ))
       ) : (
-        <div className="w-full text-center py-5 text-lg">No products available</div>
-      )}
+<div className="w-full text-center py-5 text-lg">No products available</div>
+)}
     </div>
-  );
-};
+      </div>
+    );
+  }
 
 export default Cards;

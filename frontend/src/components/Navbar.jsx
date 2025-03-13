@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="w-full h-[5%] mt-[6vh] flex justify-between items-center">
+    <div className="w-full h-[5%] mt-[6vh] py-5 mb-2  flex justify-between items-center">
       <img src="./logo.png" alt="" />
       <ul className="flex gap-5">
         <li>
