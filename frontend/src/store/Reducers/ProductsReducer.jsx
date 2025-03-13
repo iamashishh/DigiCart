@@ -1,19 +1,18 @@
-import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    products: [],
-    loading: false,
-    error: null
-}
+  products: [],
+};
 
 const productSlice = createSlice({
-    name:'Product',
-    initialState,   
-    reducers: {
-        // Reducers
+  name: "Product",
+  initialState,
+  reducers: {
+    getProducts: (state, action) => {
+        state.products = action.payload;
     },
-})
-
+  },
+});
 
 export default productSlice.reducer;
+export const { getProducts } = productSlice.actions;

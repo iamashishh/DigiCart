@@ -1,19 +1,56 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; 
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { asyncgetproducts } from "../store/actions/ProudectAction";
 
 const Cards = () => {
+  const { products } = useSelector((state) => state.products) || { products: [] }; // Added fallback for safety
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(asyncgetproducts());
+  }, [dispatch]);
+
   return (
-    <div className=" flex flex-wrap gap-3 py-5 overflow-hidden w-full h-full px-[5%] ">
-      <Link to="/details/1" className="w-[20%] h-[30vh] pt-5 flex flex-col gap-1 items-center shadow-[8px_17px_38px_2px_rgba(0,0,0,.2)] ">
-      <img
-        className=" w-[40%] object-cover "
-        src='https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg'
-        alt=""
-      />
-      <h1 className=" font-semibold">
-      Wireless Earbuds, IPX8
-      </h1>
-      </Link>
-      
+    <div className="flex flex-wrap  py-5 w-full h-full px-[5%]">
+      {products.length > 0 ? (
+        products.map((p) => (
+          <Link
+            key={p.id}
+            to={`/details/${p.id}`}
+            className="w-[20%] flex flex-col pb-5 gap-1 items-center  rounded-2xl "
+          >
+            <div className="w-[80%] h-[70%] mb-5 flex items-center justify-center bg-[#F6F6F6] rounded-2xl">
+              <img
+                className="w-[50%] object-cover"
+                src={p.image || "https://via.placeholder.com/150"} 
+                alt={p.title || "Product Image"}
+              />
+            </div>
+
+            <div className="flex flex-col gap-1 items-start w-full px-2">
+              <div className="flex items-center justify-between w-full">
+                <p className=" text-sm truncate">{p.title}</p>
+                <p className="font-bold text-sm text-[#454443FF]">${p.price}</p>
+              </div>
+
+              <p className="text-sm text-[#7D7C7C]">
+                {p.description.slice(0, 30)}...
+              </p>
+
+              <p className="text-sm text-[#499E4AFF]">
+                ({p.rating?.count || 0})
+              </p>
+
+              <button className="text-[#454443FF] text-sm border px-2 py-1 border-[#454443FF] rounded-2xl hover:bg-[#003C26FF] hover:text-[#B8D7CDFF] transition">
+                Add to Cart
+              </button>
+            </div>
+          </Link>
+        ))
+      ) : (
+        <div className="w-full text-center py-5 text-lg">No products available</div>
+      )}
     </div>
   );
 };
