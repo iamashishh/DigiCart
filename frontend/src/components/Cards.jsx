@@ -5,7 +5,7 @@ import { asyncgetproducts } from "../store/actions/ProductAction";
 
 const Cards = () => {
   const { products } = useSelector((state) => state.products) || { products: [] };
-  // console.log(products);
+  console.log(products);
   
   const dispatch = useDispatch();
 
