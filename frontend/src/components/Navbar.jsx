@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div className="w-full h-[5%] mt-[6vh] py-5 mb-2  flex justify-between items-center">
+    <div className="w-full h-[5%] mt-[6vh] max-sm:mt-0 py-5 mb-2  flex justify-between items-center">
       <img src="./logo.png" alt="" />
-      <ul className="flex gap-5">
+      <ul className="flex gap-5 max-sm:hidden">
         <li>
           <Link className="font-semibold">Categories</Link>
         </li>
@@ -17,7 +17,7 @@ const Navbar = () => {
         </li>
       </ul>
       <div className="flex gap-5 items-center ">
-        <div className="relative ">
+        <div className="relative max-sm:hidden ">
           <input
             className="outline-none rounded-2xl px-6 py-1 bg-[#F5F6F6] w-full"
             type="text"

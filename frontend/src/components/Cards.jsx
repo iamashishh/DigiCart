@@ -5,6 +5,8 @@ import { asyncgetproducts } from "../store/actions/ProductAction";
 
 const Cards = () => {
   const { products } = useSelector((state) => state.products) || { products: [] };
+  // console.log(products);
+  
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -20,13 +22,13 @@ const Cards = () => {
           <Link
             key={p.id}
             to={`/details/${p.id}`}
-            className="w-[20%] flex flex-col pb-5 gap-1 items-center  rounded-2xl "
+            className="w-[20%] flex flex-col pb-5 gap-1 items-center  rounded "
           >
-            <div className="w-[80%] h-[70%] mb-5 flex items-center justify-center bg-[#F6F6F6] rounded-2xl">
+            <div className="w-[80%] max-sm:w-[90%] h-[70%] mb-5 flex items-center justify-center bg-[#F6F6F6] rounded">
               <img
                 className="w-[50%] object-cover"
                 src={p.image || "https://via.placeholder.com/150"} 
-                alt={p.title || "Product Image"}
+                alt={p.title  || "Product Image"}
               />
             </div>
 
@@ -51,7 +53,7 @@ const Cards = () => {
           </Link>
         ))
       ) : (
-<div className="w-full text-center py-5 text-lg">No products available</div>
+<div className="w-full text-center  py-5 text-lg">No products available</div>
 )}
     </div>
       </div>

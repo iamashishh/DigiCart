@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 const Topbanner = () => {
   return (
-    <div className=" absolute top-0 left-0 popup-top px-8 py-4 w-[100vw] text-white  flex justify-between items-center h-[5vh] bg-[#003C26] overflow-hidden rounded-none border border-[#003C26] shadow-[0px_0px_1px_#171a1f12,0px_0px_2px_#171a1f1F]">
+    <div className=" absolute top-0 left-0 popup-top max-sm:hidden px-8 py-4 w-[100vw] text-white  flex justify-between items-center h-[5vh] bg-[#003C26] overflow-hidden rounded-none border border-[#003C26] shadow-[0px_0px_1px_#171a1f12,0px_0px_2px_#171a1f1F]">
 <div>
   <p className=" ">+001234567890</p>
 </div>
