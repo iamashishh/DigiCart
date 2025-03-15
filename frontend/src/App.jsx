@@ -6,7 +6,7 @@ import { Routes ,Route } from 'react-router-dom'
 import Productdeatils from './components/Productdeatils'
 const App = () => {
   return (
-    <div className="bg-[#FFFEFEFF] w-screen h-screen overflow-x-hidden flex  ">
+    <div className="bg-[#FFFEFEFF]   ">
       <Routes>
         <Route path='/' element={<Home/>} />
         <Route path='/details/:id' element={<Productdeatils/>} />

@@ -9,26 +9,6 @@ const Register = () => {
     const [firstName, setfirstName] = useState("")
     const [lastName, setlastName] = useState("")
 
-    // const handleOnChange = (e) => {
-    //     const { name, value } = e.target;
-    //     setRegisterData({ ...registerData, [name]: value });
-    // }
-
-    const handleRegister = async (e) => {
-        e.preventDefault();
-        
-      const response =  await axios.post(`${import.meta.env.VITE_BASE_URL}/users/register`,{email,password,firstName,lastName})
-        console.log(response.data);
-        
-    
-        if(response.status === 201){
-            navigate("/login")
-        }
-
-        
-
-        
-    }
 
     return (
         <div className="min-h-screen flex items-center justify-center bg-[#f3f3f3] px-4 md:px-8 py-5">
