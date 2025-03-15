@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 
 const userSchema = new mongoose.Schema(
   {
-    name: {
+    username: {
       type: String,
       required: [true, "Name is required"],
       trim: true,
@@ -25,10 +25,6 @@ const userSchema = new mongoose.Schema(
       required: [true, "Password is required"],
       minlength: [6, "Password must be at least 6 characters"],
       select: false, // Prevent returning password in queries
-    },
-    profilePicture: {
-      type: String,
-      default: "https://avatar.com/default.png", // Default Avatar
     },
     address: {
       street: { type: String, default: "" },
@@ -56,6 +52,10 @@ const userSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
+
+userSchema.statics.hashingPassword = async function (password) {
+  return await bcrypt.hash(password, 12);
+}
 
 
 module.exports = mongoose.model("user", userSchema);
