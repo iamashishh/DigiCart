@@ -28,16 +28,16 @@ const Login = () => {
 
                 {/* Left Section: Sign Up Form */}
                 <div className="bg-white p-8 flex flex-col justify-center md:absolute md:w-[25vw] md:h-[70vh] md:top-9 md:-left-40 md:rounded-xl rounded-t-xl shadow-2xl">
-                    <h2 className="text-3xl md:text-4xl font-bold text-[#190634] text-center">Sign In</h2>
+                    <h2 className="text-3xl md:text-4xl font-bold text-[#046664] text-center">Sign In</h2>
 
                     <div className="flex justify-center space-x-4 mt-4">
-                        <button className="px-3 py-2 rounded-full border border-gray-400 text-[#190634] hover:bg-[#190634] hover:text-white transition-all duration-300">
+                        <button className="px-3 py-2 rounded-full border border-gray-400 text-[#046664] hover:bg-[#046664] hover:text-white transition-all duration-300">
                             <i className="ri-facebook-fill text-2xl"></i>
                         </button>
-                        <button className="px-3 py-2 rounded-full border border-gray-400 text-[#190634] hover:bg-[#190634] hover:text-white transition-all duration-300">
+                        <button className="px-3 py-2 rounded-full border border-gray-400 text-[#046664] hover:bg-[#046664] hover:text-white transition-all duration-300">
                             <i className="ri-google-fill text-2xl"></i>
                         </button>
-                        <button className="px-3 py-2 rounded-full border border-gray-400 text-[#190634] hover:bg-[#190634] hover:text-white transition-all duration-300">
+                        <button className="px-3 py-2 rounded-full border border-gray-400 text-[#046664] hover:bg-[#046664] hover:text-white transition-all duration-300">
                             <i className="ri-linkedin-fill text-2xl"></i>
                         </button>
                     </div>
@@ -46,7 +46,7 @@ const Login = () => {
 
                     <form onSubmit={handleLogin} className="mt-6">
                         <div className="mb-4">
-                            <label htmlFor="email" className="font-semibold text-lg text-[#190634] px-1">
+                            <label htmlFor="email" className="font-semibold text-lg text-[#046664] px-1">
                                 Email
                             </label>
                             <input
@@ -55,13 +55,13 @@ const Login = () => {
                                 name="email"
                                 type="email"
                                 placeholder="Enter Your Email"
-                                className="w-full px-4 py-2 border border-gray-400 placeholder:text-gray-500 text-sm rounded-lg focus:outline-none focus:ring-1 focus:[#190634]"
+                                className="w-full px-4 py-2 border border-gray-400 placeholder:text-gray-500 text-sm rounded-lg focus:outline-none focus:ring-1 focus:[#046664]"
                             />
                         </div>
                         <div className="mb-3">
                             <label
                                 htmlFor="password"
-                                className="font-semibold text-lg text-[#190634] px-1"
+                                className="font-semibold text-lg text-[#046664] px-1"
                             >
                                 Password
                             </label>
@@ -71,7 +71,7 @@ const Login = () => {
                                 name="password"
                                 type="password"
                                 placeholder="Enter Your Password"
-                                className="w-full px-4 py-2 border border-gray-400 placeholder:text-gray-500 text-sm rounded-lg focus:outline-none focus:ring-1 focus:[#190634]"
+                                className="w-full px-4 py-2 border border-gray-400 placeholder:text-gray-500 text-sm rounded-lg focus:outline-none focus:ring-1 focus:[#046664]"
                             />
                         </div>
                         <p className="text-right text-indigo-500 font-semibold hover:underline">Forget Password ?</p>
@@ -87,8 +87,7 @@ const Login = () => {
 
                 {/* Right Section: Welcome Back Message */}
                 <div
-                    className="flex flex-col items-center justify-center bg-cover bg-top text-white p-8 w-full md:w-[30vw] md:h-[80vh] md:ml-[40%] md:rounded-xl rounded-b-xl shadow-2xl"
-                    style={{ backgroundImage: "url('https://plus.unsplash.com/premium_photo-1672337320279-3428f30d5226?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')" }}
+                    className="bg-[url('./bg.jpeg')] bg-cover bg-center flex flex-col items-center justify-center text-white p-8 w-full md:w-[30vw] md:h-[80vh] md:ml-[40%] md:rounded-xl rounded-b-xl shadow-2xl"
                 >
                     <div className="text-center">
                         <h2 className="text-2xl md:text-4xl font-bold">Welcome Back!</h2>
