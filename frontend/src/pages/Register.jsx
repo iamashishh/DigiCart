@@ -19,13 +19,13 @@ const Register = () => {
                     <h2 className="text-3xl md:text-4xl font-bold text-[#046664] text-center">Sign Up</h2>
 
                     <div className="flex justify-center space-x-4 mt-4">
-                        <button className="px-3 py-2 rounded-full border border-gray-400 text-[#046664] hover:bg-[#190634] hover:text-white transition-all duration-300">
+                        <button className="px-3 py-2 rounded-full border border-gray-400 text-[#046664] hover:bg-[#046664] hover:text-white transition-all duration-300">
                             <i className="ri-facebook-fill text-2xl"></i>
                         </button>
-                        <button className="px-3 py-2 rounded-full border border-gray-400 text-[#046664] hover:bg-[#190634] hover:text-white transition-all duration-300">
+                        <button className="px-3 py-2 rounded-full border border-gray-400 text-[#046664] hover:bg-[#046664] hover:text-white transition-all duration-300">
                             <i className="ri-google-fill text-2xl"></i>
                         </button>
-                        <button className="px-3 py-2 rounded-full border border-gray-400 text-[#046664] hover:bg-[#190634] hover:text-white transition-all duration-300">
+                        <button className="px-3 py-2 rounded-full border border-gray-400 text-[#046664] hover:bg-[#046664] hover:text-white transition-all duration-300">
                             <i className="ri-linkedin-fill text-2xl"></i>
                         </button>
                     </div>
@@ -44,7 +44,7 @@ const Register = () => {
                                     name="firstName"
                                     type="text"
                                     placeholder="First Name"
-                                    className="w-full px-4 py-2 border border-gray-400 placeholder:text-gray-500 text-sm rounded-lg focus:outline-none focus:ring-1 focus:ring-[#190634]"
+                                    className="w-full px-4 py-2 border border-gray-400 placeholder:text-gray-500 text-sm rounded-lg focus:outline-none focus:ring-1 focus:ring-[#046664]"
                                 />
                             </div>
                             <div className="mb-4">
@@ -53,7 +53,7 @@ const Register = () => {
                                     name="lastName"
                                     type="text"
                                     placeholder="Last Name"
-                                    className="w-full px-4 py-2 border border-gray-400 placeholder:text-gray-500 text-sm rounded-lg focus:outline-none focus:ring-1 focus:ring-[#190634]"
+                                    className="w-full px-4 py-2 border border-gray-400 placeholder:text-gray-500 text-sm rounded-lg focus:outline-none focus:ring-1 focus:ring-[#046664]"
                                 />
                             </div>
                         </div>
@@ -67,7 +67,7 @@ const Register = () => {
                                 name="email"
                                 type="email"
                                 placeholder="Enter Your Email"
-                                className="w-full px-4 py-2 border border-gray-400 placeholder:text-gray-500 text-sm rounded-lg focus:outline-none focus:ring-1 focus:ring-[#190634]"
+                                className="w-full px-4 py-2 border border-gray-400 placeholder:text-gray-500 text-sm rounded-lg focus:outline-none focus:ring-1 focus:ring-[#046664]"
                             />
                         </div>
                         <div className="mb-4">
@@ -80,7 +80,7 @@ const Register = () => {
                                 name="password"
                                 type="password"
                                 placeholder="Enter Your Password"
-                                className="w-full px-4 py-2 border border-gray-400 placeholder:text-gray-500 text-sm rounded-lg focus:outline-none focus:ring-1 focus:ring-[#190634]"
+                                className="w-full px-4 py-2 border border-gray-400 placeholder:text-gray-500 text-sm rounded-lg focus:outline-none focus:ring-1 focus:ring-[#046664]"
                             />
                         </div>
 
@@ -95,7 +95,7 @@ const Register = () => {
 
                 {/* Right Section: Welcome Back Message */}
                 <div
-                    className=" bg-[url('./bg.jpeg')] flex flex-col items-center justify-center bg-cover bg-top text-white p-8 w-full md:w-[30vw] md:h-[80vh] md:ml-[40%] md:rounded-xl rounded-b-xl shadow-2xl"
+                    className=" bg-[url('./bg.jpeg')]  flex flex-col items-center justify-center bg-cover bg-top text-white p-8 w-full md:w-[30vw] md:h-[80vh] md:ml-[40%] md:rounded-xl rounded-b-xl shadow-2xl"
 
                 >
                     <div className="text-center">

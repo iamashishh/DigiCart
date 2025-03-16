@@ -5,7 +5,7 @@ import { asyncgetproducts } from "../store/actions/ProductAction";
 
 const Cards = () => {
   const { products } = useSelector((state) => state.products) || { products: [] };
-  console.log(products);
+  // console.log(products);
   
   const dispatch = useDispatch();
 
@@ -22,7 +22,7 @@ const Cards = () => {
       <Link
         key={p.id}
         to={`/details/${p.id}`}
-        className="flex flex-col pb-5 gap-1 items-center rounded bg-white shadow-md"
+        className="flex flex-col pb-5 gap-1 items-center rounded bg-white "
       >
         <div className="w-[80%] max-sm:w-[90%] h-[70%] mb-5 flex items-center justify-center bg-[#F6F6F6] rounded">
           <img

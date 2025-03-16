@@ -22,6 +22,7 @@ const Navbar = () => {
             className="outline-none rounded-2xl px-6 py-1 bg-[#F5F6F6] w-full"
             type="text"
             placeholder="Search Product"
+
           />
           <i className="ri-search-eye-line absolute left-50 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
         </div>
