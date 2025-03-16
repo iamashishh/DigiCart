@@ -6,7 +6,7 @@ const { createUser,logoutUser } = require("../services/auth.service");
 const redisClient = require("../config/redis.client");
 
 module.exports.userRegister = async (req, res, next) => {
-  const { username, email, password } = req.body;
+  const { username, email, password,role } = req.body;
 
   try {
     const userExists = await userModel.findOne({
@@ -19,12 +19,13 @@ module.exports.userRegister = async (req, res, next) => {
 
     const hashedPassword = await usermodel.hashingPassword(password);
 
-    const user = await createUser({ username, hashedPassword, email });
+    const user = await createUser({ username, hashedPassword, email,role });
 
     res.status(201).json({
       success: true,
       message: "user created successfully",
       user,
+      
     });
   } catch (error) {
     console.log(error);

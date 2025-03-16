@@ -4,7 +4,7 @@ const ErrorHandler = require("../utils/errorHandler")
 
 
 
-module.exports.createUser = async({username,hashedPassword,email})=>{
+module.exports.createUser = async({username,hashedPassword,email,role})=>{
 
     if(!username || !hashedPassword || !email){
         throw new ErrorHandler("All fields are required");
@@ -14,7 +14,8 @@ module.exports.createUser = async({username,hashedPassword,email})=>{
     const user  = await usermodel.create({
         username,
         password:hashedPassword,
-        email
+        email,
+        role
     })
 
     const savedUser = await user.save();

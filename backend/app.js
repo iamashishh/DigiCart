@@ -9,10 +9,12 @@ app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 
 //Import Routes
-const userRoutes = require("./src/routes/auth.routes")
+const userRoutes = require("./src/routes/auth.routes");
+const productRoutes = require("./src/routes/product.routes");
 
 //Routes
-app.use("/api", userRoutes);
+app.use("/api/auth", userRoutes);
+app.use("/api/product", productRoutes);
 
 
 
