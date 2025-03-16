@@ -1,14 +1,17 @@
 const express = require('express');
+
 const app = express();
 
+//Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => {
-    res.send('Hello World!');
-});
+//Import Routes
+const userRoutes = require("./src/routes/auth.routes")
 
-// const userRoutes = require("./src/routes/user.routes")
-// app.use("/api/users", userRoutes);
+//Routes
+app.use("/api", userRoutes);
+
+
 
 module.exports = app;   

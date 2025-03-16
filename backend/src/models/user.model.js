@@ -2,9 +2,11 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
+const config = require("../config/env.config")
+
 const userSchema = new mongoose.Schema(
   {
-    name: {
+    username: {
       type: String,
       required: [true, "Name is required"],
       trim: true,
@@ -25,10 +27,6 @@ const userSchema = new mongoose.Schema(
       required: [true, "Password is required"],
       minlength: [6, "Password must be at least 6 characters"],
       select: false, // Prevent returning password in queries
-    },
-    profilePicture: {
-      type: String,
-      default: "https://avatar.com/default.png", // Default Avatar
     },
     address: {
       street: { type: String, default: "" },
@@ -57,5 +55,18 @@ const userSchema = new mongoose.Schema(
 );
 
 
+userSchema.statics.hashingPassword = async function (password) {
+  return await bcrypt.hash(password, 12);
+}
+
+userSchema.methods.matchPassword = async function(password){
+  return await bcrypt.compare(password,this.password)
+}
+
+userSchema.methods.generateToken =  function(){
+  return  jwt.sign({id:this._id},config.JWT_SECRET_KEY,{
+    expiresIn:"24h"
+  })
+}
 
 module.exports = mongoose.model("user", userSchema);
