@@ -22,9 +22,9 @@ const Cards = () => {
       <Link
         key={p.id}
         to={`/details/${p.id}`}
-        className="flex flex-col pb-5 gap-1 items-center rounded bg-white "
+        className="flex flex-col pb-5  gap-1 items-center rounded  "
       >
-        <div className="w-[80%] max-sm:w-[90%] h-[70%] mb-5 flex items-center justify-center bg-[#F6F6F6] rounded">
+        <div className="w-[90%] max-sm:w-[90%] h-[70%] mb-5 flex items-center justify-center bg-[#F6F6F6] rounded">
           <img
             className="w-[50%] object-cover mix-blend-multiply"
             src={p.image || "https://via.placeholder.com/150"} 
@@ -34,7 +34,7 @@ const Cards = () => {
 
         <div className="flex flex-col gap-1 items-start w-full px-2">
           <div className="flex items-center justify-between w-full">
-            <p className="text-sm truncate">{p.title}</p>
+            <p className="text-sm text-clip">{p.title}</p>
             <p className="font-bold text-sm text-[#454443FF]">${p.price}</p>
           </div>
 
@@ -42,11 +42,11 @@ const Cards = () => {
             {p.description.slice(0, 30)}...
           </p>
 
-          <p className="text-sm text-[#499E4AFF]">
+          <p className="text-sm text-[#046664]">
             ({p.rating?.count || 0})
           </p>
 
-          <button className="text-[#454443FF] text-sm border px-2 py-1 border-[#454443FF] rounded-2xl hover:bg-[#003C26FF] hover:text-[#B8D7CDFF] transition">
+          <button className="text-[#454443FF] text-sm font-semibold border px-3 py-2 border-[#046664] rounded-2xl hover:bg-[#046664] hover:text-white hover:opacity-90 transition">
             Add to Cart
           </button>
         </div>

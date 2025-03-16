@@ -16,19 +16,19 @@ const Navbar = () => {
           onMouseEnter={() => setIsDropdownOpen(true)}
           onMouseLeave={() => setIsDropdownOpen(false)}
         >
-          <Link className="font-semibold hover:text-green-600 transition-colors duration-200 cursor-pointer">
+          <Link className="font-semibold hover:text-[#046664] transition-colors duration-200 cursor-pointer">
             Categories
           </Link>
 
         </li>
 
         <li>
-          <Link className="hover:text-green-600 transition-colors duration-200">
+          <Link className="hover:text-[#046664] transition-colors duration-200">
             Deals
           </Link>
         </li>
         <li>
-          <Link className="hover:text-green-600 transition-colors duration-200">
+          <Link className="hover:text-[#046664] transition-colors duration-200">
             What's New Delivery
           </Link>
         </li>
@@ -46,10 +46,10 @@ const Navbar = () => {
         </div>
 
         {/* Account & Cart */}
-        <Link className="flex items-center gap-1 hover:text-green-600 transition-colors duration-200">
+        <Link className="flex items-center gap-1 hover:text-[#046664] transition-colors duration-200">
           <i className="ri-user-3-line"></i> Account
         </Link>
-        <Link className="flex items-center gap-1 hover:text-green-600 transition-colors duration-200">
+        <Link className="flex items-center gap-1 hover:text-[#046664] transition-colors duration-200">
           <i className="ri-shopping-cart-2-line"></i> Cart
         </Link>
       </div>
