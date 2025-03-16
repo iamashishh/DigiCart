@@ -13,7 +13,7 @@ const {
   userLoginValidator,
 } = require("../middlewares/input-validation");
 
-const { authMiddleware } = require("../middlewares/auth.middleware");
+const { isLogin} = require("../middlewares/auth.middleware");
 
 
 
@@ -21,6 +21,8 @@ router.post("/register", userRegisterValidator, userRegister);
 
 router.post("/login", userLoginValidator, userLogin);
 
-router.post("/logout", authMiddleware, userLogout);
+router.post("/logout", isLogin, userLogout);
+
+
 
 module.exports = router;
