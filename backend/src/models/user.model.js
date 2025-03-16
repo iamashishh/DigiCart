@@ -69,4 +69,8 @@ userSchema.methods.generateToken =  function(){
   })
 }
 
+userSchema.statics.verifyToken =  function(token){
+  return  jwt.verify(token,config.JWT_SECRET_KEY);
+}
+
 module.exports = mongoose.model("user", userSchema);

@@ -1,3 +1,4 @@
+const redisClient = require("../config/redis.client");
 const usermodel = require("../models/user.model");
 const ErrorHandler = require("../utils/errorHandler")
 
@@ -22,4 +23,13 @@ module.exports.createUser = async({username,hashedPassword,email})=>{
 
     return savedUser;
 
+}
+
+module.exports.logoutUser = async(token)=>{
+    const result  = redisClient.set(`blacklist:${token}`,token,"EX",24*60*60);
+    if(!result){
+        throw new ErrorHandler("Failed to blacklist the token");
+    }
+
+    return true;
 }

@@ -2,7 +2,7 @@ const userModel = require("../models/user.model");
 const usermodel = require("../models/user.model");
 const ErrorHandler = require("../utils/errorHandler");
 
-const { createUser } = require("../services/auth.service");
+const { createUser,logoutUser } = require("../services/auth.service");
 const redisClient = require("../config/redis.client");
 
 module.exports.userRegister = async (req, res, next) => {
@@ -53,9 +53,11 @@ module.exports.userLogin = async (req, res, next) => {
     user.password = undefined;
 
     res.cookie("token", token, {
-      expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
-      httpOnly: true,
+      // expires: new Date(Date.now() + 24 * 60 * 60 * 1000),
+      // httpOnly: true,
     });
+
+    
 
     return res.status(200).json({ token, user });
   } catch (error) {
@@ -63,6 +65,28 @@ module.exports.userLogin = async (req, res, next) => {
   }
 };
 
-module.exports.userLogout = (req, res, next) => {
-    
+module.exports.userLogout =async (req, res, next) => {
+    try {
+      const token = req.cookies.token || req.headers.authorization?.split(" ")[1];
+  
+      if (!token) {
+        return next(new ErrorHandler("Token not found", 400));
+      }
+
+      await logoutUser(token);
+
+      res.clearCookie("token");
+  
+      
+     return res.status(200).json({
+        success: true,
+        message: "Logged out successfully",
+      });
+      
+    } catch (error) {
+      next(error);
+      console.log(error);
+      
+      
+    }
 };
