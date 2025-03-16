@@ -1,17 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import DropdownMenu from "./DropdownMenu";
 
 const Navbar = () => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
   return (
     <div className="w-full fixed top-0 left-0 z-50 bg-white shadow-md py-4 px-6 flex justify-between items-center">
       <img src="./logo.png" alt="Logo" className="h-8" />
 
-      <ul className="flex gap-5 max-sm:hidden">
-        <li>
-          <Link className="font-semibold hover:text-green-600 transition-colors duration-200">
+      <ul className="flex gap-5 max-sm:hidden relative">
+        {/* Categories with Dropdown */}
+        <li
+          className="relative"
+          onMouseEnter={() => setIsDropdownOpen(true)}
+          onMouseLeave={() => setIsDropdownOpen(false)}
+        >
+          <Link className="font-semibold hover:text-green-600 transition-colors duration-200 cursor-pointer">
             Categories
           </Link>
+
         </li>
+
         <li>
           <Link className="hover:text-green-600 transition-colors duration-200">
             Deals
