@@ -26,12 +26,12 @@ const ProductDetails = () => {
 
   return (
     <div className='w-full h-full p-6 flex flex-col md:flex-row gap-10 justify-center items-center bg-white'>
-  <div className='w-full md:w-[50%] flex justify-center'>
-    <div className='w-[90%] max-w-[500px] h-[70%] flex justify-center items-center bg-gray-100 rounded-md'>
+  <div className='w-full md:w-[50%] mt-[5%] flex justify-center'>
+    <div className='min-w-[100%] p-10 h-[70%] flex justify-center items-center bg-gray-100 rounded-md'>
       <img
         src={product.image || ''}
         alt={product.title || 'Product Image'}
-        className="w-[80%] max-w-[300px] md:max-w-[400px] rounded-lg object-cover"
+        className="w-[50%]  md:max-w-[400px] rounded-lg object-cover"
       />
     </div>
   </div>
@@ -57,8 +57,8 @@ const ProductDetails = () => {
     </div>
 
     <div className="flex gap-4 mt-5">
-      <button className="bg-blue-600 text-white py-2 px-6 rounded-lg w-full md:w-auto hover:bg-blue-700">Buy Now</button>
-      <button className="border-2 border-blue-600 text-blue-600 py-2 px-6 rounded-lg w-full md:w-auto hover:bg-blue-600 hover:text-white">Add to Cart</button>
+      <button className="bg-[#046664] text-white py-2 px-6 rounded-lg w-full md:w-auto hover:bg-[#045466]">Buy Now</button>
+      <button className="border-2 border-[#046664] text-[#046664] py-2 px-6 rounded-lg w-full md:w-auto hover:bg-[#046664] hover:text-white">Add to Cart</button>
     </div>
   </div>
 </div>
