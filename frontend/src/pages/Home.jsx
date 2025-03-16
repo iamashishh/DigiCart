@@ -10,7 +10,7 @@ const Home = () => {
   
    
   return (
-    <div className="w-[100vw] px-5 max-sm:px-2 flex flex-col items-center ">
+    <div className="w-full px-5 max-sm:px-2  flex flex-col items-center ">
      
     <Topbanner/>
     <Navbar/>
