@@ -12,23 +12,24 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        setLoading(true);
-        setError(""); // Clear previous errors
 
-        try {
-            
-            const response = await axios.post("https://localhost:4000/api/auth/register", {
-                username,
-                email,
-                password,
-            },{ headers: { "Content-Type": "application/json"  } });
-            
-            console.log(response.data);
-        } catch (err) {
-            setError(err.response?.data?.message || "Something went wrong. Try again.");
-        } finally {
-            setLoading(false);
-        }
+        console.log(username, email, password);
+        
+try{
+
+    const response = await axios.post("http://localhost:4000/api/auth/register",{username,email,password,role:"user"})
+
+    console.log(response.data);
+    
+}catch(err){
+    console.log(err);
+    
+}
+
+
+           
+          
+      
     };
 
     return (

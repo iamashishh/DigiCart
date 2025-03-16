@@ -7,7 +7,8 @@ const redisClient = require("../config/redis.client");
 
 module.exports.userRegister = async (req, res, next) => {
   const { username, email, password,role } = req.body;
-
+  console.log(req.body);
+  
   try {
     const userExists = await userModel.findOne({
       email,
