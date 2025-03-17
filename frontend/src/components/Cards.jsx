@@ -5,6 +5,8 @@ import { asyncgetproducts } from "../store/actions/ProductAction";
 
 const Cards = () => {
   const { products } = useSelector((state) => state.products) || { products: [] };
+
+  console.log();
   
   const dispatch = useDispatch();
 
@@ -12,6 +14,9 @@ const Cards = () => {
     dispatch(asyncgetproducts());
   }, [dispatch]);
 
+  // return ( 
+  //   <div>helo</div>
+  // )
   return (
     <div className="flex  flex-wrap   py-5 w-full h-full  ">
       <h1 className="text-3xl font-bold text-[#242424FF] mb-10">Products</h1>
