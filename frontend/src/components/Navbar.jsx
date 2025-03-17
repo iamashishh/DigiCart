@@ -33,10 +33,10 @@ const Navbar = () => {
   }, [query, products]); // Fixed dependency array
 
   return (
-    <div className="w-full fixed top-0 left-0 z-50 bg-white shadow-md py-4 px-6 flex justify-between items-center">
-      <img src="./logo.png" alt="Logo" className="h-8" />
+    <div className="w-full font-semibold fixed top-0 left-0 z-50 bg-white  py-3 px-20 flex justify-between items-center">
+      <img src="./logo.png" alt="Logo" className="h-10" />
 
-      <ul className="flex gap-5 max-sm:hidden relative">
+      <ul className="flex gap-10 max-sm:hidden relative">
         {/* Categories with Dropdown */}
         <li
           className="relative"
@@ -44,7 +44,7 @@ const Navbar = () => {
           onMouseLeave={() => setIsDropdownOpen(false)}
         >
           <Link className="font-semibold hover:text-[#046664] transition-colors duration-200 cursor-pointer">
-            <DropdownMenu />  
+            <DropdownMenu  />  
           </Link>
         </li>
 
@@ -55,16 +55,21 @@ const Navbar = () => {
         </li>
         <li>
           <Link className="hover:text-[#046664] transition-colors duration-200">
-            What's New Delivery
+            What's New
+          </Link>
+        </li>
+        <li>
+          <Link className="hover:text-[#046664] transition-colors duration-200">
+          Delivery
           </Link>
         </li>
       </ul>
 
       <div className="flex gap-5 items-center">
         {/* Search Bar */}
-        <div className="relative max-sm:hidden w-60">
+        <div className="relative max-sm:hidden w-70">
           <input
-            className="outline-none rounded-2xl px-10 py-2 bg-[#F5F6F6] w-full"
+            className="outline-none rounded-2xl px-10 py-1 bg-[#F5F6F6] w-full"
             onChange={(e) => setQuery(e.target.value)}
             value={query}
             type="text"
@@ -109,7 +114,7 @@ const Navbar = () => {
           to="/cart"
           className="flex items-center gap-1 hover:text-[#046664] transition-colors duration-200 relative"
         >
-          <i className="ri-shopping-cart-2-line"></i>
+          <i className="ri-shopping-cart-2-line"></i> Cart
           {cartCount > 0 && (
             <span className="absolute -top-2 -right-3 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
               {cartCount}

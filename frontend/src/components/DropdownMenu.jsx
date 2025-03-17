@@ -30,13 +30,13 @@ const DropdownMenu = () => {
   const toggleDropdown = () => setIsOpen((prev) => !prev);
 
   return (
-    <div ref={dropdownRef} className="relative">
+    <div ref={dropdownRef} className="relative ">
       {/* Dropdown Button */}
       <button
         onClick={toggleDropdown}
         className="font-semibold cursor-pointer rounded-md transition"
       >
-        Categories
+        Categories <i class="ri-arrow-drop-down-line"></i>
       </button>
 
       {/* Dropdown Menu */}

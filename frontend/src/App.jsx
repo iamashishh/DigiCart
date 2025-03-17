@@ -8,7 +8,8 @@ import Navbar from './components/Navbar'
 import Cart from './components/Cart'
 const App = () => {
   return (
-    <div className="bg-[#FFFEFEFF]   ">
+    <div className="bg-[#FFFEFEFF]  px-10  ">
+      
       <Navbar/>
       <Routes>
 
