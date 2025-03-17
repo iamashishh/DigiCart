@@ -34,7 +34,7 @@ const DropdownMenu = () => {
       {/* Dropdown Button */}
       <button
         onClick={toggleDropdown}
-        className="font-semibold px-4 py-2 rounded-md hover:bg-green-700 transition"
+        className="font-semibold cursor-pointer rounded-md transition"
       >
         Categories
       </button>

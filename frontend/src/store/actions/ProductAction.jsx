@@ -6,6 +6,7 @@ export  const asyncgetproducts = ()=> async(dispatch,getState)=>{
     const response = await axios.get("https://fakestoreapi.com/products");
     // console.log(response.data);
     
+    
    dispatch( getProducts(response.data))
   } catch (error) {
     console.error(error);
