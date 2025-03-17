@@ -1,4 +1,5 @@
 const formidable = require('formidable').default;
+const productModel = require("../models/product.model")
 const { createProduct } = require('../services/product.service');
 
 module.exports.createProduct = async (req, res,next) => {
@@ -32,6 +33,21 @@ module.exports.createProduct = async (req, res,next) => {
 
 module.exports.getAllProducts = async (req, res) => {
 
-    
+   try {
+    const allProducts = await productModel.find();
+
+    res.status(200).json({
+        success: true,
+        message: "All products",
+        allProducts,
+        
+      });
+   } catch (error) {
+
+    console.log(error);
+    next(error);
+
+   }
+
 
 }
