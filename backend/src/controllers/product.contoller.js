@@ -29,3 +29,9 @@ module.exports.createProduct = async (req, res,next) => {
     
    }
 }
+
+module.exports.getAllProducts = async (req, res) => {
+
+    
+
+}
