@@ -8,7 +8,7 @@ const router = Router();
 router.post("/create",
     isLogin,
     isAdmin,
-    productCreateValidator,
+    // productCreateValidator,
     createProduct
 )
 
