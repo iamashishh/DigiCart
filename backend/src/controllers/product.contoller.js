@@ -52,6 +52,9 @@ module.exports.getAllProducts = async (req, res) => {
 
 }
 
+<<<<<<< HEAD
 // module.export.createuser = async ()=>{
     
 // }
+=======
+>>>>>>> ca0af921aeb66116d97026550cfbde73fef71ade
