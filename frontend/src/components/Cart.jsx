@@ -43,9 +43,9 @@ const Cart = () => {
   const orderTotal = totalProductPrice - discount;
 
   return (
-    <div className="min-h-screen p-6 bg-gray-100">
+    <div className="min-h-screen  mt-[4%]  items-start justify-center flex  bg-gray-100">
       {/* Product Details Section */}
-      <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-4">
+      <div className="w-[60vw] mt-5 mx-auto  h-[50%] bg-white rounded-lg shadow-md p-4">
         <h1 className="text-2xl font-bold text-[#046664] mb-4">
           Product Details
         </h1>
@@ -111,24 +111,28 @@ const Cart = () => {
                     </button>
                   </div>
 
-                  <button
+                  
+                </div>
+                <div className="flex flex-col items-start gap-5">
+                <button
                     onClick={() => dispatch(asyncRemoveFromCart(item.id))}
                     className="text-red-500 flex items-center cursor-pointer font-semibold  mt-2"
                   >
                     <i class="ri-close-line text-lg"></i> REMOVE
                   </button>
-                </div>
-
                 <p className="text-[#046664] font-semibold">Free Delivery</p>
+                </div>
               </div>
             ))}
           </div>
+          
         )}
+        
       </div>
 
       {/* Price Details Section */}
       {cartItems.length > 0 && (
-        <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-4 mt-4">
+        <div className="w-[30vw] h-[50%] mx-auto bg-white rounded-lg shadow-md p-4 mt-4">
           <h1 className="text-2xl font-bold text-[#046664] mb-4">
             Price Details ({cartItems.length} Items)
           </h1>
@@ -159,11 +163,7 @@ const Cart = () => {
           <button className="bg-[#046664] text-white w-full mt-4 py-3 rounded-md hover:opacity-90 transition">
             Continue
           </button>
-        </div>
-      )}
-
-      {/* Meesho Safe Section */}
-      <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-4 mt-4 flex items-center justify-center gap-4">
+          <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-4 mt-4 flex items-center justify-center gap-4">
         <i class=" text-4xl text-[#046664] ri-shield-check-line"></i>
         <div>
           <h3 className="text-[#046664] font-bold">
@@ -174,6 +174,11 @@ const Cart = () => {
           </p>
         </div>
       </div>
+        </div>
+      )}
+
+      
+      
     </div>
   );
 };
