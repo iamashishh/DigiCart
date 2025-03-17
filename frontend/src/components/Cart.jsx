@@ -14,7 +14,7 @@ const Cart = () => {
   const navigator = useNavigate();
 
   // Timer State
-  const [timeLeft, setTimeLeft] = useState(17 * 60 + 33); // 17 mins 33 secs
+  const [timeLeft, setTimeLeft] = useState((Math.random()*100).toFixed() * 60 + 33); 
 
   // Timer Countdown Logic
   useEffect(() => {
