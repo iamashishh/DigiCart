@@ -5,7 +5,6 @@ import { asyncgetproducts } from "../store/actions/ProductAction";
 
 const Cards = () => {
   const { products } = useSelector((state) => state.products) || { products: [] };
-  console.log(products);
   
   const dispatch = useDispatch();
 
@@ -51,7 +50,7 @@ const Cards = () => {
              ({p.rating?.count || 0})
              </p>
 
-                <button className="text-[#454443FF] cursor-pointer text-sm font-semibold border px-3 py-2 border-[#046664] rounded-2xl hover:bg-[#046664] hover:text-white hover:opacity-90 transition">
+                <button className="text-[#454443FF] cursor-pointer text-sm font-semibold border px-4 py-2 border-[#046664] rounded-full hover:bg-[#046664] hover:text-white hover:opacity-90 transition">
                   Add to Cart
                 </button>
               </div>
