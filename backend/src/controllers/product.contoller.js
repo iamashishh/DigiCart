@@ -52,6 +52,6 @@ module.exports.getAllProducts = async (req, res) => {
 
 }
 
-module.export.createuser = async ()=>{
+// module.export.createuser = async ()=>{
     
-}
+// }
