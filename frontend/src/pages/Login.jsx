@@ -2,15 +2,28 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Axios from "../utils/axios";
+import { useDispatch, useSelector } from "react-redux";
+import { setUserToken } from "../store/Reducers/AuthReducer";
+
+
 
 const Login = () => {
+
+   const auth =  useSelector((state) => state.auth);
+
+    console.log(auth);
+    
   const [emailData, setemailData] = useState('');
   const [passwordData, setpasswordData] = useState('');
+
+    const dispatch = useDispatch();
+
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
     const response = await Axios.post('/auth/login', { email: emailData, password: passwordData });
+    dispatch(setUserToken({user: response.data.user, token: response.data.token}));
     console.log(response.data);
 
   };

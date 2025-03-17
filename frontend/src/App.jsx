@@ -10,7 +10,7 @@ const App = () => {
   return (
     <div className="bg-[#FFFEFEFF]  px-10  ">
       
-      <Navbar/>
+      {/* <Navbar/> */}
       <Routes>
 
         <Route path="/login" element={<Login/>} />
