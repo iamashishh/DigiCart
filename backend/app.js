@@ -20,7 +20,7 @@ const productRoutes = require("./src/routes/product.routes");
 
 //Routes
 app.use("/api/auth", userRoutes);
-app.use("/api/product", productRoutes);
+app.use("/api/products", productRoutes);
 
 
 
