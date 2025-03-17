@@ -10,7 +10,8 @@ const slice = createSlice({
     reducers: {
         setUserToken: (state, action) => {
             const {token, user} = action.payload ;
-            state.usertoken.token = action.payload;
+            state.usertoken.token = token;
+            state.usertoken.user = user;
         },
     },
 });
