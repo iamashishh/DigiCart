@@ -51,7 +51,7 @@ const Navbar = () => {
 
   return (
     
-      <div className="w-full font-semibold fixed top-0 left-0 z-50 bg-white  py-3 px-5 lg:px-10 justify-between items-center">
+      <div className="w-full font-semibold fixed top-0 left-0 z-50 bg-white  py-3 px-5 overflow-hidden lg:px-10 justify-between items-center">
       {/* <img src="./logo.png" alt="Logo" className="h-10" /> */}
    <div className="w-full flex justify-between items-center">
    <svg width="175" height="44" viewBox="0 0 175 44" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -163,7 +163,7 @@ const Navbar = () => {
         </Link>
       </div>
    </div>
-   <div className={`relative md:hidden lg:hidden  w-89 mt-4 transition-opacity duration-300 ${
+   <div className={`relative md:hidden lg:hidden  w-full mt-4 transition-opacity duration-300 ${
             isVisible ? "opacity-100" : "opacity-0 hidden"
           } `}>
           <input
