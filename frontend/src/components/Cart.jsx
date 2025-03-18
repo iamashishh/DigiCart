@@ -46,7 +46,7 @@ const Cart = () => {
     <div className="min-h-screen  mt-[4%]  items-start justify-center flex  bg-gray-100">
       {/* Product Details Section */}
       <div className="w-[60vw] mt-5 mx-auto  h-[50%] bg-white rounded-lg shadow-md p-4">
-        <h1 className="text-2xl font-bold text-[#046664] mb-4">
+        <h1 className="text-2xl font-bold text-green-800 mb-4">
           Product Details
         </h1>
 
@@ -57,7 +57,7 @@ const Cart = () => {
             </p>
             <button
               onClick={() => navigator("/")}
-              className="mt-4 bg-[#046664] text-white px-6 py-3 rounded-lg hover:opacity-90 transition"
+              className="mt-4 bg-green-800 text-white px-6 py-3 rounded-lg hover:opacity-90 transition"
             >
               Explore Products
             </button>
@@ -120,7 +120,7 @@ const Cart = () => {
                   >
                     <i class="ri-close-line text-lg"></i> REMOVE
                   </button>
-                <p className="text-[#046664] font-semibold">Free Delivery</p>
+                <p className="text-green-800 font-semibold">Free Delivery</p>
                 </div>
               </div>
             ))}
@@ -133,7 +133,7 @@ const Cart = () => {
       {/* Price Details Section */}
       {cartItems.length > 0 && (
         <div className="w-[30vw] h-[50%] mx-auto bg-white rounded-lg shadow-md p-4 mt-4">
-          <h1 className="text-2xl font-bold text-[#046664] mb-4">
+          <h1 className="text-2xl font-bold text-green-800 mb-4">
             Price Details ({cartItems.length} Items)
           </h1>
 
@@ -160,13 +160,13 @@ const Cart = () => {
             Clicking on 'Continue' will not deduct any money
           </div>
 
-          <button className="bg-[#046664] text-white w-full mt-4 py-3 rounded-md hover:opacity-90 transition">
+          <button className="bg-green-800 text-white w-full mt-4 py-3 rounded-md hover:opacity-90 transition">
             Continue
           </button>
           <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-4 mt-4 flex items-center justify-center gap-4">
-        <i class=" text-4xl text-[#046664] ri-shield-check-line"></i>
+        <i class=" text-4xl text-green-800 ri-shield-check-line"></i>
         <div>
-          <h3 className="text-[#046664] font-bold">
+          <h3 className="text-green-800 font-bold">
             Your Safety, Our Priority
           </h3>
           <p className="text-gray-500 text-sm">
