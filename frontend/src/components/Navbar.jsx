@@ -144,7 +144,7 @@ const Navbar = () => {
         </div>
 
         {/* Account & Cart */}
-        <Link className="flex items-center gap-1 hover:text-green-800 transition-colors duration-200">
+        <Link to={'/account'} className="flex items-center gap-1 hover:text-green-800 transition-colors duration-200">
           <i className="ri-user-3-line text-xl "></i>
            <span className="hidden lg:block md:block">Account</span>
         </Link>
