@@ -107,7 +107,7 @@ const Navbar = () => {
         {/* Search Bar */}
         <div className="relative max-sm:hidden  w-70">
           <input
-            className="outline-none rounded-2xl px-10 py-1 bg-[#F5F6F6] w-full"
+            className="outline-none rounded-2xl px-10 py-3  bg-[#F5F6F6] w-full"
             onChange={(e) => setQuery(e.target.value)}
             value={query}
             type="text"
@@ -167,7 +167,7 @@ const Navbar = () => {
             isVisible ? "opacity-100" : "opacity-0 hidden"
           } `}>
           <input
-            className="outline-none rounded-2xl px-10 py-1 bg-[#F5F6F6] w-full"
+            className="outline-none rounded-2xl px-10 py-3 bg-[#F5F6F6] w-full"
             onChange={(e) => setQuery(e.target.value)}
             value={query}
             type="text"
