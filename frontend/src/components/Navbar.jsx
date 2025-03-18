@@ -80,21 +80,22 @@ const Navbar = () => {
     onMouseLeave={() => setIsDropdownOpen(false)}
   >
     <Link className="font-semibold hover:text-[#046664] transition-colors duration-200 cursor-pointer">
+      <DropdownMenu />  
     </Link>
   </li>
 
   <li>
-    <Link className="hover:text-[#046664] transition-colors duration-200">
+    <Link className="hover:text-green-800 transition-colors duration-200">
       Deals
     </Link>
   </li>
   <li>
-    <Link className="hover:text-[#046664] transition-colors duration-200">
+    <Link className="hover:text-green-800 transition-colors duration-200">
       What's New
     </Link>
   </li>
   <li>
-    <Link className="hover:text-[#046664] transition-colors duration-200">
+    <Link className="hover:text-green-800 transition-colors duration-200">
       Delivery
     </Link>
   </li>
@@ -105,7 +106,7 @@ const Navbar = () => {
         {/* Search Bar */}
         <div className="relative max-sm:hidden  w-70">
           <input
-            className="outline-none rounded-2xl px-10 py-1 bg-[#F5F6F6] w-full"
+            className="outline-none rounded-2xl px-10 py-3  bg-[#F5F6F6] w-full"
             onChange={(e) => setQuery(e.target.value)}
             value={query}
             type="text"
@@ -121,13 +122,13 @@ const Navbar = () => {
 
           {/* Search Results */}
           {searchResults.length > 0 && (
-            <div className="absolute w-full max-h-[40vh] bg-white border border-zinc-300 shadow-md rounded-lg mt-2 overflow-auto z-50">
+            <div className="absolute w-full max-h-[40vh] bg-white border border-zinc-300 shadow-md rounded-lg mt-2 overflow-auto z-40">
               {searchResults.map((product) => (
                 <Link
                 to={`/details/${product.id}`}
                 key={product.id}
-                className="flex items-center gap-4 p-3 hover:bg-zinc-100 duration-200 border-b border-zinc-200"
-                onClick={() => setQuery("")}  // ✅ Clear search bar after selection
+                className="flex items-center  gap-4 p-3 hover:bg-zinc-100 duration-200 border-b border-zinc-200"
+                onClick={() => setQuery("")}  
               >
                 <img
                   className="w-[50px] h-[50px] object-cover rounded-md"
@@ -142,14 +143,14 @@ const Navbar = () => {
         </div>
 
         {/* Account & Cart */}
-        <Link className="flex items-center gap-1 hover:text-[#046664] transition-colors duration-200">
+        <Link to={'/account'} className="flex items-center gap-1 hover:text-green-800 transition-colors duration-200">
           <i className="ri-user-3-line text-xl "></i>
            <span className="hidden lg:block md:block">Account</span>
         </Link>
       
         <Link
           to="/cart"
-          className="flex items-center gap-1 hover:text-[#046664] transition-colors duration-200 relative"
+          className="flex items-center gap-1 hover:text-green-800 transition-colors duration-200 relative"
         >
           <i className="ri-shopping-cart-2-line text-xl"></i> 
           <span className="hidden lg:block md:block">Cart</span>
@@ -165,7 +166,7 @@ const Navbar = () => {
             isVisible ? "opacity-100" : "opacity-0 hidden"
           } `}>
           <input
-            className="outline-none rounded-2xl px-10 py-1 bg-[#F5F6F6] w-full"
+            className="outline-none rounded-2xl px-10 py-3 bg-[#F5F6F6] w-full"
             onChange={(e) => setQuery(e.target.value)}
             value={query}
             type="text"

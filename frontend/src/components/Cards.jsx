@@ -13,15 +13,15 @@ const Cards = () => {
   }, [dispatch]);
 
   return (
-    <div className="flex  flex-wrap  py-5 w-full h-full  ">
+    <div className="flex  flex-wrap   py-5 w-full h-full  ">
       <h1 className="text-3xl font-bold text-[#242424FF] mb-10">Products</h1>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 justify-center overflow-hidden py-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 justify-center overflow-hidden p-4">
   {products.length > 0 ? (
     products.map((p) => (
       <Link
         key={p.id}
         to={`/details/${p.id}`}
-        className="flex flex-col pb-4 gap-1 items-center rounded bg-white "
+        className="flex flex-col pb-4 gap-1 items-center rounded "
       >
         <div className="w-[80%] max-sm:w-[90%] h-[70%] p-4 mb-2 flex items-center justify-center bg-[#F6F6F6] rounded-md ">
           <img
