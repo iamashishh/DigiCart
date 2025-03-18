@@ -13,9 +13,9 @@ const Cards = () => {
   }, [dispatch]);
 
   return (
-    <div className="flex  flex-wrap   py-5 w-full h-full  ">
+    <div className="flex  flex-wrap  py-5 w-full h-full  ">
       <h1 className="text-3xl font-bold text-[#242424FF] mb-10">Products</h1>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 justify-center overflow-hidden p-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 justify-center overflow-hidden py-4">
   {products.length > 0 ? (
     products.map((p) => (
       <Link

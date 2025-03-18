@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import DropdownMenu from "./DropdownMenu";
 import { useSelector } from "react-redux";
 import axios from "axios";
 import { asyncgetproducts } from "../store/actions/ProductAction";
@@ -81,7 +80,6 @@ const Navbar = () => {
     onMouseLeave={() => setIsDropdownOpen(false)}
   >
     <Link className="font-semibold hover:text-[#046664] transition-colors duration-200 cursor-pointer">
-      <DropdownMenu />  
     </Link>
   </li>
 
