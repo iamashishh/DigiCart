@@ -123,13 +123,13 @@ const Navbar = () => {
 
           {/* Search Results */}
           {searchResults.length > 0 && (
-            <div className="absolute w-full max-h-[40vh] bg-white border border-zinc-300 shadow-md rounded-lg mt-2 overflow-auto z-50">
+            <div className="absolute w-full max-h-[40vh] bg-white border border-zinc-300 shadow-md rounded-lg mt-2 overflow-auto z-40">
               {searchResults.map((product) => (
                 <Link
                 to={`/details/${product.id}`}
                 key={product.id}
-                className="flex items-center gap-4 p-3 hover:bg-zinc-100 duration-200 border-b border-zinc-200"
-                onClick={() => setQuery("")}  // ✅ Clear search bar after selection
+                className="flex items-center  gap-4 p-3 hover:bg-zinc-100 duration-200 border-b border-zinc-200"
+                onClick={() => setQuery("")}  
               >
                 <img
                   className="w-[50px] h-[50px] object-cover rounded-md"
