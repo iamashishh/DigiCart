@@ -146,7 +146,7 @@ const Navbar = () => {
         </Link>
       </div>
    </div>
-   <div className="relative md:hidden lg:hidden  w-80 mt-4 ml-6">
+   <div className="relative md:hidden lg:hidden  w-89 mt-4 ">
           <input
             className="outline-none rounded-2xl px-10 py-1 bg-[#F5F6F6] w-full"
             onChange={(e) => setQuery(e.target.value)}
