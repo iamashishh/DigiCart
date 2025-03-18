@@ -12,7 +12,8 @@ const Navbar = () => {
   const [searchResults, setSearchResults] = useState([]);
   const products = useSelector((state) => state.products?.products || []);
   const cartCount = useSelector((state) => state.cart?.cartCount || 0); // Retrieve cartCount from Redux store
-
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
   
   // Search Logic
   useEffect(() => {
@@ -31,6 +32,22 @@ const Navbar = () => {
 
     fetchProducts();
   }, [query, products]); // Fixed dependency array
+
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > lastScrollY) {
+        setIsVisible(false); // Hide on scroll down
+      } else {
+        setIsVisible(true); // Show on scroll up
+      }
+      setLastScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
 
   return (
     
@@ -146,7 +163,9 @@ const Navbar = () => {
         </Link>
       </div>
    </div>
-   <div className="relative md:hidden lg:hidden  w-89 mt-4 ">
+   <div className={`relative md:hidden lg:hidden  w-89 mt-4 transition-opacity duration-300 ${
+            isVisible ? "opacity-100" : "opacity-0 hidden"
+          } `}>
           <input
             className="outline-none rounded-2xl px-10 py-1 bg-[#F5F6F6] w-full"
             onChange={(e) => setQuery(e.target.value)}
