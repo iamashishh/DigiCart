@@ -4,6 +4,7 @@ import axios from "axios";
 import Axios from "../utils/axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserToken } from "../store/Reducers/AuthReducer";
+import toast from "react-hot-toast";
 
 
 
@@ -25,6 +26,7 @@ const Login = () => {
     const response = await Axios.post('/auth/login', { email: emailData, password: passwordData });
     dispatch(setUserToken({user: response.data.user, token: response.data.token}));
     console.log(response.data);
+    toast.success('Login Success');
 
   };
 

@@ -6,10 +6,13 @@ import { Routes ,Route } from 'react-router-dom'
 import Productdeatils from './components/Productdeatils'
 import Navbar from './components/Navbar'
 import Cart from './components/Cart'
-import Account from './components/Account'
+import { Toaster } from 'react-hot-toast';
+
+
 const App = () => {
   return (
     <div className="bg-[#FFFEFEFF]  px-4 lg:px-8  ">
+      <Toaster position="top-center" reverseOrder={false} />
       
       <Navbar/>
       <Routes>
@@ -19,7 +22,6 @@ const App = () => {
         <Route path='/' element={<Home/>} />
         <Route path='/details/:id' element={<Productdeatils/>} />
         <Route path='/cart' element={<Cart/>} />
-        <Route path='/account' element={<Account/>} />
 
         
       </Routes>

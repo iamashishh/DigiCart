@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Axios from "../utils/axios";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -23,6 +24,8 @@ const Register = () => {
     } catch (err) {
       console.log(err);
     }
+    toast.success('Registered successfully');
+    
   };
 
   return (
@@ -113,7 +116,7 @@ const Register = () => {
             </p>
 
             <Link
-              to={"/login"}
+              to="/login"
               className="bg-[#046664]/50 hover:bg-[#046664] text-white font-semibold px-14 py-3 rounded-full shadow-md transition-all duration-300"
             >
               SIGN IN

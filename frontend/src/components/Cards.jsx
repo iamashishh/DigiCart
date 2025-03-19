@@ -26,7 +26,7 @@ const Cards = () => {
         <div className="w-[80%] max-sm:w-[90%] h-[70%] p-4 mb-2 flex items-center justify-center bg-[#F6F6F6] rounded-md ">
           <img
             className="w-[50%] object-cover mix-blend-multiply"
-            src={p.image || "https://via.placeholder.com/150"} 
+            src={ p.image || "https://via.placeholder.com/150"} 
             alt={p.title || "Product Image"}
           />
         </div>
