@@ -119,22 +119,22 @@ const Navbar = () => {
             onMouseEnter={() => setIsDropdownOpen(true)}
             onMouseLeave={() => setIsDropdownOpen(false)}
           >
-            <Link className="font-semibold hover:text-green-800 transition-colors duration-200 cursor-pointer">
+            <Link className="font-semibold hover:text-[#016630] transition-colors duration-200 cursor-pointer">
             Categories <i class="ri-arrow-drop-down-line"></i>
             </Link>
           </li>
           <li>
-            <Link className="hover:text-green-800 transition-colors duration-200">
+            <Link className="hover:text-[#016630] transition-colors duration-200">
               Deals
             </Link>
           </li>
           <li>
-            <Link className="hover:text-green-800 transition-colors duration-200">
+            <Link className="hover:text-[#016630] transition-colors duration-200">
               What's New
             </Link>
           </li>
           <li>
-            <Link className="hover:text-green-800 transition-colors duration-200">
+            <Link className="hover:text-[#016630] transition-colors duration-200">
               Delivery
             </Link>
           </li>
@@ -188,7 +188,7 @@ const Navbar = () => {
 
           <Link
             to="/cart"
-            className="flex items-center gap-1 hover:text-green-800 transition-colors duration-200 relative"
+            className="flex items-center gap-1 hover:text-[#016630] transition-colors duration-200 relative"
           >
             <i className="ri-shopping-cart-2-line text-xl"></i>
             <span className="hidden lg:block md:block">Cart</span>
