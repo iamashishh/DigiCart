@@ -5,6 +5,8 @@ import { asyncgetproducts } from "../store/actions/ProductAction";
 import Navbar from "../components/Navbar";
 import { addToCart } from "../store/Reducers/CartReducer";
 import { asyncAddToCart } from "../store/actions/CartActions";
+import toast from 'react-hot-toast';
+
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -141,7 +143,8 @@ const ProductDetails = () => {
                       price: product.price,
                       image: product.image,
                     },
-                    console.log("add to cart")
+                    // console.log("add to cart")
+                    toast.success('Added to cart')
                   )
                 )
               }

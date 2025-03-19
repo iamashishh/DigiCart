@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Axios from "../utils/axios";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const [email, setEmail] = useState("");
@@ -23,6 +24,8 @@ const Register = () => {
     } catch (err) {
       console.log(err);
     }
+    toast.success('Registered successfully');
+    
   };
 
   return (
