@@ -52,7 +52,7 @@ const Navbar = () => {
 
   return (
     <div
-      className={`w-full font-semibold fixed top-0 left-0 z-40 bg-white py-3 px-5 overflow-hidden lg:px-10 justify-between items-center transition-transform duration-300 ${
+      className={`w-full   font-semibold fixed top-0 left-0 z-40 bg-white py-3 px-5  lg:px-10 justify-between items-center transition-transform duration-300 ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
@@ -143,7 +143,7 @@ const Navbar = () => {
         {/* Search Bar and Account/Cart */}
         <div className="flex gap-5 items-center">
           {/* Search Bar */}
-          <div className="relative max-sm:hidden w-70">
+          <div className="relative  max-sm:hidden w-70">
             <input
               className="outline-none rounded-2xl px-10 py-3 bg-[#F5F6F6] w-full"
               onChange={(e) => setQuery(e.target.value)}
@@ -159,9 +159,12 @@ const Navbar = () => {
               ></i>
             )}
 
-            {/* Search Results */}
-            {searchResults.length > 0 && (
-              <div className="absolute w-full max-h-[40vh] bg-white border border-zinc-300 shadow-md rounded-lg mt-2 overflow-auto z-50">
+           
+          </div>
+
+           {/* Search Results */}
+           {searchResults.length > 0 && (
+              <div className="fixed top-20 right-49   w-72 max-h-[40vh] bg-white border border-zinc-300 shadow-md rounded-lg mt-2 overflow-auto z-50">
                 {searchResults.map((product) => (
                   <Link
                     to={`/details/${product.id}`}
@@ -179,7 +182,6 @@ const Navbar = () => {
                 ))}
               </div>
             )}
-          </div>
 
           {/* Account & Cart */}
         
