@@ -16,7 +16,7 @@ const Banner = () => {
         </button>
       </div>
       <div>
-        <img className="h-40 mt-10" src="./banner.png" alt="Headphones" />
+        <img className="h-50 mt-10" src="./banner.png" alt="Headphones" />
       </div>
     </div>
   );
