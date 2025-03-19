@@ -5,6 +5,8 @@ import { asyncgetproducts } from "../store/actions/ProductAction";
 import Navbar from "../components/Navbar";
 import { addToCart } from "../store/Reducers/CartReducer";
 import { asyncAddToCart } from "../store/actions/CartActions";
+import toast from 'react-hot-toast';
+
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -75,7 +77,7 @@ const ProductDetails = () => {
                 <img
                   src={img}
                   alt={`Product Image ${index}`}
-                  className="w-[60%] md:max-w-[400px] lg:w-[60%]  rounded-lg object-cover"
+                  className="w-[60%] md:max-w-[400px] rounded-lg object-cover"
                 />
               </div>
             ))}
@@ -86,8 +88,8 @@ const ProductDetails = () => {
         {/* Product Details */}
         <div className="w-full h-full max-sm:mt-[-14vw] md:w-[50%] flex-col items-start flex justify-center">
           <div>
-            <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">{product.title}</h1>
-            <p className="text-sm sm:text-base font-medium text-gray-500 mt-2">{product.description}</p>
+            <h1 className="text-2xl  font-bold text-gray-800">{product.title}</h1>
+            <p className="text-sm sm:text-base font-medium text-gray-500 mt-2">{product.description.slice(0, 200)}...<span className="text-blue-600 cursor-pointer ">more</span></p>
             <div className="text-green-500 flex items-center mt-2">
                         <i className="ri-star-s-fill"></i>
                         <i className="ri-star-s-fill"></i>
@@ -143,7 +145,8 @@ const ProductDetails = () => {
                       price: product.price,
                       image: product.image,
                     },
-                    console.log("add to cart")
+                    // console.log("add to cart")
+                    toast.success('Added to cart')
                   )
                 )
               }
