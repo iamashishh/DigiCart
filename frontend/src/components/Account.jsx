@@ -11,10 +11,11 @@ const Account = () => {
             onMouseLeave={() => setIsHovered(false)}
         >
             <Link
+                to="/login"
                 className="flex items-center gap-1 hover:text-green-800 transition-colors duration-200"
             >
                 <i className="ri-user-3-line text-xl"></i>
-                <Link to={'/login'} className="hidden lg:block md:block">Login</Link>
+                <span className="hidden lg:block md:block">Login</span>
             </Link>
 
             {isHovered && (
@@ -24,13 +25,13 @@ const Account = () => {
                     onMouseLeave={() => setIsHovered(false)}   // Hides dropdown when leaving
                 >
                     <div className='flex justify-around'>
-                    <h1>New User?</h1>
-                    <Link to={'/register'} className='text-blue-500 '>Sign Up </Link>
+                        <h1>New User?</h1>
+                        <Link to="/register" className='text-blue-500'>Sign Up</Link>
                     </div>
                     <ul className="p-2">
-                       <li> <Link className="py-1 px-2 hover:text-green-800"><i class="ri-account-box-line"></i>Profile</Link></li>
-                       <li> <Link className="py-1 px-2 hover:text-green-800"><i class="ri-settings-2-line"></i>Settings</Link></li>
-                       <li> <Link className="py-1 px-2 hover:text-green-800"><i class="ri-logout-box-line"></i>Logout</Link></li>
+                        <li><Link to="/profile" className="py-1 px-2 hover:text-green-800"><i className="ri-account-box-line"></i>Profile</Link></li>
+                        <li><Link to="/settings" className="py-1 px-2 hover:text-green-800"><i className="ri-settings-2-line"></i>Settings</Link></li>
+                        <li><Link to="/logout" className="py-1 px-2 hover:text-green-800"><i className="ri-logout-box-line"></i>Logout</Link></li>
                     </ul>
                 </div>
             )}

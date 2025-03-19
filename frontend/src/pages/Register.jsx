@@ -116,7 +116,7 @@ const Register = () => {
             </p>
 
             <Link
-              to={"/login"}
+              to="/login"
               className="bg-[#046664]/50 hover:bg-[#046664] text-white font-semibold px-14 py-3 rounded-full shadow-md transition-all duration-300"
             >
               SIGN IN
