@@ -46,14 +46,14 @@ const ProductDetails = () => {
 
   return (
     <>
-      <div className="w-full  border-t-2 mt-[5%] border-gray-100 my-4   "></div>
-      <div className=" ml-10 text-sm  sm:text-md font-medium text-gray-600">
+      <div className="w-full  border-t-2 lg:mt-[5%] md:mt-[5%] mt-[40%] border-gray-100 my-4   "></div>
+      <div className=" ml-10 lg:block md:block hidden text-sm  sm:text-md font-medium text-gray-600">
       <i
           onClick={() => navigator(-1)}
-          className="ri-arrow-left-line cursor-pointer absolute top-22 left-10 text-xl text-black font-black"
+          className="ri-arrow-left-line cursor-pointer  absolute top-22 left-10 text-xl text-black font-black"
         ></i>    <p>Electronics / Audio / Headphones / Shop Headphones by type / Airpods-Max</p>
             </div>
-      <div className="w-full flex flex-col  md:px-10 md:flex-row gap-20 justify-center items-center">
+      <div className="w-full   overflow-y-auto pb-20 flex flex-col  md:px-10 md:flex-row gap-20 justify-center items-center">
         
 
         {/* Images Section */}
@@ -66,18 +66,18 @@ const ProductDetails = () => {
             />
           </div>
 
-          <div className="ScrollBar w-full cursor-pointer scrollbar-hide lg:overflow-hidden overflow-x-auto overflow-y-hidden max-sm:pl-34 whitespace-nowrap flex justify-center items-center gap-4">
+          <div className="ScrollBar w-full cursor-pointer scrollbar-hide lg:overflow-hidden overflow-x-auto overflow-y-hidden max-sm:pl-38  whitespace-nowrap flex justify-center items-center gap-4">
            <div className="flex  gap-4 ">
            {imageList.map((img, index) => (
               <div
                 key={index}
-                className={`h-[15vh]  w-[40vw] bg-blac lg:w-[30%] lg:h-[15vh] flex justify-center items-center p-5 rounded-lg ${mainImage === img ? 'border-2 border-green-500' : 'shadow-lg border border-gray-300 rounded-xl'}`}
+                className={`h-[20vh] max-sm:h-[16vh] md:h-[15vh]  w-[40vw] bg-blac lg:w-[30%] lg:h-[15vh] flex justify-center items-center p-5 overflow-hidden rounded-lg ${mainImage === img ? 'border-2 border-green-500' : 'shadow-lg border border-gray-300 rounded-xl'}`}
                 onClick={() => setMainImage(img)}
               >
                 <img
                   src={img}
                   alt={`Product Image ${index}`}
-                  className="w-[60%] md:max-w-[400px] rounded-lg object-cover"
+                  className="w-[60%] p-2 md:max-w-[400px] m-2 rounded-lg object-cover"
                 />
               </div>
             ))}
@@ -131,7 +131,7 @@ const ProductDetails = () => {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex  gap-4 mt-6">
+          <div className="flex hidden lg:block md:block  lg:flex   lg:gap-4 lg:mt-6">
             <button className="bg-green-800 text-white px-10 font-semibold py-2 rounded-full hover:bg-green-700">
               Buy Now
             </button>
@@ -172,6 +172,32 @@ const ProductDetails = () => {
                 Free 30-day returns. <span className="underline">Details</span>
               </p>
             </div>
+          </div>
+
+            {/* // Mobile View bottom buttons  */}
+          <div className=" fixed bottom-0 left-0 w-full  h-fit bg-white gap-2 shadow-lg p-2 flex justify-center  md:hidden lg:hidden ">
+            <button className="bg-green-800 text-white px-9   font-semibold py-2 rounded-full hover:bg-green-700">
+              Buy Now
+            </button>
+            <button
+              onClick={() =>
+                dispatch(
+                  asyncAddToCart(
+                    {
+                      id: product.id,
+                      name: product.name,
+                      price: product.price,
+                      image: product.image,
+                    },
+                    // console.log("add to cart")
+                    toast.success('Added to cart')
+                  )
+                )
+              }
+              className="border-2 border-green-800 w-[50%] bg-white text-green-800 hover:bg-green-800 hover:text-white px- py-2 rounded-full transition-all duration-300 font-semibold"
+            >
+              Add to Cart
+            </button>
           </div>
         </div>
       </div>
