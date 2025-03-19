@@ -146,7 +146,7 @@ const ProductDetails = () => {
                       image: product.image,
                     },
                     // console.log("add to cart")
-                    toast.success('Added to cart')
+                    toast.success('Added to cart',)
                   )
                 )
               }

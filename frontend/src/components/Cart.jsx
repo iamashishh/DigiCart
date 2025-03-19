@@ -7,6 +7,7 @@ import {
   asyncIncreaseQuantity,
   asyncDecreaseQuantity,
 } from "../store/actions/CartActions";
+import toast from "react-hot-toast";
 
 const Cart = () => {
   const { cartItems } = useSelector((state) => state.cart);
@@ -115,7 +116,9 @@ const Cart = () => {
                 </div>
                 <div className="flex flex-col items-start gap-5">
                 <button
-                    onClick={() => dispatch(asyncRemoveFromCart(item.id))}
+                    onClick={() => dispatch(asyncRemoveFromCart(item.id),toast.error('Removed from cart', {
+                      className: 'bg-red-500 text-white px-4 py-2 rounded-md shadow-md',
+                    }))}
                     className="text-red-500 flex items-center cursor-pointer font-semibold  mt-2"
                   >
                     <i class="ri-close-line text-lg"></i> REMOVE

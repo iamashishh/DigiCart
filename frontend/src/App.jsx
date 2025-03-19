@@ -12,7 +12,7 @@ import { Toaster } from 'react-hot-toast';
 const App = () => {
   return (
     <div className="bg-[#FFFEFEFF]  px-4 lg:px-8  ">
-      <Toaster position="top-right" reverseOrder={false} />
+      <Toaster position="top-center" reverseOrder={false} />
       
       <Navbar/>
       <Routes>
