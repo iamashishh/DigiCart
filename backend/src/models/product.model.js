@@ -42,6 +42,17 @@ const productSchema = new mongoose.Schema(
         },
       },
     ],
+    displayImage:  {
+      public_id: {
+        type: String,
+        required: [true, "displayImage public_id is required"],
+      },
+      url: {
+        type: String,
+        required: [true, "displayImage URL is required"],
+      },
+    }, 
+
     ratings: {
       type: Number,
       default: 0,

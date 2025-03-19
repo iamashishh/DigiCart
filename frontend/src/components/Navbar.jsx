@@ -80,7 +80,7 @@ const Navbar = () => {
     onMouseLeave={() => setIsDropdownOpen(false)}
   >
     <Link className="font-semibold hover:text-[#046664] transition-colors duration-200 cursor-pointer">
-      <DropdownMenu />  
+      {/* <DropdownMenu />   */}
     </Link>
   </li>
 

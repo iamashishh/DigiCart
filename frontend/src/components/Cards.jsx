@@ -21,7 +21,7 @@ const Cards = () => {
       <Link
         key={p.id}
         to={`/details/${p.id}`}
-        className="flex flex-col pb-4 gap-1 items-center rounded "
+        className="flex flex-col pb-4 gap-1 items-center rounded bg-white "
       >
         <div className="w-[80%] max-sm:w-[90%] h-[70%] p-4 mb-2 flex items-center justify-center bg-[#F6F6F6] rounded-md ">
           <img
