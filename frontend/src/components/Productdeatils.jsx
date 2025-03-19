@@ -44,45 +44,47 @@ const ProductDetails = () => {
 
   return (
     <>
-      <div className="w-full border-t-2 mt-[5%] border-gray-100 my-4 "></div>
-      <div className=" ml-10 text-sm sm:text-md font-medium text-gray-600">
+      <div className="w-full  border-t-2 mt-[5%] border-gray-100 my-4   "></div>
+      <div className=" ml-10 text-sm  sm:text-md font-medium text-gray-600">
       <i
           onClick={() => navigator(-1)}
           className="ri-arrow-left-line cursor-pointer absolute top-22 left-10 text-xl text-black font-black"
         ></i>    <p>Electronics / Audio / Headphones / Shop Headphones by type / Airpods-Max</p>
             </div>
-      <div className="w-full flex px-10 md:flex-row gap-20 justify-center items-center">
+      <div className="w-full flex flex-col  md:px-10 md:flex-row gap-20 justify-center items-center">
         
 
         {/* Images Section */}
-        <div className="w-full h-full md:w-[50%] flex-col items-center gap-8 flex justify-center">
-          <div className="w-full h-[60vh] flex justify-center items-center p-10 shadow-lg border border-gray-300 rounded-xl ">
+        <div className="w-full h-full md:w-[60%] lg:w-[50%] flex-col lg:flex-col items-center gap-8 flex justify-center">
+          <div className="w-full h-[60vh] lg:h-[60vh] md:h-[40vh]  flex justify-center items-center p-10 shadow-lg border border-gray-300 rounded-xl ">
             <img
               src={mainImage}
               alt={product.title || "Product Image"}
-              className="w-[40%] md:max-w-[400px] rounded-lg object-cover"
+              className="w-[60%] lg:w-[40%] md:max-w-[400px] rounded-lg object-cover"
             />
           </div>
 
-          <div className="w-full cursor-pointer flex justify-center items-center gap-4">
-            {imageList.map((img, index) => (
+          <div className="ScrollBar w-full cursor-pointer scrollbar-hide lg:overflow-hidden overflow-x-auto overflow-y-hidden max-sm:pl-34 whitespace-nowrap flex justify-center items-center gap-4">
+           <div className="flex  gap-4 ">
+           {imageList.map((img, index) => (
               <div
                 key={index}
-                className={`w-[30%] h-[15vh] flex justify-center items-center p-5 rounded-lg ${mainImage === img ? 'border-2 border-green-500' : 'shadow-lg border border-gray-300 rounded-xl'}`}
+                className={`h-[15vh]  w-[40vw] bg-blac lg:w-[30%] lg:h-[15vh] flex justify-center items-center p-5 rounded-lg ${mainImage === img ? 'border-2 border-green-500' : 'shadow-lg border border-gray-300 rounded-xl'}`}
                 onClick={() => setMainImage(img)}
               >
                 <img
                   src={img}
                   alt={`Product Image ${index}`}
-                  className="w-[60%] md:max-w-[400px] rounded-lg object-cover"
+                  className="w-[60%] md:max-w-[400px] lg:w-[60%]  rounded-lg object-cover"
                 />
               </div>
             ))}
+           </div>
           </div>
         </div>
 
         {/* Product Details */}
-        <div className="w-full h-full md:w-[50%] flex-col items-start flex justify-center">
+        <div className="w-full h-full max-sm:mt-[-14vw] md:w-[50%] flex-col items-start flex justify-center">
           <div>
             <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">{product.title}</h1>
             <p className="text-sm sm:text-base font-medium text-gray-500 mt-2">{product.description}</p>
@@ -110,14 +112,14 @@ const ProductDetails = () => {
 
           {/* Quantity Management */}
           <div className="mt-3 flex items-center gap-4">
-            <div className="border-2 border-[#ededed] flex gap-5 items-center justify-between py-1 px-6 rounded-full w-full md:w-auto bg-[#ededed]">
+            <div className="border-2 border-[#ededed] flex gap-3 lg:gap-5 items-center justify-between py-1 px-4 lg:px-6 rounded-full w-full md:w-auto bg-[#ededed]">
               <button onClick={decreaseQuantity} className="px-2 py-1 font-semibold"><i className="ri-subtract-line"></i></button>
               <span className="px-4 font-semibold">{quantity}</span>
                         
                                 <button className="tpx-2 py-1 font-semibold" onClick={increaseQuantity}><i className="ri-add-line"></i></button>
             </div>
             <div>
-                            <h4 className="text-gray-600 text-sm font-semibold w-full">
+                            <h4 className="text-gray-600 text-sm font-semibold  w-[40vw] lg:w-full">
                                 Only <span className="text-orange-500">12 Items</span> Left!
                             </h4>
                             <h4 className="text-gray-600 text-sm font-semibold w-full">
@@ -127,7 +129,7 @@ const ProductDetails = () => {
           </div>
 
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 mt-6">
+          <div className="flex  gap-4 mt-6">
             <button className="bg-green-800 text-white px-10 font-semibold py-2 rounded-full hover:bg-green-700">
               Buy Now
             </button>
@@ -152,7 +154,7 @@ const ProductDetails = () => {
           </div>
 
           {/* Delivery Details */}
-          <div className="mt-8 flex flex-col font-medium w-[60%]">
+          <div className="mt-8 flex flex-col font-medium w-full">
             <div className="text-sm p-4 border-[#85858531] border">
               <p>
                 <i className="text-orange-400 text-lg ri-caravan-line"></i> Free Delivery -{" "}
@@ -175,3 +177,17 @@ const ProductDetails = () => {
 };
 
 export default ProductDetails;
+<div className="flex space-x-4">
+<div className="h-[15vh] w-[40vw] bg-black ">
+
+</div>
+ <div className="h-[15vh] w-[40vw] bg-black ">
+
+</div>
+<div className="h-[15vh] w-[40vw] bg-black ">
+
+</div>
+<div className="h-[15vh] w-[40vw] bg-black ">
+
+</div>
+</div>
