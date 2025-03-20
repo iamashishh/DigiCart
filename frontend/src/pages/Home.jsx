@@ -8,9 +8,7 @@ import FilterSection from "../components/FilterSection";
 
 const Home = () => {
   
-  //  return (
-  //   <div>home</div>
-  //  )
+
   return (
 
     <div className="w-full  flex flex-col items-center ">
