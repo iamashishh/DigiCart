@@ -165,11 +165,7 @@ const Navbar = () => {
 
            {/* Search Results */}
            {searchResults.length > 0 && (
-<<<<<<< HEAD
               <div className="fixed top-14 right-49   w-72 max-h-[40vh] bg-white border border-zinc-300 shadow-md rounded-lg mt-2 overflow-auto z-50">
-=======
-              <div className="fixed top-20 right-49 max-sm:hidden max-md:hidden  lg:block  w-72 max-h-[40vh] bg-white border border-zinc-300 shadow-md rounded-lg mt-2 overflow-auto z-50">
->>>>>>> dfd162ddbe19d553c43c14b7e9ea2accbdcbce8b
                 {searchResults.map((product) => (
                   <Link
                     to={`/details/${product.id}`}
