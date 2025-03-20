@@ -164,7 +164,7 @@ const Navbar = () => {
 
            {/* Search Results */}
            {searchResults.length > 0 && (
-              <div className="fixed top-20 right-49 max-sm:hidden max-md:block  lg:block  w-72 max-h-[40vh] bg-white border border-zinc-300 shadow-md rounded-lg mt-2 overflow-auto z-50">
+              <div className="fixed top-20 right-49 max-sm:hidden max-md:hidden  lg:block  w-72 max-h-[40vh] bg-white border border-zinc-300 shadow-md rounded-lg mt-2 overflow-auto z-50">
                 {searchResults.map((product) => (
                   <Link
                     to={`/details/${product.id}`}
