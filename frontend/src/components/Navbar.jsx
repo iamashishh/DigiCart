@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import { asyncgetproducts } from "../store/actions/ProductAction";
 import Account from "./Account";
+import CategoriesDropdown from "./CategoriesDropdown";
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -119,9 +120,9 @@ const Navbar = () => {
             onMouseEnter={() => setIsDropdownOpen(true)}
             onMouseLeave={() => setIsDropdownOpen(false)}
           >
-            <Link className="font-semibold hover:text-[#016630] transition-colors duration-200 cursor-pointer">
-            Categories <i class="ri-arrow-drop-down-line"></i>
-            </Link>
+            <div>
+              <CategoriesDropdown/>
+            </div>
           </li>
           <li>
             <Link className="hover:text-[#016630] transition-colors duration-200">
@@ -164,7 +165,7 @@ const Navbar = () => {
 
            {/* Search Results */}
            {searchResults.length > 0 && (
-              <div className="fixed top-20 right-49   w-72 max-h-[40vh] bg-white border border-zinc-300 shadow-md rounded-lg mt-2 overflow-auto z-50">
+              <div className="fixed top-14 right-49   w-72 max-h-[40vh] bg-white border border-zinc-300 shadow-md rounded-lg mt-2 overflow-auto z-50">
                 {searchResults.map((product) => (
                   <Link
                     to={`/details/${product.id}`}

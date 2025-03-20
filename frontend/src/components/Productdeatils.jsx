@@ -157,8 +157,8 @@ const ProductDetails = () => {
           </div>
 
           {/* Delivery Details */}
-          <div className="mt-8 flex flex-col font-medium w-full">
-            <div className="text-sm p-4 border-[#85858531] border">
+          <div className="mt-8 flex flex-col  font-medium w-full">
+            <div className="text-sm p-4 border-[#85858531] rounded-t-xl border">
               <p>
                 <i className="text-orange-400 text-lg ri-caravan-line"></i> Free Delivery -{" "}
               </p>
@@ -166,7 +166,7 @@ const ProductDetails = () => {
                 Enter your Postal code for Delivery Availability
               </p>
             </div>
-            <div className="text-sm p-4 border-[#85858531] border">
+            <div className="text-sm p-4 border-[#85858531] border rounded-b-xl">
               <i className="text-orange-400 text-lg ri-loop-left-line"></i> Return Delivery -
               <p className="ml-6 text-[#7E7B7C]">
                 Free 30-day returns. <span className="underline">Details</span>
@@ -206,17 +206,3 @@ const ProductDetails = () => {
 };
 
 export default ProductDetails;
-<div className="flex space-x-4">
-<div className="h-[15vh] w-[40vw] bg-black ">
-
-</div>
- <div className="h-[15vh] w-[40vw] bg-black ">
-
-</div>
-<div className="h-[15vh] w-[40vw] bg-black ">
-
-</div>
-<div className="h-[15vh] w-[40vw] bg-black ">
-
-</div>
-</div>

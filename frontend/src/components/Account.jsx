@@ -20,9 +20,9 @@ const Account = () => {
 
             {isHovered && (
                 <div 
-                    className="infoaccount top-10 right-0 w-60 p-2 border border-zinc-300 z-[99] shadow-md rounded-lg mt-2 overflow-hidden"
-                    onMouseEnter={() => setIsHovered(true)}   // Ensures dropdown stays open
-                    onMouseLeave={() => setIsHovered(false)}   // Hides dropdown when leaving
+                    className="infoaccount absolute bg-white top-5 right-0 w-60 p-2 border border-zinc-300 z-[99] shadow-md rounded-lg mt-2 overflow-hidden"
+                    onMouseEnter={() => setIsHovered(true)}   
+                    onMouseLeave={() => setIsHovered(false)}   
                 >
                     <div className='flex justify-around'>
                         <h1>New User?</h1>
