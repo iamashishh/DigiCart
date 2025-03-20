@@ -1,31 +1,70 @@
-const productModel = require("../models/product.model")
-const { createProduct } = require('../services/product.service');
+const productModel = require("../models/product.model");
+const { createProductService } = require("../services/product.service");
+const ErrorHandler = require("../utils/errorHandler");
 
-module.exports.createProduct = async (req, res,next) => {
-   try {
+module.exports.createProduct = async (req, res, next) => {
+  try {
 
-    // const images = req.files.map((file)=>{
-    //     return {url:file.path,public_id:file.filename}
-    // })
-    console.log(req.file);
+   const { name, description, price, category, stock } = req.body;
+    if (!name || !description || !price || !category || !stock) {
+
+      return next(new ErrorHandler("All fields (name, description, price, category, stock) are required.", 400));
+    }
+
+    const displayImage = req.files.displayImage
+      ? {
+          url: req.files.displayImage[0].path,
+          public_id: req.files.displayImage[0].filename,
+        }
+      : null;
+
+    const images = req.files.images
+      ? req.files.images.map((file) => ({
+          url: file.path,
+          public_id: file.filename,
+        }))
+      : [];
+
+    if (!displayImage) {
+      return next(new ErrorHandler("Display Image is required",400) );
+    }
+
     
-    const displayImage = {
-        url:req.file.path,
-        public_id:req.file.filename}
+    // Create product object
+    const productData = {
+      name,
+      description,
+      price,
+      category,
+      stock,
+      displayImage,
+      images,
+    };
 
-    
-        console.log(displayImage);
-        
-        return true;
-        
+    const newProduct = await createProductService(productData);
 
-   } catch (error) {
-         console.log(error);
-         next(error);
+    // Respond with success
+    return res.status(201).json({
+      success: true,
+      message: "Product created successfully.",
+      product: newProduct,
+    });
+  } catch (error) {
+    // Log the error for debugging
+    console.error("Error in createProduct:", error);
 
-    
-   }
-}
+    // Handle specific errors
+    if (error.name === "ValidationError") {
+      return res.status(400).json({
+        success: false,
+        message: "Validation error.",
+        error: error.message,
+      });
+    }
+
+   next(new ErrorHandler(" an unexpected error in creating product",500))
+  }
+};
 
 module.exports.getAllProducts = async (req, res) => {
 

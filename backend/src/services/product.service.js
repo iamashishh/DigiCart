@@ -1,54 +1,35 @@
 const ErrorHandler = require("../utils/errorHandler");
 const productModel = require("../models/product.model");
 
-// module.exports.createProduct = async ({files,fields})=>{
-    
-//     const imageFiles = files.images;
+module.exports.createProductService =  async (productData)=>{
 
-//     if(!imageFiles || !imageFiles[0]?.filepath){
-//         throw new ErrorHandler("no image uploaded or invalid file path ");
-//     }
+    const {name,description,category,price,stock} = productData;
 
-//     const uploadPromises = imageFiles.map((file)=>{
-//            return  cloudinary.uploader.upload(file.filepath,{
-//                 folder:"products",
-//                 use_filename:true,
-//                 unique_filename:false
-//             });
-//     })
+    if(!name || !description || !category || !price || !stock){
+        throw new ErrorHandler("All fields (name, description, price, category, stock) are required.", 400);
+    }
 
-//     try {
-//         const uploadResults = await Promise.all(uploadPromises);
+    try {
+        const product = await productModel.create({
+            name,
+            description,
+            category,
+            price,
+            stock,
+            displayImage: productData.displayImage,
+            images: productData.images
+        })
+        
+        if(!product){
+            return next(new ErrorHandler("error in creating product", 400))
+        }
+
+        return product;
+    } catch (error) {
+        next(error);
+        console.log(error);
         
         
+    }
 
-//         const imageUrls = uploadResults.map((result) => {
-//          return   { url:result.secure_url,public_id:result.public_id}
-//         });
-
-//         if (!imageUrls) {
-//             throw new ErrorHandler("Image upload failed error in cloundinary");
-//         }
-
-
-//         const product = await productModel.create({
-//             name: fields.name ? fields.name[0] : "",
-//             description: fields.description ? fields.description[0] : "",
-//             price: fields.price ? fields.price[0] : "",
-//             category: fields.category ? fields.category[0] : "",
-//             stock: fields.stock ? fields.stock[0] : "",
-//             images: imageUrls,
-//         })
-
-//         if(!product){
-//             throw new ErrorHandler("Product creation failed");
-//         }
-
-//         return product;
-
-//     } catch (error) {
-//         console.error(error);
-//       }
-
-
-// } 
+}
