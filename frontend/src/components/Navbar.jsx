@@ -112,7 +112,7 @@ const Navbar = () => {
         </svg>
 
         {/* Navigation Links */}
-        <ul className="hidden lg:flex gap-10 relative">
+        <ul className="hidden max-sm:hidden max-md:block max-md:flex max-md:gap-4 max-md:text-[1.8vw] max-md:items-center max-md:justify-center md:block md:flex md:gap-4 md:text-[1.2vw] md:items-center md:justify-center lg:flex gap-10 relative">
           {/* Categories with Dropdown */}
           <li
             className="relative"
@@ -193,7 +193,7 @@ const Navbar = () => {
             className="flex items-center gap-1 hover:text-[#016630] transition-colors duration-200 relative"
           >
             <i className="ri-shopping-cart-2-line text-xl"></i>
-            <span className="hidden lg:block md:block max-md:block">Cart</span>
+            <span className="max-sm:hidden lg:block md:block max-md:block">Cart</span>
             {cartCount > 0 && (
               <span className="absolute -top-2 -right-3 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
                 {cartCount}

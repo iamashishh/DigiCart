@@ -15,7 +15,7 @@ const Account = () => {
                 className="flex items-center gap-1 hover:text-green-800 transition-colors duration-200"
             >
                 <i className="ri-user-3-line text-xl"></i>
-                <span className="hidden lg:block max:md:block md:block">Login</span>
+                <span className="max-sm:hidden lg:block max-md:block md:block">Login</span>
             </Link>
 
             {isHovered && (
