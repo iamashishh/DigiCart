@@ -46,7 +46,7 @@ const ProductDetails = () => {
 
   return (
     <>
-      <div className="w-full  border-t-2 lg:mt-[5%] md:mt-[5%] mt-[40%] border-gray-100 my-4   "></div>
+      <div className="w-full  border-t-2 lg:mt-[5%] max-md:mt-[17%] max-sm:mt-[40%] border-gray-100 my-4   "></div>
       <div className=" ml-10 lg:block md:block hidden text-sm  sm:text-md font-medium text-gray-600">
       <i
           onClick={() => navigator(-1)}
@@ -57,27 +57,27 @@ const ProductDetails = () => {
         
 
         {/* Images Section */}
-        <div className="w-full h-full md:w-[60%] lg:w-[50%] flex-col lg:flex-col items-center gap-8 flex justify-center">
-          <div className="w-full h-[60vh] lg:h-[60vh] md:h-[40vh]  flex justify-center items-center p-10 shadow-lg border border-gray-300 rounded-xl ">
+        <div className="w-full h-full md:w-[60%] lg:w-[50%] flex-col lg:flex-col items-center gap-8 flex justify-center overflow-hidden">
+          <div className="w-full max-sm:w-full h-fit max-md:h-[50vh] max-md:w-[50vw]  overflow-hidden  lg:h-[60vh] md:h-[40vh]  flex justify-center items-center p-10 shadow-lg border border-gray-300 rounded-xl ">
             <img
               src={mainImage}
               alt={product.title || "Product Image"}
-              className="w-[60%] lg:w-[40%] md:max-w-[400px] rounded-lg object-cover"
+              className="w-[60%]  lg:w-[40%] md:max-w-[400px] rounded-lg object-fit"
             />
           </div>
 
-          <div className="ScrollBar w-full cursor-pointer scrollbar-hide lg:overflow-hidden overflow-x-auto overflow-y-hidden max-sm:pl-38  whitespace-nowrap flex justify-center items-center gap-4">
+          <div className="ScrollBar w-full cursor-pointer scrollbar-hide lg:overflow-hidden overflow-x-auto overflow-y-hidden max-sm:pl-32 max-md:pl-  whitespace-nowrap flex justify-center items-center gap-4">
            <div className="flex  gap-4 ">
            {imageList.map((img, index) => (
               <div
                 key={index}
-                className={`h-[20vh] max-sm:h-[16vh] md:h-[15vh]  w-[40vw] bg-blac lg:w-[30%] lg:h-[15vh] flex justify-center items-center p-5 overflow-hidden rounded-lg ${mainImage === img ? 'border-2 border-green-500' : 'shadow-lg border border-gray-300 rounded-xl'}`}
+                className={` max-md:w-fit md-fit max-sm:h-[16vh] md:h-[15vh] max-md:h-[15vh] max-sm:w-[40vw] bg-blac lg:w-[30%] lg:h-[15vh] flex justify-center items-center p-5 overflow-hidden rounded-lg ${mainImage === img ? 'border-2 border-green-500' : 'shadow-lg border border-gray-300 rounded-xl'}`}
                 onClick={() => setMainImage(img)}
               >
                 <img
                   src={img}
                   alt={`Product Image ${index}`}
-                  className="w-[60%] p-2 md:max-w-[400px] m-2 rounded-lg object-cover"
+                  className="w-[60%] p-2 md:max-w-[400px]  rounded-lg object-cover"
                 />
               </div>
             ))}
@@ -86,7 +86,7 @@ const ProductDetails = () => {
         </div>
 
         {/* Product Details */}
-        <div className="w-full h-full max-sm:mt-[-14vw] md:w-[50%] flex-col items-start flex justify-center">
+        <div className="w-full h-full max-sm:mt-[-14vw] max-md:mt-[-6vw] md:w-[50%] flex-col items-start flex justify-center">
           <div>
             <h1 className="text-2xl  font-bold text-gray-800">{product.title}</h1>
             <p className="text-sm sm:text-base font-medium text-gray-500 mt-2">{product.description.slice(0, 200)}...<span className="text-blue-600 cursor-pointer ">more</span></p>
@@ -157,8 +157,8 @@ const ProductDetails = () => {
           </div>
 
           {/* Delivery Details */}
-          <div className="mt-8 flex flex-col font-medium w-full">
-            <div className="text-sm p-4 border-[#85858531] border">
+          <div className="mt-8 flex flex-col  font-medium w-full">
+            <div className="text-sm p-4 border-[#85858531] rounded-t-xl border">
               <p>
                 <i className="text-orange-400 text-lg ri-caravan-line"></i> Free Delivery -{" "}
               </p>
@@ -166,7 +166,7 @@ const ProductDetails = () => {
                 Enter your Postal code for Delivery Availability
               </p>
             </div>
-            <div className="text-sm p-4 border-[#85858531] border">
+            <div className="text-sm p-4 border-[#85858531] border rounded-b-xl">
               <i className="text-orange-400 text-lg ri-loop-left-line"></i> Return Delivery -
               <p className="ml-6 text-[#7E7B7C]">
                 Free 30-day returns. <span className="underline">Details</span>
@@ -176,7 +176,7 @@ const ProductDetails = () => {
 
             {/* // Mobile View bottom buttons  */}
           <div className=" fixed bottom-0 left-0 w-full  h-fit bg-white gap-2 shadow-lg p-2 flex justify-center  md:hidden lg:hidden ">
-            <button className="bg-green-800 text-white px-9   font-semibold py-2 rounded-full hover:bg-green-700">
+            <button className="bg-green-800 text-white w-[50%]   font-semibold py-2 rounded  hover:bg-green-700">
               Buy Now
             </button>
             <button
@@ -194,7 +194,7 @@ const ProductDetails = () => {
                   )
                 )
               }
-              className="border-2 border-green-800 w-[50%] bg-white text-green-800 hover:bg-green-800 hover:text-white px- py-2 rounded-full transition-all duration-300 font-semibold"
+              className="border-2 border-green-800 w-[50%] px-6 bg-white text-green-800 hover:bg-green-800 hover:text-white px- py-2 rounded transition-all duration-300 font-semibold"
             >
               Add to Cart
             </button>

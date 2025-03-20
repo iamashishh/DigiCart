@@ -44,10 +44,10 @@ const Cart = () => {
   const orderTotal = totalProductPrice - discount;
 
   return (
-    <div className="min-h-screen  mt-[4%]  items-start justify-center flex  bg-gray-100">
+    <div className="min-h-screen max-sm:mt-[35%] max-md:mt-[15%] mt-[4%] max-sm:flex-col max-sm:justify-start  max-md:flex-col items-start justify-center flex  lg:bg-gray-100">
       {/* Product Details Section */}
-      <div className="w-[60vw] mt-5 mx-auto  h-[50%] bg-white rounded-lg shadow-md p-4">
-        <h1 className="text-2xl font-bold text-green-800 mb-4">
+      <div className="w-[60vw] max-sm:w-full max-md:w-full  mt-6 mx-auto  h-[50%] bg-white lg:rounded-lg lg:shadow-md lg:p-4">
+        <h1 className="text-2xl font-bold text-green-800 mb-6">
           Product Details
         </h1>
 
@@ -62,13 +62,15 @@ const Cart = () => {
             >
               Explore Products
             </button>
+            
           </div>
         ) : (
-          <div className="space-y-4">
+          <div className="space-y-4 bg-green-">
             {cartItems.map((item) => (
-              <div
+              <div className="w-full lg:flex items-center justify-between gap-4">
+                 <div
                 key={item.id}
-                className="flex items-center gap-4 border-b border-gray-100 pb-4"
+                className="flex  items-center gap-4 border-b border-gray-100 pb-4"
               >
                 <img
                   src={item.image}
@@ -90,7 +92,7 @@ const Cart = () => {
                     ⏳ {formatTime(timeLeft)}
                   </div>
                   {/* Size & Quantity */}
-                  <div className="flex items-center gap-2">
+                  <div className="flex  items-center gap-2">
                     <p className="text-gray-500 text-sm">
                       Size: Free Size • Qty:
                     </p>
@@ -114,18 +116,20 @@ const Cart = () => {
 
                   
                 </div>
-                <div className="flex flex-col items-start gap-5">
+              </div>
+                <div className="flex flex-col max-sm:border-b max-md:border-b border-gray-100 max-sm:flex-row max-sm:items-center max-sm:justify-between max-md:flex-row  items-start gap-5">
                 <button
                     onClick={() => dispatch(asyncRemoveFromCart(item.id),toast.error('Removed from cart', {
                       className: 'bg-red-500 text-white px-4 py-2 rounded-md shadow-md',
                     }))}
-                    className="text-red-500 flex items-center cursor-pointer font-semibold  mt-2"
+                    className="text-red-500 flex items-center cursor-pointer font-semibold  lg:mt-2"
                   >
                     <i class="ri-close-line text-lg"></i> REMOVE
                   </button>
                 <p className="text-green-800 font-semibold">Free Delivery</p>
                 </div>
               </div>
+             
             ))}
           </div>
           
@@ -135,7 +139,7 @@ const Cart = () => {
 
       {/* Price Details Section */}
       {cartItems.length > 0 && (
-        <div className="w-[30vw] h-[50%] mx-auto bg-white rounded-lg shadow-md p-4 mt-4">
+        <div className="w-[30vw]  max-sm:w-full max-md:w-full h-[50%] mx-auto bg-white lg:rounded-lg lg:shadow-md lg:p-4 mt-6">
           <h1 className="text-2xl font-bold text-green-800 mb-4">
             Price Details ({cartItems.length} Items)
           </h1>

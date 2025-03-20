@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import { asyncgetproducts } from "../store/actions/ProductAction";
 import Account from "./Account";
+import CategoriesDropdown from "./CategoriesDropdown";
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -112,16 +113,16 @@ const Navbar = () => {
         </svg>
 
         {/* Navigation Links */}
-        <ul className="hidden lg:flex gap-10 relative">
+        <ul className="hidden max-sm:hidden max-md:block max-md:flex max-md:gap-4 max-md:text-[1.8vw] max-md:items-center max-md:justify-center md:block md:flex md:gap-4 md:text-[1.2vw] md:items-center md:justify-center lg:flex gap-10 relative">
           {/* Categories with Dropdown */}
           <li
             className="relative"
             onMouseEnter={() => setIsDropdownOpen(true)}
             onMouseLeave={() => setIsDropdownOpen(false)}
           >
-            <Link className="font-semibold hover:text-[#016630] transition-colors duration-200 cursor-pointer">
-            Categories <i class="ri-arrow-drop-down-line"></i>
-            </Link>
+            <div>
+              <CategoriesDropdown/>
+            </div>
           </li>
           <li>
             <Link className="hover:text-[#016630] transition-colors duration-200">
@@ -143,7 +144,7 @@ const Navbar = () => {
         {/* Search Bar and Account/Cart */}
         <div className="flex gap-5 items-center">
           {/* Search Bar */}
-          <div className="relative  max-sm:hidden w-70">
+          <div className="relative  max-sm:hidden max-md:hidden w-70">
             <input
               className="outline-none rounded-2xl px-10 py-3 bg-[#F5F6F6] w-full"
               onChange={(e) => setQuery(e.target.value)}
@@ -164,7 +165,7 @@ const Navbar = () => {
 
            {/* Search Results */}
            {searchResults.length > 0 && (
-              <div className="fixed top-20 right-49   w-72 max-h-[40vh] bg-white border border-zinc-300 shadow-md rounded-lg mt-2 overflow-auto z-50">
+              <div className="fixed top-14 right-49   w-72 max-h-[40vh] bg-white border border-zinc-300 shadow-md rounded-lg mt-2 overflow-auto z-50">
                 {searchResults.map((product) => (
                   <Link
                     to={`/details/${product.id}`}
@@ -193,7 +194,7 @@ const Navbar = () => {
             className="flex items-center gap-1 hover:text-[#016630] transition-colors duration-200 relative"
           >
             <i className="ri-shopping-cart-2-line text-xl"></i>
-            <span className="hidden lg:block md:block">Cart</span>
+            <span className="max-sm:hidden lg:block md:block max-md:block">Cart</span>
             {cartCount > 0 && (
               <span className="absolute -top-2 -right-3 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
                 {cartCount}
