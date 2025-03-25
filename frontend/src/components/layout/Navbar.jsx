@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 import { useSelector } from "react-redux";
 import axios from "axios";
-import { asyncgetproducts } from "../store/actions/ProductAction";
-import Account from "./Account";
-import CategoriesDropdown from "./CategoriesDropdown";
+import { asyncgetproducts } from "../../store/actions/ProductAction";
+import Account from "../user/Account";
+import CategoriesDropdown from "../product/CategoriesDropdown";
 
 const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);

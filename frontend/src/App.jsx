@@ -3,9 +3,9 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import Home from './pages/Home'
 import { Routes ,Route } from 'react-router-dom'
-import Productdeatils from './components/Productdeatils'
-import Navbar from './components/Navbar'
-import Cart from './components/Cart'
+import Productdeatils from './components/product/Productdeatils'
+import Navbar from './components/layout/Navbar'
+import Cart from './components/product/Cart'
 import { Toaster } from 'react-hot-toast';
 
 

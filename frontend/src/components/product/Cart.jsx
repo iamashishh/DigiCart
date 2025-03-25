@@ -6,7 +6,7 @@ import {
   asyncRemoveFromCart,
   asyncIncreaseQuantity,
   asyncDecreaseQuantity,
-} from "../store/actions/CartActions";
+} from "../../store/actions/CartActions";
 import toast from "react-hot-toast";
 
 const Cart = () => {

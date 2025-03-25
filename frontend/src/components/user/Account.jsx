@@ -24,14 +24,17 @@ const Account = () => {
                     onMouseEnter={() => setIsHovered(true)}   
                     onMouseLeave={() => setIsHovered(false)}   
                 >
-                    <div className='flex justify-around'>
-                        <h1>New User?</h1>
+                    <div className='flex items-center justify-around'>
+                        <h1>New customer?</h1>
                         <Link to="/register" className='text-blue-500'>Sign Up</Link>
                     </div>
-                    <ul className="p-2">
-                        <li><Link to="/profile" className="py-1 px-2 hover:text-green-800"><i className="ri-account-box-line"></i>Profile</Link></li>
-                        <li><Link to="/settings" className="py-1 px-2 hover:text-green-800"><i className="ri-settings-2-line"></i>Settings</Link></li>
-                        <li><Link to="/logout" className="py-1 px-2 hover:text-green-800"><i className="ri-logout-box-line"></i>Logout</Link></li>
+                    <hr className="border-t-1 my-2 border-zinc-300" />
+                    <ul className=" flex flex-col gap-2 font-normal text-lg p-2">
+                        <li><Link to="/profile" className="py-1 px-2 hover:text-green-800"><i className=" mr-2 ri-account-circle-2-line"></i>Profile</Link></li>
+                        <li><Link to="" className="py-1 px-2 hover:text-green-800"><i className=" mr-2 ri-box-1-line"></i>Orders</Link></li>
+                        <li><Link to="" className="py-1 px-2 hover:text-green-800"><i className=" mr-2 ri-heart-3-line"></i>Wishlist</Link></li>
+                        <li><Link to="" className="py-1 px-2 hover:text-green-800"><i className=" mr-2 ri-settings-2-line"></i>Settings</Link></li>
+                        <li><Link to="" className="py-1 px-2 hover:text-green-800"><i className=" mr-2 ri-logout-box-line"></i>Logout</Link></li>
                     </ul>
                 </div>
             )}
