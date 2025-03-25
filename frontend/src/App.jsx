@@ -7,6 +7,7 @@ import Productdeatils from './components/product/Productdeatils'
 import Navbar from './components/layout/Navbar'
 import Cart from './components/product/Cart'
 import { Toaster } from 'react-hot-toast';
+import Profile from './components/user/Profile'
 
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
         <Route path='/' element={<Home/>} />
         <Route path='/details/:id' element={<Productdeatils/>} />
         <Route path='/cart' element={<Cart/>} />
+        <Route path='/profile' element={<Profile/>} />
 
         
       </Routes>
