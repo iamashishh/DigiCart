@@ -1,19 +1,40 @@
-const {Router} = require('express');
-
-const { createProduct ,getAllProducts} = require('../controllers/product.contoller');
-const { isAdmin, isLogin } = require('../middlewares/auth.middleware');
-const { productCreateValidator } = require('../middlewares/input-validation');
-const {  handleMulterErrors, uploadFields } = require('../utils/multer');
+const { Router } = require("express");
 const router = Router();
 
-router.post("/create",
-    isLogin,
-    isAdmin,
-    uploadFields,
-    handleMulterErrors,
-    createProduct
-)
+const {
+  createProduct,
+  getAllProducts,
+  getProductById,
+  deleteProduct,
+  updateProduct,
+} = require("../controllers/product.contoller");
 
-router.get('/all-products',isLogin,getAllProducts)
+const { isAdmin, isLogin } = require("../middlewares/auth.middleware");
+const { productCreateValidator } = require("../middlewares/input-validation");
+const { handleMulterErrors, uploadFields } = require("../utils/multer");
+
+router.post(
+  "/create",
+  isLogin,
+  isAdmin,
+  uploadFields,
+  handleMulterErrors,
+  createProduct
+);
+
+router.get("/all-products", isLogin, getAllProducts);
+
+router.get("/:id", isLogin, getProductById);
+
+router.delete("/:id", isAdmin, isLogin, deleteProduct);
+
+router.put(
+  "/:id",
+  isLogin,
+  isAdmin,
+  uploadFields,
+  handleMulterErrors,
+  updateProduct
+);
 
 module.exports = router;

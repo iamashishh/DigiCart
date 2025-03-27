@@ -1,9 +1,10 @@
 import React from "react";
-import Navbar from "../components/Navbar";
-import Banner from "../components/Banner";
-import Cards from "../components/Cards";
-import Topbanner from "../components/Topbanner";
-import FilterSection from "../components/FilterSection";
+
+import FilterSection from "../components/sections/FilterSection";
+
+import Cards from "../components/product/Cards";
+import Navbar from "../components/layout/Navbar"
+import Banner from "../components/sections/Banner"
 
 
 const Home = () => {

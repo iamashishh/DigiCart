@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"; 
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { asyncgetproducts } from "../store/actions/ProductAction";
+import { asyncgetproducts } from '../../store/actions/ProductAction'
 
 const Cards = () => {
   const { products } = useSelector((state) => state.products) || { products: [] };

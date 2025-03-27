@@ -33,3 +33,35 @@ module.exports.createProductService =  async (productData)=>{
     }
 
 }
+
+module.exports.updateProductService = async ({ id, name, description, price, images, displayImage, stock, category }) => {
+  if (!id) {
+    throw new ErrorHandler("Product ID is required.", 400);
+  }
+
+  const updatedData = {
+    ...(name && { name }),
+    ...(description && { description }),
+    ...(price && { price }),
+    ...(category && { category }),
+    ...(stock && { stock }),
+    ...(displayImage && { displayImage }),
+    ...(images && { images }),
+  };
+
+  try {
+    const updatedProduct = await productModel.findByIdAndUpdate(id, updatedData, {
+      new: true,
+      runValidators: true,
+    });
+
+    if (!updatedProduct) {
+      throw new ErrorHandler("Product not found. Please check the ID and try again.", 404);
+    }
+
+    return updatedProduct;
+  } catch (error) {
+    console.error("Error in updateProductService:", error);
+    throw new ErrorHandler("An unexpected error occurred while updating the product.", 500);
+  }
+};
