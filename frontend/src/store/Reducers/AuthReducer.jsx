@@ -1,9 +1,12 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const savedToken = localStorage.getItem("authToken");
+const savedUser = JSON.parse(localStorage.getItem("authUser"));
+
 const initialState = {
     usertoken: {
-        user: null,  // Change {} to null (optional for better handling)
-        token: null  // Change "" to null (optional for better handling)
+        user: savedUser || null, 
+    token: savedToken || null  
     }
 };
 
@@ -17,13 +20,25 @@ const userTokenSlice = createSlice({
             const { token, user } = action.payload || {}; // Ensure payload is handled safely
 
             if (token && user) {
-                state.usertoken = { user, token }; // Update entire object instead of modifying keys separately
+                state.usertoken = { user, token }; 
+                localStorage.setItem("authToken", token);
+                localStorage.setItem("authUser", JSON.stringify(user));
             } else {
-                state.usertoken = { user: null, token: null }; // Reset state if data is invalid
+                state.usertoken = { user: null, token: null };
+                localStorage.removeItem("authToken");
+                localStorage.removeItem("authUser");
             }
+            
         },
+    logout: (state) => {
+        state.usertoken = { user: null, token: null };
+  
+        // Clear localStorage on logout
+        localStorage.removeItem("authToken");
+        localStorage.removeItem("authUser");
+      },
     },
 });
 
-export const { setUserToken } = userTokenSlice.actions;
+export const { setUserToken,logout } = userTokenSlice.actions;
 export default userTokenSlice.reducer;

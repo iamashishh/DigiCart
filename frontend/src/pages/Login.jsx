@@ -20,14 +20,19 @@ const Login = () => {
     e.preventDefault();
 
     console.log("Sending Login Data:", { email: emailData, password: passwordData });
+      setLoading(true);
 
     try {
         const response = await Axios.post('/auth/login', { email: emailData, password: passwordData });
 
         console.log("Server Response:", response.data);
 
+        localStorage.setItem("authToken", response.data.token);
+
         dispatch(setUserToken({ user: response.data.user, token: response.data.token }));
+        setLoading(false);
         toast.success('Login Success');
+
         navigat('/')
     } catch (error) {
         console.error("Login Error:", error.response ? error.response.data : error.message);
