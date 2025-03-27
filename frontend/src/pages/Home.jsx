@@ -18,7 +18,7 @@ const Home = () => {
     <Navbar/>
      
     <Banner/>
-    <FilterSection/>
+    {/* <FilterSection/> */}
     <Cards/>
 
 
