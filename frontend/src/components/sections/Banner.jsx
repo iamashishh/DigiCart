@@ -8,8 +8,8 @@ const Banner = () => {
           Grab Upto 50% Off On Selected Headphone
         </h1>
         <button
-          className=" w-[22vw] lg:w-[6vw] md:w-[16vw] md:px-4 md:py-3 py-2 px-5 lg:px-3 lg:py-3 flex items-center justify-center 
-         font-inter lg:text-[1vw] md:text-[1.5vw] text-[2.4vw] leading-[15px] font-semibold text-white 
+          className=" max-sm:w-[24vw] max-sm:py-2 max-sm:px-3 lg:w-[8vw] max-md:w-[16vw] max-md:py-4 md:w-[16vw] md:px-4 md:py-3 py-2 px-5 lg:px-4 lg:py-3 flex items-center justify-center 
+         font-inter lg:text-[1vw] md:text-[1.5vw] text-[2.4vw] max-md:text-[2vw] max-sm:text-[3vw] leading-[15px] font-semibold text-white 
          bg-[#016630] opacity-100 rounded-full "
         >
           Buy Now

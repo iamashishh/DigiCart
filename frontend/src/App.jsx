@@ -7,7 +7,11 @@ import Productdeatils from './components/product/Productdeatils'
 import Navbar from './components/layout/Navbar'
 import Cart from './components/product/Cart'
 import { Toaster } from 'react-hot-toast';
+<<<<<<< HEAD
+import ProductCreate from './components/adminPanel/ProductCreate'
+=======
 import Profile from './components/user/Profile'
+>>>>>>> c12aef0ce4dc3e6bb4652aa3361fb8dbc994e35d
 
 
 const App = () => {
@@ -23,7 +27,11 @@ const App = () => {
         <Route path='/' element={<Home/>} />
         <Route path='/details/:id' element={<Productdeatils/>} />
         <Route path='/cart' element={<Cart/>} />
+<<<<<<< HEAD
+        <Route path='/createproduct' element={<ProductCreate/>} />
+=======
         <Route path='/profile' element={<Profile/>} />
+>>>>>>> c12aef0ce4dc3e6bb4652aa3361fb8dbc994e35d
 
         
       </Routes>
