@@ -8,6 +8,7 @@ import Navbar from './components/layout/Navbar'
 import Cart from './components/product/Cart'
 import { Toaster } from 'react-hot-toast';
 import ProductCreate from './components/adminPanel/ProductCreate'
+import Profile from './components/user/Profile'
 
 
 const App = () => {

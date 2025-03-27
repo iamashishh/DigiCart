@@ -1,23 +1,29 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    usertoken: {user: {},token: ""},
+    usertoken: {
+        user: null,  // Change {} to null (optional for better handling)
+        token: null  // Change "" to null (optional for better handling)
+    }
 };
 
-const slice = createSlice({
+const userTokenSlice = createSlice({
     name: "usertoken",
     initialState,
     reducers: {
         setUserToken: (state, action) => {
-            console.log(action.payload);
-            
-            const {token, user} = action.payload ;
-            state.usertoken.token = token;
-            state.usertoken.user = user;
+            console.log("Payload:", action.payload);
+
+            const { token, user } = action.payload || {}; // Ensure payload is handled safely
+
+            if (token && user) {
+                state.usertoken = { user, token }; // Update entire object instead of modifying keys separately
+            } else {
+                state.usertoken = { user: null, token: null }; // Reset state if data is invalid
+            }
         },
     },
 });
 
-export const { setUserToken } = slice.actions;
-
-export default slice.reducer;
+export const { setUserToken } = userTokenSlice.actions;
+export default userTokenSlice.reducer;
