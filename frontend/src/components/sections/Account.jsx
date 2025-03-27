@@ -58,10 +58,9 @@ const Account = () => {
               </Link>
             </li>
             <li>
-              <Link
+              <Link to="/login"
                 onClick={() => {
                   dispatch(logout());
-                  navigat("/login");
                 }}
                 className="py-1 px-2 hover:text-green-800"
               >

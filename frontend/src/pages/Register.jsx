@@ -20,7 +20,7 @@ const Register = () => {
         { username, email, password, role: "user" }
       );
 
-      console.log(response.data);
+      // console.log(response.data);
     } catch (err) {
       console.log(err);
     }
