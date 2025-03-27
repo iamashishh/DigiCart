@@ -44,6 +44,10 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: null, // For Google OAuth
     },
+    cart:{
+      type:mongoose.Schema.Types.ObjectId,
+      ref:"cart"
+    },
     resetPasswordToken: String, // For Forgot Password
     resetPasswordExpire: Date,
     history: {
