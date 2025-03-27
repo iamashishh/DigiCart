@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, redirect, useNavigate } from "react-router-dom";
 import Axios from "../utils/axios";
 import { useDispatch, useSelector } from "react-redux";
 import { setUserToken } from "../store/Reducers/AuthReducer";
@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 
 const Login = () => {
   const auth = useSelector((state) => state.auth);
+  const navigat =  useNavigate()
   console.log(auth);
   
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ const Login = () => {
 
         dispatch(setUserToken({ user: response.data.user, token: response.data.token }));
         toast.success('Login Success');
+        navigat('/')
     } catch (error) {
         console.error("Login Error:", error.response ? error.response.data : error.message);
         toast.error(error.response?.data?.message || "Login Failed");
