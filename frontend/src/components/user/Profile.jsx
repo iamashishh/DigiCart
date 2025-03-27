@@ -34,6 +34,23 @@ const Profile = () => {
             <li>
               <Link className="block hover:bg-[#F5FAFF] hover:p-2 transition duration-300 text-blue-500 font-semibold">Profile Information</Link>
             </li>
+            <li>
+              <Link className="block font-semibold hover:bg-[#F5FAFF] hover:p-2 transition duration-300 text-gray-700 hover:text-blue-500">Manage Addresses</Link>
+            </li>
+            <li>
+              <Link className="block font-semibold hover:bg-[#F5FAFF] hover:p-2 transition duration-300 text-gray-700 hover:text-blue-500">PAN Card Information</Link>
+            </li>
+            <li className="mt-4 font-bold text-[#878787]"> <i className="ri-wallet-3-fill"></i> PAYMENTS</li>
+            <li>
+              <Link className="block font-semibold hover:bg-[#F5FAFF] hover:p-2 transition duration-300 text-gray-700 hover:text-blue-500">Gift Cards <span className="text-green-500">₹0</span></Link>
+            </li>
+            <li>
+              <Link className="block font-semibold hover:bg-[#F5FAFF] hover:p-2 transition duration-300 text-gray-700 hover:text-blue-500">Saved UPI</Link>
+            </li>
+            <li>
+              <Link className="block font-semibold hover:bg-[#F5FAFF] hover:p-2 transition duration-300 text-gray-700 hover:text-blue-500">Saved Cards</Link>
+            </li>
+
           </ul>
         </div>
       </div>
