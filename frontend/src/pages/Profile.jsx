@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import PersonalInfo from "../components/user/PersonalInfo";
 import ManageAddress from "../components/user/ManageAddress";
 import SaveUpi from "../components/user/SaveUpi";
 import SaveCard from "../components/user/SaveCard";
+import { logout } from "../store/Reducers/AuthReducer";
 
 const Profile = () => {
   const user = useSelector((state) => state.auth?.usertoken?.user) || {};
+  const dispatch = useDispatch()
   const navigator = useNavigate();
   const username = user.username;
   const [isEditing, setIsEditing] = useState({
@@ -60,7 +62,7 @@ const Profile = () => {
               </Link>
               <i className="font-bold text-[#878787] hover:text-blue-500 ri-arrow-drop-right-line"></i>
             </li>
-            <li className="mt-4 font-bold text-[#878787]">
+            <li className=" font-bold text-[#878787]">
               <i className="ri-user-fill"></i> ACCOUNT SETTINGS
             </li>
             <li>
@@ -84,7 +86,7 @@ const Profile = () => {
               </Link>
             </li>
 
-            <li className="mt-4 font-bold text-[#878787]">
+            <li className=" font-bold text-[#878787]">
             <i class="ri-wallet-3-fill"></i> PAYMENTS
             </li>
             <li>
@@ -107,7 +109,11 @@ const Profile = () => {
                 Saved Cards
               </Link>
             </li>
-          
+            
+            
+            <Link to='/' onClick={() => dispatch(logout())} className=" font-bold text-red-600 cursor-pointer">
+            <i className="mr-2 ri-logout-box-line"></i>Logout
+            </Link>
           </ul>
         </div>
       </div>
