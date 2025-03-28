@@ -5,7 +5,7 @@ import { getProducts } from "../Reducers/ProductsReducer";
 
 export  const asyncgetproducts = ()=> async(dispatch,getState)=>{
   try {
-    const response = await axios.get("https://fakestoreapi.com/products");
+    const response = await axios.get(import.meta.env.VITE_API_URL);
     // console.log(response.data);
     
     
