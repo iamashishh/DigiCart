@@ -44,7 +44,11 @@ const Cart = () => {
   const orderTotal = totalProductPrice - discount;
 
   return (
-    <div className="min-h-screen max-sm:mt-[35%] max-md:mt-[15%] mt-[4%] max-sm:flex-col max-sm:justify-start  max-md:flex-col items-start justify-center flex  lg:bg-gray-100">
+    <div className="min-h-screen max-sm:mt-[35%] max-md:mt-[15%] mt-[4%] max-sm:flex-col max-sm:justify-start  max-md:flex-col items-start justify-center flex px-6  lg:bg-gray-100">
+       <i
+          onClick={() => navigator(-1)}
+          className="ri-arrow-left-line cursor-pointer  absolute top-22 left-10 text-xl text-black font-black"
+        ></i> 
       {/* Product Details Section */}
       <div className="w-[60vw] max-sm:w-full max-md:w-full  mt-6 mx-auto  h-[50%] bg-white lg:rounded-lg lg:shadow-md lg:p-4">
         <h1 className="text-2xl font-bold text-green-800 mb-6">

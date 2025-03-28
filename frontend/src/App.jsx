@@ -8,7 +8,8 @@ import Navbar from './components/layout/Navbar'
 import Cart from './components/product/Cart'
 import { Toaster } from 'react-hot-toast';
 import ProductCreate from './components/adminPanel/ProductCreate'
-import Profile from './components/user/Profile'
+import Profile from './pages/Profile'
+import Orders from './pages/orders'
 
 
 const App = () => {
@@ -26,6 +27,7 @@ const App = () => {
         <Route path='/cart' element={<Cart/>} />
         <Route path='/createproduct' element={<ProductCreate/>} />
         <Route path='/profile' element={<Profile/>} />
+        <Route path='/myorders' element={<Orders/>} />
 
         
       </Routes>

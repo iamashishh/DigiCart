@@ -52,7 +52,7 @@ const Account = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/orders" className="py-1 px-2 hover:text-green-800">
+                  <Link to="/myorders" className="py-1 px-2 hover:text-green-800">
                     <i className="mr-2 ri-box-1-line"></i>Orders
                   </Link>
                 </li>

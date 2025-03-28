@@ -1,13 +1,14 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import PersonalInfo from "./PersonalInfo";
-import ManageAddress from "./ManageAddress";
-import SaveUpi from "./SaveUpi";
-import SaveCard from "./SaveCard";
+import { Link, useNavigate } from "react-router-dom";
+import PersonalInfo from "../components/user/PersonalInfo";
+import ManageAddress from "../components/user/ManageAddress";
+import SaveUpi from "../components/user/SaveUpi";
+import SaveCard from "../components/user/SaveCard";
 
 const Profile = () => {
   const user = useSelector((state) => state.auth?.usertoken?.user) || {};
+  const navigator = useNavigate();
   const username = user.username;
   const [isEditing, setIsEditing] = useState({
     username: false,
@@ -31,6 +32,10 @@ const Profile = () => {
 
   return (
     <div className="min-h-screen flex gap-8 px-10 mt-[4%] max-md:mt-[15%] max-sm:mt-[35%] max-sm:flex-col lg:bg-gray-100">
+       <i
+          onClick={() => navigator(-1)}
+          className="ri-arrow-left-line cursor-pointer  absolute top-22 left-10 text-xl text-black font-black"
+        ></i> 
       {/* Sidebar */}
       <div className="w-[25%] flex flex-col gap-8 mt-8">
         {/* Profile Section */}
@@ -50,7 +55,7 @@ const Profile = () => {
         <div className="bg-white shadow rounded-lg p-4">
           <ul className="space-y-2 flex flex-col gap-5 text-start">
             <li>
-              <Link className="mt-4 font-bold text-[#878787] hover:text-blue-500">
+              <Link to="/myorders" className="mt-4 font-bold text-[#878787] hover:text-blue-500">
                 <i className="mr-2 ri-box-1-line"></i> MY ORDERS
               </Link>
               <i className="font-bold text-[#878787] hover:text-blue-500 ri-arrow-drop-right-line"></i>
@@ -99,7 +104,7 @@ const Profile = () => {
                   activeTab === "savecard" ? "text-blue-500" : "text-gray-700"
                 } hover:text-blue-500`}
               >
-                Saved UPI
+                Saved Cards
               </Link>
             </li>
           
