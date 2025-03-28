@@ -6,6 +6,7 @@ import Navbar from "../layout/Navbar";
 import { addToCart } from "../../store/Reducers/CartReducer";
 import { asyncAddToCart } from "../../store/actions/CartActions";
 import toast from 'react-hot-toast';
+import swipeImage from "../mobileUi/swipeImage";
 
 
 const ProductDetails = () => {
@@ -57,8 +58,9 @@ const ProductDetails = () => {
         
 
         {/* Images Section */}
-        <div className="w-full h-full md:w-[60%] lg:w-[50%] flex-col lg:flex-col items-center gap-8 flex justify-center overflow-hidden">
-          <div className="w-full max-sm:w-full h-fit max-md:h-[50vh] max-md:w-[50vw]  overflow-hidden  lg:h-[60vh] md:h-[40vh]  flex justify-center items-center p-10 shadow-lg border border-gray-300 rounded-xl ">
+        <div className="w-full h-full md:w-[60%]  lg:w-[50%] flex-col lg:flex-col items-center gap-8 flex justify-center overflow-hidden">
+          
+          <div className="w-full max-sm:w-full max-sm:hidden h-fit max-md:h-[50vh] max-md:w-[50vw] bg-black overflow-hidden  lg:h-[60vh] md:h-[40vh]  flex justify-center items-center p-10 shadow-lg border border-gray-300 rounded-xl ">
             <img
               src={mainImage}
               alt={product.title || "Product Image"}

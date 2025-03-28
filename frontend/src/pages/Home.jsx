@@ -1,6 +1,5 @@
 import React from "react";
 
-import FilterSection from "../components/sections/FilterSection";
 
 import Cards from "../components/product/Cards";
 import Navbar from "../components/layout/Navbar"
@@ -18,7 +17,7 @@ const Home = () => {
     <Navbar/>
      
     <Banner/>
-    {/* <FilterSection/> */}
+  
     <Cards/>
 
 
