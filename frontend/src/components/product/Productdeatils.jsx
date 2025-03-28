@@ -6,7 +6,8 @@ import Navbar from "../layout/Navbar";
 import { addToCart } from "../../store/Reducers/CartReducer";
 import { asyncAddToCart } from "../../store/actions/CartActions";
 import toast from 'react-hot-toast';
-import swipeImage from "../mobileUi/swipeImage";
+import swipeImage from "../mobileUi/Slider";
+import Slider from "../mobileUi/Slider";
 
 
 const ProductDetails = () => {
@@ -59,16 +60,18 @@ const ProductDetails = () => {
 
         {/* Images Section */}
         <div className="w-full h-full md:w-[60%]  lg:w-[50%] flex-col lg:flex-col items-center gap-8 flex justify-center overflow-hidden">
-          
-          <div className="w-full max-sm:w-full max-sm:hidden h-fit max-md:h-[50vh] max-md:w-[50vw] bg-black overflow-hidden  lg:h-[60vh] md:h-[40vh]  flex justify-center items-center p-10 shadow-lg border border-gray-300 rounded-xl ">
+          <div className="w-full max-sm:w-full max-sm:h-[60vh] max-sm:block lg:hidden max-md:hidden h-fit max-md:h-[50vh]  max-md:w-[50vw] bg-blac overflow-hidden  lg:h-[60vh] md:h-[40vh]  flex justify-center items-center  shadow-lg border border-gray-300 rounded-xl ">
+            <Slider/>
+          </div>
+          <div className="w-full max-sm:w-full max-sm:hidden h-fit max-md:h-[50vh] max-md:w-[50vw]  overflow-hidden  lg:h-[60vh] md:h-[40vh]  flex justify-center items-center p-10 shadow-lg border border-gray-300 rounded-xl ">
             <img
               src={mainImage}
               alt={product.title || "Product Image"}
-              className="w-[60%]  lg:w-[40%] md:max-w-[400px] rounded-lg object-fit"
+              className="w-[60%]  lg:w-[40%] md:max-w-[400px] rounded-lg object-cover"
             />
           </div>
 
-          <div className="ScrollBar w-full cursor-pointer scrollbar-hide lg:overflow-hidden overflow-x-auto overflow-y-hidden max-sm:pl-32 max-md:pl-  whitespace-nowrap flex justify-center items-center gap-4">
+          <div className="ScrollBar w-full cursor-pointer scrollbar-hide lg:overflow-hidden overflow-x-auto overflow-y-hidden max-sm:pl-32 max-sm:hidden max-md:block  max-md:pl-  whitespace-nowrap flex justify-center items-center gap-4">
            <div className="flex  gap-4 ">
            {imageList.map((img, index) => (
               <div
