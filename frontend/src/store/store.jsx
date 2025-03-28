@@ -7,6 +7,7 @@ export const store = configureStore({
   reducer: {
     products: ProductSlice,
     cart: cartSlice,
-    auth: AuthSlice
+    auth: AuthSlice,
+  
   },
 })

@@ -8,7 +8,7 @@ import toast from "react-hot-toast";
 const Login = () => {
   const auth = useSelector((state) => state.auth);
   const navigat =  useNavigate()
-  console.log(auth);
+  // console.log(auth);
   
   const dispatch = useDispatch();
 
@@ -19,19 +19,25 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    console.log("Sending Login Data:", { email: emailData, password: passwordData });
+    // console.log("Sending Login Data:", { email: emailData, password: passwordData });
+      setLoading(true);
 
     try {
         const response = await Axios.post('/auth/login', { email: emailData, password: passwordData });
 
-        console.log("Server Response:", response.data);
+        // console.log("Server Response:", response.data);
+
+        localStorage.setItem("authToken", response.data.token);
 
         dispatch(setUserToken({ user: response.data.user, token: response.data.token }));
+        setLoading(false);
         toast.success('Login Success');
+
         navigat('/')
     } catch (error) {
         console.error("Login Error:", error.response ? error.response.data : error.message);
         toast.error(error.response?.data?.message || "Login Failed");
+        setLoading(false);
     }
 };
 

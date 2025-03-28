@@ -9,8 +9,6 @@ import { useSelector } from "react-redux";
 
 const Home = () => {
   
-  const auth = useSelector((state) => state.auth);
-  console.log(auth);
   return (
 
     <div className="w-full  flex flex-col items-center ">
