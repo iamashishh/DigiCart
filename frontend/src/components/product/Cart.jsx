@@ -15,7 +15,9 @@ const Cart = () => {
   const navigator = useNavigate();
 
   // Timer State
-  const [timeLeft, setTimeLeft] = useState((Math.random()*100).toFixed() * 60 + 33); 
+  const [timeLeft, setTimeLeft] = useState(
+    (Math.random() * 100).toFixed() * 60 + 33
+  );
 
   // Timer Countdown Logic
   useEffect(() => {
@@ -45,10 +47,10 @@ const Cart = () => {
 
   return (
     <div className="min-h-screen max-sm:mt-[35%] max-md:mt-[15%] mt-[4%] max-sm:flex-col max-sm:justify-start  max-md:flex-col items-start justify-center flex px-6  lg:bg-gray-100">
-       <i
-          onClick={() => navigator(-1)}
-          className="ri-arrow-left-line cursor-pointer  absolute top-22 left-10 text-xl text-black font-black"
-        ></i> 
+      <i
+        onClick={() => navigator(-1)}
+        className="ri-arrow-left-line cursor-pointer  absolute top-22 left-10 text-xl text-black font-black"
+      ></i>
       {/* Product Details Section */}
       <div className="w-[60vw] max-sm:w-full max-md:w-full  mt-6 mx-auto  h-[50%] bg-white lg:rounded-lg lg:shadow-md lg:p-4">
         <h1 className="text-2xl font-bold text-green-800 mb-6">
@@ -66,79 +68,79 @@ const Cart = () => {
             >
               Explore Products
             </button>
-            
           </div>
         ) : (
           <div className="space-y-4 bg-green-">
             {cartItems.map((item) => (
               <div className="w-full lg:flex items-center justify-between gap-4">
-                 <div
-                key={item.id}
-                className="flex  items-center gap-4 border-b border-gray-100 pb-4"
-              >
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  className="w-20 h-20 rounded-md border"
-                />
+                <div
+                  key={item.id}
+                  className="flex  items-center gap-4 border-b border-gray-100 pb-4"
+                >
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-20 h-20 rounded-md border"
+                  />
 
-                <div className="flex-1">
-                  <h2 className="text-lg font-semibold">{item.name}</h2>
-                  <p className="text-gray-500">
-                    ${item.price.toFixed(2)}
-                    <span className="line-through text-red-400 ml-2">
-                      ${(item.price * 1.16).toFixed(2)}
-                    </span>
-                  </p>
-
-                  {/* Countdown Timer */}
-                  <div className="text-orange-500 text-sm font-medium mt-1">
-                    ⏳ {formatTime(timeLeft)}
-                  </div>
-                  {/* Size & Quantity */}
-                  <div className="flex  items-center gap-2">
-                    <p className="text-gray-500 text-sm">
-                      Size: Free Size • Qty:
+                  <div className="flex-1">
+                    <h2 className="text-lg font-semibold">{item.name}</h2>
+                    <p className="text-gray-500">
+                      ${item.price.toFixed(2)}
+                      <span className="line-through text-red-400 ml-2">
+                        ${(item.price * 1.16).toFixed(2)}
+                      </span>
                     </p>
 
-                    <button
-                      onClick={() => dispatch(asyncDecreaseQuantity(item.id))}
-                      className=" cursor-pointer px-2 rounded"
-                    >
-                      -
-                    </button>
+                    {/* Countdown Timer */}
+                    <div className="text-orange-500 text-sm font-medium mt-1">
+                      ⏳ {formatTime(timeLeft)}
+                    </div>
+                    {/* Size & Quantity */}
+                    <div className="flex  items-center gap-2">
+                      <p className="text-gray-500 text-sm">
+                        Size: Free Size • Qty:
+                      </p>
 
-                    <span className="font-semibold">{item.quantity}</span>
+                      <button
+                        onClick={() => dispatch(asyncDecreaseQuantity(item.id))}
+                        className=" cursor-pointer px-2 rounded"
+                      >
+                        -
+                      </button>
 
-                    <button
-                      onClick={() => dispatch(asyncIncreaseQuantity(item.id))}
-                      className=" cursor-pointer px-2 rounded"
-                    >
-                      +
-                    </button>
+                      <span className="font-semibold">{item.quantity}</span>
+
+                      <button
+                        onClick={() => dispatch(asyncIncreaseQuantity(item.id))}
+                        className=" cursor-pointer px-2 rounded"
+                      >
+                        +
+                      </button>
+                    </div>
                   </div>
-
-                  
                 </div>
-              </div>
                 <div className="flex flex-col max-sm:border-b max-md:border-b border-gray-100 max-sm:flex-row max-sm:items-center max-sm:justify-between max-md:flex-row  items-start gap-5">
-                <button
-                    onClick={() => dispatch(asyncRemoveFromCart(item.id),toast.error('Removed from cart', {
-                      className: 'bg-red-500 text-white px-4 py-2 rounded-md shadow-md',
-                    }))}
+                  <button
+                    onClick={() =>
+                      dispatch(
+                        asyncRemoveFromCart(item.id),
+                        toast.error("Removed from cart", {
+                          className:
+                            "bg-red-500 text-white px-4 py-2 rounded-md shadow-md",
+                        })
+                      )
+                    }
                     className="text-red-500 flex items-center cursor-pointer font-semibold  lg:mt-2"
                   >
                     <i class="ri-close-line text-lg"></i> REMOVE
                   </button>
-                <p className="text-green-800 font-semibold">Free Delivery</p>
+                  <p className="text-green-800 font-semibold">Free Delivery</p>
                 </div>
               </div>
-             
             ))}
           </div>
-          
         )}
-        
       </div>
 
       {/* Price Details Section */}
@@ -175,21 +177,19 @@ const Cart = () => {
             Continue
           </button>
           <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-4 mt-4 flex items-center justify-center gap-4">
-        <i class=" text-4xl text-green-800 ri-shield-check-line"></i>
-        <div>
-          <h3 className="text-green-800 font-bold">
-            Your Safety, Our Priority
-          </h3>
-          <p className="text-gray-500 text-sm">
-            We make sure that your package is safe at every point of contact.
-          </p>
-        </div>
-      </div>
+            <i class=" text-4xl text-green-800 ri-shield-check-line"></i>
+            <div>
+              <h3 className="text-green-800 font-bold">
+                Your Safety, Our Priority
+              </h3>
+              <p className="text-gray-500 text-sm">
+                We make sure that your package is safe at every point of
+                contact.
+              </p>
+            </div>
+          </div>
         </div>
       )}
-
-      
-      
     </div>
   );
 };
