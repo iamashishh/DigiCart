@@ -17,7 +17,7 @@ const CategoriesDropdown = () => {
                         >
                     
                             <span className="hidden lg:block md:block">
-                            Categories <i class="ri-arrow-drop-down-line"></i>
+                            Categories <i className="ri-arrow-drop-down-line"></i>
                             </span>
                         </Link>
             

@@ -10,6 +10,7 @@ import swipeImage from "../mobileUi/Slider";
 import Slider from "../mobileUi/Slider";
 
 
+
 const ProductDetails = () => {
   const { id } = useParams();
   const { products } = useSelector((state) => state.products) || { products: [] };
@@ -45,7 +46,13 @@ const ProductDetails = () => {
     "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg",
     "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg",
   ];
-
+   const [liked, setLiked] = useState(false);
+   
+     const toggleLike = () => {
+       setLiked(!liked);
+     };
+   
+   
   return (
     <>
       <div className="w-full  border-t-2 lg:mt-[5%] max-md:mt-[17%] max-sm:mt-[40%] border-gray-100 my-4   "></div>
@@ -60,16 +67,27 @@ const ProductDetails = () => {
 
         {/* Images Section */}
         <div className="w-full h-full md:w-[60%]  lg:w-[50%] flex-col lg:flex-col items-center gap-8 flex justify-center overflow-hidden">
-          <div className="w-full max-sm:w-full max-sm:h-[60vh] max-sm:block lg:hidden max-md:hidden h-fit max-md:h-[50vh]  max-md:w-[50vw] bg-blac overflow-hidden  lg:h-[60vh] md:h-[40vh]  flex justify-center items-center  shadow-lg border border-gray-300 rounded-xl ">
-            <Slider/>
+          <div className="w-full max-sm:w-full max-sm:h-[54vh] max-sm:block lg:hidden max-md:hidden h-fit max-md:h-[50vh]  max-md:w-[50vw] bg-blac overflow-hidden  lg:h-[60vh] md:h-[40vh]  flex justify-center items-center  shadow-lg border border-gray-300 rounded-xl ">
+            <Slider mainImage='mainImage' />
           </div>
-          <div className="w-full max-sm:w-full max-sm:hidden h-fit max-md:h-[50vh] max-md:w-[50vw]  overflow-hidden  lg:h-[60vh] md:h-[40vh]  flex justify-center items-center p-10 shadow-lg border border-gray-300 rounded-xl ">
-            <img
-              src={mainImage}
-              alt={product.title || "Product Image"}
-              className="w-[60%]  lg:w-[40%] md:max-w-[400px] rounded-lg object-cover"
-            />
-          </div>
+          <div className="relative w-full max-sm:w-full max-sm:hidden h-fit max-md:h-[50vh] max-md:w-[50vw] overflow-hidden lg:h-[60vh] md:h-[40vh] flex justify-center items-center p-10 shadow-lg border border-gray-300 rounded-xl">
+  <img
+    src={mainImage}
+    alt={product.title || "Product Image"}
+    className="w-[60%] lg:w-[40%] md:max-w-[400px] rounded-lg object-cover"
+  />
+  
+  {/* Like and Share Icons */}
+  <div className="absolute top-4 right-4 flex flex-col gap-2">
+    <button className="bg-white p-2 rounded-full shadow-md hover:bg-gray-100 "onClick={toggleLike}>
+      <i className={`ri-heart-${liked ? "fill" : "line"} text-xl ${liked ? "text-red-500" : "text-gray-700"}`}></i>
+    </button>
+    <button className="bg-white p-2 rounded-full shadow-md hover:bg-gray-100" onClick={copyToClipboard}>
+      <i className="ri-share-line text-xl text-gray-700"></i>
+    </button>
+  </div>
+</div>
+
 
           <div className="ScrollBar w-full cursor-pointer scrollbar-hide lg:overflow-hidden overflow-x-auto overflow-y-hidden max-sm:pl-32 max-sm:hidden max-md:block  max-md:pl-  whitespace-nowrap flex justify-center items-center gap-4">
            <div className="flex  gap-4 ">
