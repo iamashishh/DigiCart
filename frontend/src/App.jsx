@@ -10,6 +10,7 @@ import { Toaster } from 'react-hot-toast';
 import ProductCreate from './components/adminPanel/ProductCreate'
 import Profile from './pages/Profile'
 import Orders from './pages/orders'
+import Payment from './pages/Payment'
 
 
 const App = () => {
@@ -28,6 +29,7 @@ const App = () => {
         <Route path='/createproduct' element={<ProductCreate/>} />
         <Route path='/profile' element={<Profile/>} />
         <Route path='/myorders' element={<Orders/>} />
+        <Route path='/payment' element={<Payment/>} />
 
         
       </Routes>

@@ -173,7 +173,7 @@ const Cart = () => {
             Clicking on 'Continue' will not deduct any money
           </div>
 
-          <button className="bg-green-800 text-white w-full mt-4 py-3 rounded-md hover:opacity-90 transition">
+          <button onClick={()=> navigator("/payment")} className="bg-green-800 text-white w-full mt-4 py-3 rounded-md hover:opacity-90 transition">
             Continue
           </button>
           <div className="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-4 mt-4 flex items-center justify-center gap-4">
