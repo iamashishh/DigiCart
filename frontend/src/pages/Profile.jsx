@@ -33,7 +33,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="min-h-screen flex gap-8 px-10 mt-[4%] max-md:mt-[15%] max-sm:mt-[35%] max-sm:flex-col lg:bg-gray-100">
+    <div className="min-h-screen  flex gap-8 px-10 mt-[4%] max-md:mt-[15%] max-sm:mt-[35%] max-sm:flex-col lg:bg-gray-100">
        <i
           onClick={() => navigator(-1)}
           className="ri-arrow-left-line cursor-pointer  absolute top-22 left-10 text-xl text-black font-black"
@@ -119,7 +119,7 @@ const Profile = () => {
       </div>
 
       {/* Profile Form Section */}
-      <div className="w-[50%] relative mt-8 bg-white shadow rounded-lg p-6">
+      <div className="w-[50%] relative mt-8 bg-black  shadow rounded-lg p-6">
         {activeTab === "profile" && <PersonalInfo />}
 
         {activeTab === "address" && <ManageAddress />}
