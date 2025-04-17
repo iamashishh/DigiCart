@@ -17,10 +17,12 @@ app.use(cors({
 //Import Routes
 const userRoutes = require("./src/routes/auth.routes");
 const productRoutes = require("./src/routes/product.routes");
+const cartRoutes = require("./src/routes/cart.routes");
 
 //Routes
 app.use("/api/auth", userRoutes);
 app.use("/api/products", productRoutes);
+app.use("/api/cart",cartRoutes);
 
 
 
