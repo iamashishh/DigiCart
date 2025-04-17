@@ -8,6 +8,6 @@ router.post("/", isLogin,addToCart);
 
 router.get("/",isLogin,getUserCart);
 
-router.post("/:id",isLogin,updateCartItem)
+router.put("/:id",isLogin,updateCartItem)
 
 module.exports = router;

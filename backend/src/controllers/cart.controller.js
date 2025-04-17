@@ -99,8 +99,8 @@ module.exports.getUserCart = async (req, res, next) => {
 module.exports.updateCartItem = async (req, res, next) => {
   try {
 
-    const userId = req.user._id;
-    const { productId, quantity } = value;
+    const userId = req.params.id;
+    const { productId, quantity } = req.body;
 
     const updatedCart = await cartService.updateCartItem(userId, productId, quantity);
 
@@ -111,7 +111,7 @@ module.exports.updateCartItem = async (req, res, next) => {
     });
   } catch (error) {
     next(error);
-      return res.status(error.statusCode).json({
+      return res.status(404).json({
         success: false,
         message: error.message
       }); 

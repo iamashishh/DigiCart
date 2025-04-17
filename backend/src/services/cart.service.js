@@ -1,5 +1,6 @@
 const cartModel = require('../models/cart.model');
 const ErrorHandler = require('../utils/errorHandler');
+const productModel = require("../models/product.model")
 
 module.exports.getCartByUserId = async (userId) => {
   if (!userId) {
@@ -35,13 +36,13 @@ exports.updateCartItem = async (userId, productId, quantity) => {
   // Find user's cart
   const cart = await cartModel.findOne({ user: userId });
   if (!cart) {
-    throw new ApiError(404, "Cart not found");
+    throw new ErrorHandler(404, "Cart not found");
   }
 
   // Check if product exists
   const product = await productModel.findById(productId);
   if (!product) {
-    throw new ApiError(404, "Product not found");
+    throw new ErrorHandler(404, "Product not found");
   }
 
   // Find item index in cart
@@ -51,7 +52,7 @@ exports.updateCartItem = async (userId, productId, quantity) => {
 
   // If item not found in cart
   if (itemIndex === -1) {
-    throw new ApiError(404, "Item not found in cart");
+    throw new ErrorHandler(404, "Item not found in cart");
   }
 
   if (quantity === 0) {
@@ -60,7 +61,7 @@ exports.updateCartItem = async (userId, productId, quantity) => {
   } else {
     // Check if requested quantity is available in stock
     if (product.stock < quantity) {
-      throw new ApiError(400, "Insufficient stock available");
+      throw new ErrorHandler(400, "Insufficient stock available");
     }
 
     // Update item quantity
