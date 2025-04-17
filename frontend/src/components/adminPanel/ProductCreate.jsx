@@ -52,8 +52,8 @@ export default function CreateProductForm() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-r from-green-50 to-teal-100 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-lg w-full max-w-5xl flex flex-col md:flex-row overflow-hidden">
+    <div className="min-h-screen mt-4  bg-gradient-to-r from-green-50 to-teal-100 flex items-center justify-center p-4">
+      <div className="bg-white rounded-2xl  shadow-lg w-full max-w-5xl flex flex-col md:flex-row overflow-hidden">
         {/* Sidebar */}
         <div className="w-full md:w-1/3 bg-green-50 p-6 space-y-6">
           <h2 className="text-2xl font-semibold text-gray-800">Add Product</h2>
@@ -76,89 +76,89 @@ export default function CreateProductForm() {
         </div>
 
         {/* Form Section */}
-        <div className="w-full md:w-2/3 p-8 space-y-6">
+        <div className="w-full md:w-2/3 p-6 bg-red- space-y-4">
           {step === 1 ? (
             <>
               <div>
-                <label className="block text-sm font-medium text-gray-700">Product Name</label>
+                <label className="block text-sm mb-2 font-medium text-gray-700">Product Name</label>
                 <input
                   name="name"
                   value={product.name}
                   onChange={handleChange}
                   type="text"
                   placeholder="Enter product name"
-                  className="mt-1 w-full px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  className="mt-1 w-full px-4 py-2 border rounded-md shadow-sm outline-none border-none "
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700">Product Description</label>
+                <label className="block text-sm mb-2 font-medium text-gray-700">Product Description</label>
                 <textarea
                   name="description"
                   value={product.description}
                   onChange={handleChange}
                   placeholder="Enter product description"
-                  className="mt-1 w-full px-4 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  className="mt-1 w-full px-4 py-2 border rounded-md shadow-sm outline-none border-none"
                 ></textarea>
               </div>
 
               <div className="flex flex-col md:flex-row md:space-x-4 space-y-4 md:space-y-0">
                 <div className="w-full md:w-1/2">
-                  <label className="block text-sm font-medium text-gray-700">Price</label>
+                  <label className="block text-sm mb-2 font-medium text-gray-700">Price</label>
                   <input
                     name="price"
                     value={product.price}
                     onChange={handleChange}
                     type="number"
                     placeholder="Price"
-                    className="w-full px-4 py-2 border rounded-md"
+                    className="w-full px-4 py-2 border-none outline-none rounded-md"
                   />
                 </div>
                 <div className="w-full md:w-1/2">
-                  <label className="block text-sm font-medium text-gray-700">Stock</label>
+                  <label className="block text-sm mb-2 font-medium text-gray-700">Stock</label>
                   <input
                     name="stock"
                     value={product.stock}
                     onChange={handleChange}
                     type="number"
                     placeholder="Stock Quantity"
-                    className="w-full px-4 py-2 border rounded-md"
+                    className="w-full px-4 py-2 border-none outline-none rounded-md"
                   />
                 </div>
               </div>
 
               <div className="space-y-4">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">Category</label>
+                  <label className="block text-sm mb-2 font-medium text-gray-700">Category</label>
                   <input
                     name="category"
                     value={product.category}
                     onChange={handleChange}
                     type="text"
                     placeholder="Product category"
-                    className="w-full px-4 py-2 border rounded-md"
+                    className="w-full px-4 py-2 border-none outline-none rounded-md"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">Image URL</label>
+                  <label className="block text-sm mb-2 font-medium text-gray-700">Image URL</label>
                   <input
                     name="imageUrl"
                     value={product.imageUrl}
                     onChange={handleChange}
                     type="text"
                     placeholder="https://example.com/image.jpg"
-                    className="w-full px-4 py-2 border rounded-md"
+                    className="w-full px-4 py-2 border-none outline-none rounded-md"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700">Display Image URL</label>
+                  <label className="block text-sm mb-2 font-medium text-gray-700">Display Image URL</label>
                   <input
                     name="displayImageUrl"
                     value={product.displayImageUrl}
                     onChange={handleChange}
                     type="text"
                     placeholder="https://example.com/display-image.jpg"
-                    className="w-full px-4 py-2 border rounded-md"
+                    className="w-full px-4 py-2 border-none outline-none rounded-md"
                   />
                 </div>
               </div>
