@@ -118,3 +118,30 @@ module.exports.updateCartItem = async (req, res, next) => {
   }
 };
 
+module.exports.removeCartItem = async (req, res, next) => {
+  try {
+
+    const userId = req.user._id;
+    const  productId  = req.params.id;
+
+    if(!productId) {
+      return res.status(400).json({message:"product id is required"});
+    }
+
+    const updatedCart = await cartService.removeCartItem(userId, productId);
+
+    return res.status(200).json({
+      success: true,
+      message: "Item removed from cart successfully",
+      data: updatedCart
+    });
+  } catch (error) {
+    next(error);
+      return res.status(404).json({
+        success: false,
+        message: error.message
+      });
+    }
+  }
+
+

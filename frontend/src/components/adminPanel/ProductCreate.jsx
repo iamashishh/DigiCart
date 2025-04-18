@@ -76,7 +76,7 @@ export default function CreateProductForm() {
         </div>
 
         {/* Form Section */}
-        <div className="w-full md:w-2/3 p-6 bg-red- space-y-4">
+        <div className="w-full md:w-2/3 p-6 bg-zinc-100 space-y-4">
           {step === 1 ? (
             <>
               <div>
@@ -87,7 +87,7 @@ export default function CreateProductForm() {
                   onChange={handleChange}
                   type="text"
                   placeholder="Enter product name"
-                  className="mt-1 w-full px-4 py-2 border rounded-md shadow-sm outline-none border-none "
+                  className=" w-full px-4 py-2 border rounded-md shadow-sm bg-white outline-none border-none "
                 />
               </div>
 
@@ -98,7 +98,7 @@ export default function CreateProductForm() {
                   value={product.description}
                   onChange={handleChange}
                   placeholder="Enter product description"
-                  className="mt-1 w-full px-4 py-2 border rounded-md shadow-sm outline-none border-none"
+                  className=" w-full bg-white px-4 py-2 border min-h-20 rounded-md resize-none shadow-sm outline-none border-none"
                 ></textarea>
               </div>
 
@@ -111,7 +111,7 @@ export default function CreateProductForm() {
                     onChange={handleChange}
                     type="number"
                     placeholder="Price"
-                    className="w-full px-4 py-2 border-none outline-none rounded-md"
+                    className="w-full px-4 py-2 bg-white shadow-sm border-none outline-none rounded-md"
                   />
                 </div>
                 <div className="w-full md:w-1/2">
@@ -122,7 +122,7 @@ export default function CreateProductForm() {
                     onChange={handleChange}
                     type="number"
                     placeholder="Stock Quantity"
-                    className="w-full px-4 py-2 border-none outline-none rounded-md"
+                    className="w-full px-4 py-2 bg-white border-none shadow-sm outline-none rounded-md"
                   />
                 </div>
               </div>
@@ -136,29 +136,29 @@ export default function CreateProductForm() {
                     onChange={handleChange}
                     type="text"
                     placeholder="Product category"
-                    className="w-full px-4 py-2 border-none outline-none rounded-md"
+                    className="w-full px-4 py-2 bg-white shadow-sm border-none outline-none rounded-md"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm mb-2 font-medium text-gray-700">Image URL</label>
+                  <label className="block text-sm mb-2 font-medium  text-gray-700">Image URL</label>
                   <input
                     name="imageUrl"
                     value={product.imageUrl}
                     onChange={handleChange}
                     type="text"
                     placeholder="https://example.com/image.jpg"
-                    className="w-full px-4 py-2 border-none outline-none rounded-md"
+                    className="w-full px-4 bg-white py-2 shadow-sm border-none outline-none rounded-md"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm mb-2 font-medium text-gray-700">Display Image URL</label>
+                  <label className="block text-sm  mb-2 font-medium text-gray-700">Display Image URL</label>
                   <input
                     name="displayImageUrl"
                     value={product.displayImageUrl}
                     onChange={handleChange}
                     type="text"
                     placeholder="https://example.com/display-image.jpg"
-                    className="w-full px-4 py-2 border-none outline-none rounded-md"
+                    className="w-full px-4 py-2 bg-white shadow-sm border-none outline-none rounded-md"
                   />
                 </div>
               </div>

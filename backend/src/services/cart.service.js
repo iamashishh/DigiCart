@@ -33,52 +33,79 @@ module.exports.getCartByUserId = async (userId) => {
 };
 
 exports.updateCartItem = async (userId, productId, quantity) => {
-  // Find user's cart
+  
   const cart = await cartModel.findOne({ user: userId });
   if (!cart) {
     throw new ErrorHandler(404, "Cart not found");
   }
 
-  // Check if product exists
+
   const product = await productModel.findById(productId);
   if (!product) {
     throw new ErrorHandler(404, "Product not found");
   }
 
-  // Find item index in cart
   const itemIndex = cart.items.findIndex(
     (item) => item.product.toString() === productId
   );
 
-  // If item not found in cart
   if (itemIndex === -1) {
     throw new ErrorHandler(404, "Item not found in cart");
   }
 
   if (quantity === 0) {
-    // Remove item if quantity is zero
     cart.items.splice(itemIndex, 1);
   } else {
-    // Check if requested quantity is available in stock
     if (product.stock < quantity) {
       throw new ErrorHandler(400, "Insufficient stock available");
     }
 
-    // Update item quantity
     cart.items[itemIndex].quantity = quantity;
-    cart.items[itemIndex].price = product.price; // Ensure price is current
+    cart.items[itemIndex].price = product.price; 
   }
 
-  // Recalculate total price
   cart.totalPrice = cart.items.reduce(
     (acc, item) => acc + item.quantity * item.price,
     0
   );
 
-  // Save updated cart
   await cart.save();
 
-  // Return updated cart with populated product details
+  return cartModel.findOne({ user: userId })
+    .populate({
+      path: 'items.product',
+      select: 'name image description price'
+    });
+};
+
+
+exports.removeCartItem = async (userId, productId) => {
+  if (!userId || !productId) {
+    throw new ErrorHandler(400, "User ID and Product ID are required");
+  }
+
+  const cart = await cartModel.findOne({ user: userId });
+  if (!cart) {
+    throw new ErrorHandler(404, "Cart not found");
+  }
+
+  const itemIndex = cart.items.findIndex(
+    (item) => item.product.toString() === productId
+  );
+
+  if (itemIndex === -1) {
+    throw new ErrorHandler(404, "Item not found in cart");
+  }
+
+  cart.items.splice(itemIndex, 1);
+
+  cart.totalPrice = cart.items.reduce(
+    (acc, item) => acc + item.quantity * item.price,
+    0
+  );
+
+  await cart.save();
+
   return cartModel.findOne({ user: userId })
     .populate({
       path: 'items.product',
