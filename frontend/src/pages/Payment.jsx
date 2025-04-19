@@ -9,7 +9,7 @@ const Payment = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6 flex justify-center">
+    <div className="min-h-screen bg-gray-100   p-6 flex justify-center">
       <div className="bg-white p-6 rounded-lg shadow-md w-full max-w-2xl">
         {/* Header */}
         <h2 className="text-2xl font-semibold mb-6 text-center">Checkout</h2>
