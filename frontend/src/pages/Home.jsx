@@ -6,13 +6,27 @@ import Navbar from "../components/layout/Navbar"
 import Banner from "../components/sections/Banner"
 
 import CategorySection from "../components/product/CategorySection";
+import { Axios } from "axios";
+import { useSelector } from "react-redux";
+
 
 
 const Home = () => {
 
-   useEffect(() => {
 
-   },[])  
+  useEffect(() => {
+    
+  const productsData = async ()=>{
+    const response  = await Axios.get("/products/all-products",{
+
+    })
+  }
+  
+  productsData();
+
+  }, [])
+  
+
   return (
 
     <div className="w-full  flex flex-col items-center ">

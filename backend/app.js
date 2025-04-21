@@ -18,11 +18,13 @@ app.use(cors({
 const userRoutes = require("./src/routes/auth.routes");
 const productRoutes = require("./src/routes/product.routes");
 const cartRoutes = require("./src/routes/cart.routes");
+const orderRoutes = require("./src/routes/order.routes");
 
 //Routes
 app.use("/api/auth", userRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/cart",cartRoutes);
+app.use("/api/orders", orderRoutes);
 
 
 
