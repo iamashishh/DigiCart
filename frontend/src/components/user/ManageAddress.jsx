@@ -72,7 +72,7 @@ const AddressForm = ({ setHasAddress }) => {
             });
 
             toast.dismiss();
-            toast.success("Location fetched successfully!");
+            toast.success("Location fetc  hed successfully!");
           } catch (error) {
             toast.dismiss();
             toast.error("Failed to fetch location!");
