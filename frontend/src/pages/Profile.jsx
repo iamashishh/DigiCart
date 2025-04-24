@@ -5,6 +5,7 @@ import PersonalInfo from "../components/user/PersonalInfo";
 import ManageAddress from "../components/user/ManageAddress";
 import SaveUpi from "../components/user/SaveUpi";
 import SaveCard from "../components/user/SaveCard";
+import UserProfile from "../components/mobileUi/UserProfile";
 import { logout } from "../store/Reducers/AuthReducer";
 
 const Profile = () => {
@@ -32,14 +33,15 @@ const Profile = () => {
     setFormData({ ...formData, [field]: e.target.value });
   };
 
-  return (
-    <div className="min-h-screen  flex gap-8 px-10 mt-[4%] max-md:mt-[15%] max-sm:mt-[35%] max-sm:flex-col lg:bg-gray-100">
+  return <>
+
+    <div className="min-h-screen  flex gap-8 px-10 mt-[4%] max-md:mt-[15%] max-sm:mt-[35%] max-sm:hidden lg:bg-gray-100">
        <i
           onClick={() => navigator(-1)}
           className="ri-arrow-left-line cursor-pointer  absolute top-22 left-10 text-xl text-black font-black"
         ></i> 
       {/* Sidebar */}
-      <div className="w-[25%] flex flex-col gap-8 mt-8">
+      <div className="w-fit flex flex-col gap-8 mt-8">
         {/* Profile Section */}
         <div className="bg-white flex items-center p-4 shadow rounded-lg">
           <img
@@ -119,7 +121,7 @@ const Profile = () => {
       </div>
 
       {/* Profile Form Section */}
-      <div className="w-[50%] relative mt-8 bg-black  shadow rounded-lg p-6">
+      <div className="w-fit h-fit relative mt-8   shadow rounded-lg p-6">
         {activeTab === "profile" && <PersonalInfo />}
 
         {activeTab === "address" && <ManageAddress />}
@@ -134,7 +136,8 @@ const Profile = () => {
         /> */}
       </div>
     </div>
-  );
+    <UserProfile/>
+    </>
 };
 
 export default Profile;
