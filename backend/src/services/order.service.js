@@ -3,7 +3,7 @@ const Cart = require('../models/cart.model');
 const Product = require('../models/product.model');
 const handleError = require("../utils/errorHandler")
 
-exports.createOrder = async (userId, orderData) => {
+module.exports.createOrder = async (userId, orderData) => {
 
   const cart = await Cart.findOne({ user: userId }).populate('items.product');
   if (!cart || cart.items.length === 0) {
@@ -69,4 +69,38 @@ exports.createOrder = async (userId, orderData) => {
 
   // 8. Return the created order with populated product details
   return Order.findById(savedOrder._id).populate('items.product');
+};
+
+exports.getUserOrders = async (userId) => {
+
+  const query = { user: userId };
+  
+ 
+  
+  const orders = await Order.find(query)
+    .sort({ createdAt: -1 }) // Newest first
+    .populate({
+      path: 'items.product',
+      select: 'name image price'
+    });
+  
+  return orders;
+};
+
+
+
+exports.getAllOrders = async () => {
+ 
+  const orders = await Order.find()
+    .sort({ createdAt: -1 }) 
+    .populate({
+      path: 'items.product',
+      select: 'name image price'
+    })
+    .populate({
+      path: 'user',
+      select: 'name email'
+    });
+  
+  return orders;
 };
