@@ -5,7 +5,7 @@ const savedUser = JSON.parse(localStorage.getItem("authUser"));
 
 const initialState = {
     usertoken: {
-        user: savedUser || null, 
+    user: savedUser || null, 
     token: savedToken || null  
     }
 };
