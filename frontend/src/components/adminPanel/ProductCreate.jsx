@@ -1,21 +1,19 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Axios from "../../utils/axios";
 
 export default function CreateProductForm() {
   const [step, setStep] = useState(1);
-  const [product, setProduct] = useState({
-    name: "",
-    description: "",
-    price: "",
-    stock: "",
-    category: "",
-    imageUrl: "",
-    displayImageUrl: "",
-  });
+ 
+const [name, setName] = useState("");
+const [description, setDescription] = useState("");
+const [price, setPrice] = useState("");
+const [stock, setStock] = useState("");
+const [category, setCategory] = useState("");
+const [imageUrl, setImageUrl] = useState("");
+const [displayImageUrl, setDisplayImageUrl] = useState("");
 
-  const handleChange = (e) => {
-    setProduct({ ...product, [e.target.name]: e.target.value });
-  };
+ 
 
   const handleNext = () => {
     if (step < 2) {
@@ -29,21 +27,33 @@ export default function CreateProductForm() {
 
   const handleSubmit = async () => {
     try {
-      const adminId = localStorage.getItem("adminId");
-      const response = await axios.post("/api/products", {
-        ...product,
-        adminId,
+      const response = await Axios.post("/products/create", {
+        name,
+        description,
+        price,
+        stock,
+        category,
+        images:imageUrl,
+        displayImage:displayImageUrl,
+      }, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+        }
       });
-      alert("Product created successfully!");
-      setProduct({
-        name: "",
-        description: "",
-        price: "",
-        stock: "",
-        category: "",
-        imageUrl: "",
-        displayImageUrl: "",
-      });
+
+      if (response.status === 201) {
+        console.log("Product created successfully:", response.data);
+      }
+      // alert("Product created successfully!");
+      // setProduct({
+      //   name: "",
+      //   description: "",
+      //   price: "",
+      //   stock: "",
+      //   category: "",
+      //   imageUrl: "",
+      //   displayImageUrl: "",
+      // });
       setStep(1);
     } catch (error) {
       alert("Failed to create product");
@@ -83,8 +93,8 @@ export default function CreateProductForm() {
                 <label className="block text-sm mb-2 font-medium text-gray-700">Product Name</label>
                 <input
                   name="name"
-                  value={product.name}
-                  onChange={handleChange}
+                  value={name}
+                  onChange={(e)=>{setName(e.target.value)}}
                   type="text"
                   placeholder="Enter product name"
                   className=" w-full px-4 py-2 border rounded-md shadow-sm bg-white outline-none border-none "
@@ -95,8 +105,8 @@ export default function CreateProductForm() {
                 <label className="block text-sm mb-2 font-medium text-gray-700">Product Description</label>
                 <textarea
                   name="description"
-                  value={product.description}
-                  onChange={handleChange}
+                  value={description}
+                  onChange={(e)=>{setDescription(e.target.value)}}
                   placeholder="Enter product description"
                   className=" w-full bg-white px-4 py-2 border min-h-20 rounded-md resize-none shadow-sm outline-none border-none"
                 ></textarea>
@@ -107,8 +117,8 @@ export default function CreateProductForm() {
                   <label className="block text-sm mb-2 font-medium text-gray-700">Price</label>
                   <input
                     name="price"
-                    value={product.price}
-                    onChange={handleChange}
+                    value={price}
+                    onChange={(e)=>{setPrice(e.target.value)}}
                     type="number"
                     placeholder="Price"
                     className="w-full px-4 py-2 bg-white shadow-sm border-none outline-none rounded-md"
@@ -118,8 +128,8 @@ export default function CreateProductForm() {
                   <label className="block text-sm mb-2 font-medium text-gray-700">Stock</label>
                   <input
                     name="stock"
-                    value={product.stock}
-                    onChange={handleChange}
+                    value={stock}
+                    onChange={(e)=>{setStock(e.target.value)}}
                     type="number"
                     placeholder="Stock Quantity"
                     className="w-full px-4 py-2 bg-white border-none shadow-sm outline-none rounded-md"
@@ -132,35 +142,48 @@ export default function CreateProductForm() {
                   <label className="block text-sm mb-2 font-medium text-gray-700">Category</label>
                   <input
                     name="category"
-                    value={product.category}
-                    onChange={handleChange}
+                    value={category}
+                    onChange={(e)=>{setCategory(e.target.value)}}
                     type="text"
                     placeholder="Product category"
                     className="w-full px-4 py-2 bg-white shadow-sm border-none outline-none rounded-md"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm mb-2 font-medium  text-gray-700">Image URL</label>
-                  <input
-                    name="imageUrl"
-                    value={product.imageUrl}
-                    onChange={handleChange}
-                    type="text"
-                    placeholder="https://example.com/image.jpg"
-                    className="w-full px-4 bg-white py-2 shadow-sm border-none outline-none rounded-md"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm  mb-2 font-medium text-gray-700">Display Image URL</label>
+                  <label className="block text-sm  mb-2 font-medium text-gray-700">Display Image File</label>
                   <input
                     name="displayImageUrl"
-                    value={product.displayImageUrl}
-                    onChange={handleChange}
-                    type="text"
+                    value={displayImageUrl}
+                    onChange={(e)=>{setDisplayImageUrl(e.target.value)}}
+                    type="file"
                     placeholder="https://example.com/display-image.jpg"
                     className="w-full px-4 py-2 bg-white shadow-sm border-none outline-none rounded-md"
                   />
                 </div>
+                <div>
+                  <label className="block text-sm mb-2 font-medium  text-gray-700">Image 1</label>
+                  <input
+                    name="imageUrl"
+                    value={imageUrl}
+                    onChange={(e)=>{setImageUrl(e.target.value)}}
+                    type="file"
+                    placeholder="https://example.com/image.jpg"
+                    className="w-full px-4 bg-white py-2 shadow-sm border-none outline-none rounded-md"
+                  />
+                </div>
+                
+                <div>
+                  <label className="block text-sm mb-2 font-medium  text-gray-700">Image 2</label>
+                  <input
+                    name="imageUrl"
+                    value={imageUrl}
+                    onChange={(e)=>{setImageUrl(e.target.value)}}
+                    type="file"
+                    placeholder="https://example.com/image.jpg"
+                    className="w-full px-4 bg-white py-2 shadow-sm border-none outline-none rounded-md"
+                  />
+                </div>
+
               </div>
 
               <button
@@ -173,14 +196,14 @@ export default function CreateProductForm() {
           ) : (
             <div className="space-y-4">
               <h3 className="text-xl font-semibold text-gray-800">Product Summary</h3>
-              <p><strong>Name:</strong> {product.name}</p>
-              <p><strong>Description:</strong> {product.description}</p>
-              <p><strong>Price:</strong> ${product.price}</p>
-              <p><strong>Stock:</strong> {product.stock}</p>
-              <p><strong>Category:</strong> {product.category}</p>
-              <p><strong>Image URL:</strong> {product.imageUrl}</p>
-              <p><strong>Display Image URL:</strong> {product.displayImageUrl}</p>
-              <img src={product.displayImageUrl} alt="Product Display" className="w-32 h-32 object-cover rounded" />
+              <p><strong>Name:</strong> {name}</p>
+              <p><strong>Description:</strong> {description}</p>
+              <p><strong>Price:</strong> ${price}</p>
+              <p><strong>Stock:</strong> {stock}</p>
+              <p><strong>Category:</strong> {category}</p>
+              <p><strong>Image URL:</strong> {imageUrl}</p>
+              <p><strong>Display Image URL:</strong> {displayImageUrl}</p>
+              <img src={displayImageUrl} alt="Product Display" className="w-32 h-32 object-cover rounded" />
               <div className="flex flex-col sm:flex-row sm:space-x-4 space-y-2 sm:space-y-0">
                 <button
                   onClick={handleBack}
