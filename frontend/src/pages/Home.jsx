@@ -14,11 +14,7 @@ import MobileBanner from "../components/mobileUi/Mobilebanner";
 
 const Home = () => {
 
-useEffect(() => {
 
-  
-
-}, [])
 
 
   
