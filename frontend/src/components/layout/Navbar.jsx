@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 
 import { useSelector } from "react-redux";
 import axios from "axios";
-import { asyncgetproducts } from "../../store/actions/ProductAction";
 import Account from "../sections/Account";
 import CategoriesDropdown from "../product/CategoriesDropdown";
 

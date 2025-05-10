@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { asyncgetproducts } from "../../store/actions/ProductAction";
 import Navbar from "../layout/Navbar";
 import { addToCart } from "../../store/Reducers/CartReducer";
 import { asyncAddToCart } from "../../store/actions/CartActions";

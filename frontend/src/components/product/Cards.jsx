@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom"; 
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { asyncgetproducts } from '../../store/actions/ProductAction'
 import Axios from "../../utils/axios";
+import { getProducts } from "../../store/Reducers/ProductsReducer";
 
 const Cards = () => {
+  const dispatch = useDispatch();
   const { products } = useSelector((state) => state.products) || { products: [] };
 
   const auth = useSelector((state) => state.auth);
@@ -12,7 +13,7 @@ const Cards = () => {
   
   useEffect(() => {
 
-    const getProducts = async () => {
+    const getAllProducts = async () => {
       try {
         const response = await Axios("/products/all-products",{
           headers:{
@@ -20,7 +21,7 @@ const Cards = () => {
           }
         });
         if(response.status === 200) {
-          
+              dispatch(getProducts(response.data))
         }
         } catch (error) {
         console.error("Error fetching products:", error);
@@ -28,16 +29,12 @@ const Cards = () => {
       
     }
 
-    getProducts();
+    getAllProducts();
 
   }, [])
   
   
-  const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(asyncgetproducts());
-  }, [dispatch]);
 
   return (
     <div className="flex  flex-wrap   py-5 w-full h-full  ">
