@@ -6,7 +6,6 @@ module.exports.createProduct = async (req, res, next) => {
   try {
 
    const { name, description, price, category, stock } = req.body;
-   console.log("req.body", req.body);
     // console.log("req.files", req.files);
    
     if (!name || !description || !price || !category || !stock) {

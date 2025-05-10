@@ -15,15 +15,17 @@ const ProductDetails = () => {
 
   const [mainImage, setMainImage] = useState("");
 
-  useEffect(() => {
-    dispatch(asyncgetproducts());
-  }, [dispatch]);
+  console.log(id);
+  
 
-  const product = products.find((p) => p.id === Number(id));
+  const product = products.find((p) => p._id === id);
+
+  console.log(product);
+  
 
   useEffect(() => {
     if (product) {
-      setMainImage(product.image); // Set default image on load
+      setMainImage(product.displayImage?.url); // Set default image on load
     }
   }, [product]);
 
@@ -69,7 +71,7 @@ const ProductDetails = () => {
             <div className="relative w-full max-sm:w-full max-sm:hidden h-fit max-md:h-[50vh] max-md:w-[50vw] overflow-hidden lg:h-[60vh] md:h-[40vh] flex justify-center items-center p-10 shadow-lg border border-gray-300 rounded-xl">
     <img
       src={mainImage}
-      alt={product.title || "Product Image"}
+      alt={ "Product Image"}
       className="w-[60%] lg:w-[40%] md:max-w-[400px] rounded-lg object-cover"
     />
     
@@ -107,7 +109,7 @@ const ProductDetails = () => {
           {/* Product Details */}
           <div className="w-full h-full max-sm:mt-[-14vw] max-md:mt-[-6vw] md:w-[50%] flex-col items-start flex justify-center">
             <div>
-              <h1 className="text-2xl  font-bold text-gray-800">{product.title}</h1>
+              <h1 className="text-2xl  font-bold text-gray-800">{product.name}</h1>
               <p className="text-sm sm:text-base font-medium text-gray-500 mt-2">{product.description.slice(0, 200)}...<span className="text-blue-600 cursor-pointer ">more</span></p>
               <div className="text-green-500 flex items-center mt-2">
                           <i className="ri-star-s-fill"></i>

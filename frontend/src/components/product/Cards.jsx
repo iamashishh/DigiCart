@@ -45,21 +45,21 @@ const Cards = () => {
   {products.length > 0 ? (
     products.map((p) => (
       <Link
-        key={p.id}
-        to={`/details/${p.id}`}
+        key={p._id}
+        to={`/details/${p._id}`}
         className="flex flex-col pb-4 gap-1  items-center rounded bg-blac "
       >
         <div className="w-[80%] max-sm:w-[90%]  h-[70%] p-4 mb-2 flex items-center justify-center bg-[#F6F6F6] rounded-md ">
           <img
             className="w-[50%] object-cover mix-blend-multiply"
-            src={ p.image || "https://via.placeholder.com/150"} 
+            src={ p.displayImage?.url || "https://via.placeholder.com/150"} 
             alt={p.title || "Product Image"}
           />
         </div>
 
         <div className="flex flex-col gap-1 max-sm:px-3 items-start w-full px-3 max-md:px-9  md:px-7 lg:px-9">
           <div className="flex items-center gap-2 justify-between w-full">
-            <p className="text-3 font-bold truncate">{p.title}</p>
+            <p className="text-3 font-bold truncate">{p.name}</p>
             <p className="font-bold text-sm text-[#454443FF]">${p.price}</p>
           </div>
 
