@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Axios from "../utils/axios";
 import toast from "react-hot-toast";
@@ -23,6 +23,10 @@ const Register = () => {
       );
 
       // console.log(response.data);
+      if (response.status === 200) {
+        toast.success("Registered successfully");
+        navigate("/login");
+      }
     } catch (err) {
       console.log(err);
     }

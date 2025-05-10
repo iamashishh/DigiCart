@@ -99,7 +99,7 @@ try {
     return next(new ErrorHandler("id is required",400));
   }
 
-  const product =await productModel.findById(id);
+  const product = await productModel.findById(id);
 
   if(!product){
    return  next( new ErrorHandler("product not found",404));
