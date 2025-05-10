@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import Axios from "../utils/axios";
 import toast from "react-hot-toast";
 
@@ -22,6 +21,7 @@ const Register = () => {
       );
 
       // console.log(response.data);
+      
     } catch (err) {
       console.log(err);
     }
