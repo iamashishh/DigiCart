@@ -2,9 +2,36 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { asyncgetproducts } from '../../store/actions/ProductAction'
+import Axios from "../../utils/axios";
 
 const Cards = () => {
   const { products } = useSelector((state) => state.products) || { products: [] };
+
+  const auth = useSelector((state) => state.auth);
+
+  
+  useEffect(() => {
+
+    const getProducts = async () => {
+      try {
+        const response = await Axios("/products/all-products",{
+          headers:{
+            Authorization: `Bearer ${auth?.usertoken?.token}`
+          }
+        });
+        if(response.status === 200) {
+          
+        }
+        } catch (error) {
+        console.error("Error fetching products:", error);
+      }
+      
+    }
+
+    getProducts();
+
+  }, [])
+  
   
   const dispatch = useDispatch();
 

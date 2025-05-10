@@ -14,18 +14,13 @@ import MobileBanner from "../components/mobileUi/Mobilebanner";
 
 const Home = () => {
 
+useEffect(() => {
 
-  useEffect(() => {
-    
-  const productsData = async ()=>{
-    const response  = await Axios.get("/products/all-products",{
-
-    })
-  }
   
-  productsData();
 
-  }, [])
+}, [])
+
+
   
 
   return (

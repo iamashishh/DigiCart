@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Axios from "../utils/axios";
 import toast from "react-hot-toast";
@@ -12,6 +12,7 @@ const Register = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -21,7 +22,10 @@ const Register = () => {
         { username, email, password, role: "user" }
       );
 
-      // console.log(response.data);
+      if(response.status === 201) {
+        navigate("/login")
+      }
+
     } catch (err) {
       console.log(err);
     }
@@ -112,7 +116,7 @@ const Register = () => {
     className="w-full px-4 py-2 border border-gray-400 text-sm rounded-lg focus:outline-none focus:ring-1 focus:ring-[#046664]"
   >
     <option value="" disabled>Select Role</option>
-    <option value="admin">admin</option>
+    <option value="admin">seller</option>
     <option value="user">user</option>
   </select>
 </div>
