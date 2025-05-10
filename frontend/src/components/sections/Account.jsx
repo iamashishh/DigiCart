@@ -63,7 +63,7 @@ const Account = () => {
                 </li>
                 <li>
                   <Link to="/createproduct" className="py-1 px-2 hover:text-green-800">
-                    <i class=" mr-2 ri-add-line"></i>Create Product
+                    <i className="mr-2 ri-settings-2-line">Create Product</i>
                   </Link>
                 </li>
                 <li>
