@@ -21,7 +21,9 @@ const Cards = () => {
           }
         });
         if(response.status === 200) {
-              dispatch(getProducts(response.data))
+          console.log(response.data);
+          
+              dispatch(getProducts(response.data.allProducts))
         }
         } catch (error) {
         console.error("Error fetching products:", error);
