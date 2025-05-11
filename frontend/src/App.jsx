@@ -12,6 +12,7 @@ import Profile from './pages/Profile'
 import Orders from './pages/orders'
 import Payment from './pages/Payment'
 import ProtectedRoute from './utils/ProtectedRoute'
+import AdminItemPage from './pages/AdminItemsPage'
 
 
 const App = () => {
@@ -33,6 +34,7 @@ const App = () => {
             
           </ProtectedRoute>
           } />
+          <Route path='/admin_items' element={<AdminItemPage/>} />
         <Route path='/profile' element={<Profile/>} />
         <Route path='/myorders' element={<Orders/>} />
         <Route path='/payment' element={<Payment/>} />
