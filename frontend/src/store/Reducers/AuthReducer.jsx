@@ -22,7 +22,7 @@ const userTokenSlice = createSlice({
             if (token && user) {
                 state.usertoken = { user, token }; 
                 localStorage.setItem("authToken", token);
-                localStorage.setItem("authUser", JSON.stringify(user));
+                // localStorage.setItem("authUser", JSON.stringify(user));
             } else {
                 state.usertoken = { user: null, token: null };
                 localStorage.removeItem("authToken");
