@@ -15,18 +15,12 @@ const userTokenSlice = createSlice({
     initialState,
     reducers: {
         setUserToken: (state, action) => {
-            // console.log("Payload:", action.payload);
+            console.log("Payload:", action.payload);
 
             const { token, user } = action.payload || {}; // Ensure payload is handled safely
 
             if (token && user) {
                 state.usertoken = { user, token }; 
-                localStorage.setItem("authToken", token);
-                // localStorage.setItem("authUser", JSON.stringify(user));
-            } else {
-                state.usertoken = { user: null, token: null };
-                localStorage.removeItem("authToken");
-                localStorage.removeItem("authUser");
             }
             
         },
