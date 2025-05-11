@@ -8,11 +8,35 @@ import {
   asyncDecreaseQuantity,
 } from "../../store/actions/CartActions";
 import toast from "react-hot-toast";
+import Axios from "../../utils/axios";
 
 const Cart = () => {
   const { cartItems } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
   const navigator = useNavigate();
+
+  useEffect(() => {
+
+    const cartData =async ()=>{
+
+      try {
+        const response = await Axios.get("/cart",{
+          headers:{
+            Authorization: `Bearer ${localStorage.getItem("authToken")}`
+          }
+        })
+
+        console.log(response.data);
+        
+      } catch (error) {
+        
+      }
+
+    }
+    cartData();
+
+  }, [])
+  
 
   // Timer State
   const [timeLeft, setTimeLeft] = useState(
