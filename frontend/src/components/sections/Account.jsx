@@ -59,7 +59,7 @@ const Account = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/wishlist" className="py-1 px-2 hover:text-green-800">
+                  <Link to="/wishlist" className={`py-1 px-2  hover:text-green-800`}>
                     <i className="mr-2 ri-heart-3-line"></i>Wishlist
                   </Link>
                 </li>
