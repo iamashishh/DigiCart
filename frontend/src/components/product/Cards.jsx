@@ -32,12 +32,30 @@ const Cards = () => {
     getAllProducts();
 
   }, [])
+
   
+  const addItemToCart = async (productId) => {
+    const addedProduct = products.find((p) => p._id === productId);
+    try {
+      const response = await Axios.post("/cart",{product:productId,quantity:1,price:addedProduct.price},{
+        headers:{
+          Authorization: `Bearer ${localStorage.getItem("authToken")}`
+        }
+      })
+
+      console.log(response.data);
+      
+      
+    } catch (error) {
+      console.error("Error adding item to cart:", error);
+      
+    }
+  }
   
 
 
   return (
-    <div className="flex  flex-wrap   py-5 w-full h-full  ">
+    <div className="flex  flex-wrap   py-5 w-full h-full  ">  
       <h1 className="text-3xl font-bold text-[#242424FF] mb-10">Products</h1>
       <div className="grid max-sm:grid-cols-2 max-md:grid-cols-3 md:grid-cols-3  lg:grid-cols-5 justify-center overflow-hidden px-[-4vw]">
   {products.length > 0 ? (
@@ -75,7 +93,7 @@ const Cards = () => {
              </p>
 
 
-          <button className="text-[#454443FF] font-semibold text-sm border px-3 lg:px-4 md:px-4 py-1 mt-2 border-[#454443FF] rounded-2xl hover:bg-[#003C26FF] hover:text-[#B8D7CDFF] transition">
+          <button onClick={()=>{addItemToCart(p._id)}} className="text-[#454443FF] font-semibold text-sm border px-3 lg:px-4 md:px-4 py-1 mt-2 border-[#454443FF] rounded-2xl hover:bg-[#003C26FF] hover:text-[#B8D7CDFF] transition">
             Add to Cart
           </button>
         </div>

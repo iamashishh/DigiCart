@@ -67,10 +67,12 @@ userSchema.methods.matchPassword = async function(password){
   return await bcrypt.compare(password,this.password)
 }
 
-userSchema.methods.generateToken =  function(){
-  return  jwt.sign({id:this._id},config.JWT_SECRET_KEY,{
-    expiresIn:"24h"
-  })
+userSchema.methods.generateToken = function () {
+  return jwt.sign(
+    { id: this._id, timestamp: Date.now() }, // Add dynamic timestamp
+    config.JWT_SECRET_KEY,
+    { expiresIn: "1h" }
+  );
 }
 
 userSchema.statics.verifyToken =  function(token){
