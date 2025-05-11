@@ -30,7 +30,6 @@ const Login = () => {
         if(response.status === 200) {
           localStorage.setItem("authToken", response.data.token);
           dispatch(setUserToken({ user: response.data.user, token: response.data.token }));
-          console.log(response.data);
           setLoading(false);
           toast.success('Login Success');
           navigat('/')

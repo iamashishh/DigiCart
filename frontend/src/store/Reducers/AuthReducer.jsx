@@ -15,7 +15,6 @@ const userTokenSlice = createSlice({
     initialState,
     reducers: {
         setUserToken: (state, action) => {
-            console.log("Payload:", action.payload);
 
             const { token, user } = action.payload || {}; // Ensure payload is handled safely
 
