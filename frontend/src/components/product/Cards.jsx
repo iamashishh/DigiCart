@@ -17,12 +17,10 @@ const Cards = () => {
       try {
         const response = await Axios("/products/all-products",{
           headers:{
-            Authorization: `Bearer ${auth?.usertoken?.token}`
+            Authorization: `Bearer ${localStorage.getItem("authToken")}`  
           }
         });
         if(response.status === 200) {
-          // console.log(response.data);
-          
               dispatch(getProducts(response.data.allProducts))
         }
         } catch (error) {

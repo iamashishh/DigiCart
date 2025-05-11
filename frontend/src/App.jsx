@@ -34,7 +34,9 @@ const App = () => {
             
           </ProtectedRoute>
           } />
-          <Route path='/admin_items' element={<AdminItemPage/>} />
+          <Route path='/admin_items' element={
+            <AdminItemPage/>
+            } />
         <Route path='/profile' element={<Profile/>} />
         <Route path='/myorders' element={<Orders/>} />
         <Route path='/payment' element={<Payment/>} />

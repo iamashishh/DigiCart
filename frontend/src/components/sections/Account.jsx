@@ -7,8 +7,10 @@ const Account = () => {
   const [isHovered, setIsHovered] = useState(false);
   const dispatch = useDispatch();
   const auth = useSelector((state) => state.auth?.usertoken);
-  const user = useSelector((state) => state.auth?.usertoken?.user?.role); 
+  const userRole = useSelector((state) => state.auth?.usertoken?.user?.role); 
 
+  // console.log(auth);
+  
 
   return (
     <div
@@ -65,7 +67,7 @@ const Account = () => {
                 </li>
                 
                 <li >
-                  <Link to="/createproduct" className={` py-1 px-2 hover:text-green-800 ${user === "admin" ? "" : "hidden" }`}>
+                  <Link to="/createproduct" className={` py-1 px-2 hover:text-green-800 ${userRole === "admin" ? "" : "hidden" }`}>
                     <i className="mr-2 ri-add-line"></i>Create Product
                   </Link>
                 </li>

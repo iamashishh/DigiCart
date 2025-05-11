@@ -17,7 +17,6 @@ const ProductDetails = () => {
   const dispatch = useDispatch();
   const navigator = useNavigate();
 
-  const [data, setdata] = useState(null);
   
   const [liked, setLiked] = useState(false);
   const [mainImage, setMainImage] = useState("");
