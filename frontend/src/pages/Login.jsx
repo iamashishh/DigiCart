@@ -27,13 +27,16 @@ const Login = () => {
 
         // console.log("Server Response:", response.data);
 
-        localStorage.setItem("authToken", response.data.token);
+        if(response.status === 200) {
+          localStorage.setItem("authToken", response.data.token);
+          dispatch(setUserToken({ user: response.data.user, token: response.data.token }));
+          console.log(response.data);
+          setLoading(false);
+          toast.success('Login Success');
+          navigat('/')
+          
+        }
 
-        dispatch(setUserToken({ user: response.data.user, token: response.data.token }));
-        setLoading(false);
-        toast.success('Login Success');
-
-        navigat('/')
     } catch (error) {
         console.error("Login Error:", error.response ? error.response.data : error.message);
         toast.error(error.response?.data?.message || "Login Failed");
