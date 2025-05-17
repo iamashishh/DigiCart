@@ -6,6 +6,8 @@ module.exports.createProduct = async (req, res, next) => {
   try {
 
    const { name, description, price, category, stock } = req.body;
+    // console.log("req.files", req.files);
+   
     if (!name || !description || !price || !category || !stock) {
 
       return next(new ErrorHandler("All fields (name, description, price, category, stock) are required.", 400));
@@ -99,7 +101,7 @@ try {
     return next(new ErrorHandler("id is required",400));
   }
 
-  const product =await productModel.findById(id);
+  const product = await productModel.findById(id);
 
   if(!product){
    return  next( new ErrorHandler("product not found",404));

@@ -6,7 +6,11 @@ import { logout } from "../../store/Reducers/AuthReducer";
 const Account = () => {
   const [isHovered, setIsHovered] = useState(false);
   const dispatch = useDispatch();
-  const auth = useSelector((state) => state.auth.usertoken);
+  const auth = useSelector((state) => state.auth?.usertoken);
+  const userRole = useSelector((state) => state.auth?.usertoken?.user?.role); 
+
+  // console.log(auth);
+  
 
   return (
     <div
@@ -57,8 +61,14 @@ const Account = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/wishlist" className="py-1 px-2 hover:text-green-800">
+                  <Link to="/wishlist" className={`py-1 px-2  hover:text-green-800`}>
                     <i className="mr-2 ri-heart-3-line"></i>Wishlist
+                  </Link>
+                </li>
+                
+                <li >
+                  <Link to="/createproduct" className={` py-1 px-2 hover:text-green-800 ${userRole === "admin" ? "" : "hidden" }`}>
+                    <i className="mr-2 ri-add-line"></i>Create Product
                   </Link>
                 </li>
                 <li>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Axios from "../utils/axios";
 import toast from "react-hot-toast";
@@ -8,9 +8,11 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
+  const [role, setrole] = useState("")
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -21,6 +23,10 @@ const Register = () => {
       );
 
       // console.log(response.data);
+      if (response.status === 200) {
+        toast.success("Registered successfully");
+        navigate("/login");
+      }
     } catch (err) {
       console.log(err);
     }
@@ -96,6 +102,27 @@ const Register = () => {
                 className="w-full px-4 py-2 border border-gray-400 placeholder:text-gray-500 text-sm rounded-lg focus:outline-none focus:ring-1 focus:ring-[#046664]"
               />
             </div>
+
+            <div className="mb-4">
+  <label
+    htmlFor="role"
+    className="font-semibold text-lg text-[#046664] px-1"
+  >
+    Role
+  </label>
+  <select
+    onChange={(e) => setrole(e.target.value)}
+    value={role}
+    name="role"
+    className="w-full px-4 py-2 border border-gray-400 text-sm rounded-lg focus:outline-none focus:ring-1 focus:ring-[#046664]"
+  >
+    <option value="" disabled>Select Role</option>
+    <option value="admin">seller</option>
+    <option value="user">user</option>
+  </select>
+</div>
+
+
 
             <button
               type="submit"
