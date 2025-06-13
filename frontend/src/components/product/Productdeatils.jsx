@@ -275,9 +275,4 @@ const ProductDetails = () => {
 
 export default ProductDetails;
 
-<div className="flex space-x-4">
-  <div className="h-[15vh] w-[40vw] bg-black "></div>
-  <div className="h-[15vh] w-[40vw] bg-black "></div>
-  <div className="h-[15vh] w-[40vw] bg-black "></div>
-  <div className="h-[15vh] w-[40vw] bg-black "></div>
-</div>;
+
