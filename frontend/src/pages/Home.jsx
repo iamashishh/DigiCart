@@ -21,7 +21,7 @@ const Home = () => {
 
   return (
 
-    <div className="w-full   flex flex-col items-center ">
+    <div className="w-full  overflow-hidden flex flex-col items-center ">
     <Navbar/>
      
     {/* <Banner/> */}
