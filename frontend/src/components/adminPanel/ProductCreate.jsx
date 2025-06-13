@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Axios from "../../utils/axios";
+import { useDispatch } from "react-redux";
+import { addProduct } from "../../store/Reducers/ProductsReducer";
 
 export default function CreateProductForm() {
   const [step, setStep] = useState(1);
@@ -14,19 +16,12 @@ export default function CreateProductForm() {
   const [imageUrl2, setImageUrl2] = useState("")
   const [displayImageUrl, setDisplayImageUrl] = useState("");
 
-  const handleNext = () => {
-    if (step < 2) {
-      setStep(step + 1);
-    }
-  };
+  const [loading, setloading] = useState(false)
 
-  const handleBack = () => {
-    setStep(1);
-  };
+  const dispatch = useDispatch();
 
   const handleSubmit = async () => {
-    console.log("2");
-    
+    setloading(true);
     try {
       const formData = new FormData();
   
@@ -48,60 +43,29 @@ export default function CreateProductForm() {
       });
   
       if (response.status === 201) {
-        console.log("Product created successfully:", response.data);
+        useDispatch(addProduct(response.data));
         alert("Product created successfully!");
+        setloading(false);
         setStep(1);
       }
     } catch (error) {
       alert("Failed to create product");
-      console.error(error);
+      console.log(error);
     }
   };
   
 
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-green-500"></div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen mt-4  bg-gradient-to-r from-green-50 to-teal-100 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl  shadow-lg w-full max-w-5xl flex flex-col md:flex-row overflow-hidden">
-        {/* Sidebar */}
-        <div className="w-full md:w-1/3 bg-green-50 p-6 space-y-6">
-          <h2 className="text-2xl font-semibold text-gray-800">Add Product</h2>
-          <ul className="space-y-4">
-            <li
-              onClick={() => setStep(1)}
-              className={`cursor-pointer flex items-center space-x-2 ${
-                step === 1 ? "text-green-600 font-semibold" : "text-gray-400"
-              }`}
-            >
-              <span
-                className={`w-6 h-6 flex items-center justify-center rounded-full ${
-                  step === 1
-                    ? "bg-green-600 text-white"
-                    : "border border-gray-300"
-                }`}
-              >
-                1
-              </span>
-              <span>Product Details</span>
-            </li>
-            <li
-              onClick={() => setStep(2)}
-              className={`cursor-pointer flex items-center space-x-2 ${
-                step === 2 ? "text-green-600 font-semibold" : "text-gray-400"
-              }`}
-            >
-              <span
-                className={`w-6 h-6 flex items-center justify-center rounded-full ${
-                  step === 2
-                    ? "bg-green-600 text-white"
-                    : "border border-gray-300"
-                }`}
-              >
-                2
-              </span>
-              <span>Summary</span>
-            </li>
-          </ul>
-        </div>
+      <div className="bg-white  rounded-2xl  shadow-lg w-full max-w-5xl flex flex-col p-2 justify-center md:flex-row overflow-hidden">
 
         {/* Form Section */}
         <div className="w-full md:w-2/3 p-6 bg-zinc-100 space-y-4">
@@ -187,7 +151,7 @@ export default function CreateProductForm() {
                 </div>
                 <div>
                   <label className="block text-sm  mb-2 font-medium text-gray-700">
-                    Display Image File
+                    Products Display Image 
                   </label>
 
                   <input

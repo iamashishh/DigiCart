@@ -35,7 +35,8 @@ const ProductDetails = () => {
         if (response.status === 200) {
           setproduct(response.data.product);
           
-          // setMainImage(response.data.displayImage?.url);
+          
+          setMainImage(response.data.displayImage?.url);
         } 
       } catch (error) {
         console.error("Error fetching product:", error);
@@ -83,14 +84,14 @@ const ProductDetails = () => {
       <div className="w-full   overflow-y-auto pb-20 flex flex-col  md:px-10 md:flex-row gap-20 justify-center items-center">
         {/* Images Section */}
         <div className="w-full h-full md:w-[60%]  lg:w-[50%] flex-col lg:flex-col items-center gap-8 flex justify-center overflow-hidden">
-          <div className="w-full max-sm:w-full max-sm:h-[54vh] max-sm:block lg:hidden max-md:hidden h-fit max-md:h-[50vh]  max-md:w-[50vw] bg-blac overflow-hidden  lg:h-[60vh] md:h-[40vh]  flex justify-center items-center  shadow-lg border border-gray-300 rounded-xl ">
+          <div className="w-full max-sm:w-full max-sm:h-[54vh] max-sm:block lg:hidden max-md:hidden h-fit max-md:h-[50vh]  max-md:w-[50vw] bg-black overflow-hidden  lg:h-[60vh] md:h-[40vh]  flex justify-center items-center  shadow-lg border border-gray-300 rounded-xl ">
             <Slider mainImage="mainImage" />
           </div>
-          <div className="relative w-full max-sm:w-full max-sm:hidden h-fit max-md:h-[50vh] max-md:w-[50vw] overflow-hidden lg:h-[60vh] md:h-[40vh] flex justify-center items-center p-10 shadow-lg border border-gray-300 rounded-xl">
+          <div className="relative w-full    max-sm:w-full max-sm:hidden h-fit max-md:h-[50vh] max-md:w-[50vw] overflow-hidden lg:h-[60vh] md:h-[40vh] flex justify-center items-center p-10 shadow-lg border border-gray-300 rounded-xl">
             <img
               src={mainImage}
               alt={"Product Image"}
-              className="w-[60%] lg:w-[40%] md:max-w-[400px] rounded-lg object-cover"
+              className="w-full h-full  md:max-w-[400px] rounded-lg object-cover object-center"
             />
 
             {/* Like and Share Icons */}
@@ -209,7 +210,7 @@ const ProductDetails = () => {
                       id: product.id,
                       name: product.name,
                       price: product.price,
-                      image: product.image,
+                      image: product.displayImage,
                     },
                     // console.log("add to cart")
                     toast.success("Added to cart")

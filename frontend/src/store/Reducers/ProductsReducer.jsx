@@ -12,8 +12,11 @@ const productSlice = createSlice({
       // console.log(action.payload);
         state.products = action.payload;
     },
+    addProduct: (state, action) => {
+      state.products.push(action.payload);
+    },
   },
 });
 
 export default productSlice.reducer;
-export const { getProducts } = productSlice.actions;
+export const { getProducts,addProduct } = productSlice.actions;
