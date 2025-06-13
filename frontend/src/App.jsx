@@ -17,7 +17,7 @@ import AdminItemPage from './pages/AdminItemsPage'
 
 const App = () => {
   return (
-    <div className=" px-4 lg:px-8  ">
+    <div className=" px-4 lg:px-8">
       <Toaster position="top-center" reverseOrder={false} />
       
       <Navbar/>

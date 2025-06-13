@@ -3,6 +3,9 @@
 .ScrollBar::-webkit-scrollbar {
     display: none;
   }
+  .categorySection::-webkit-scrollbar {
+    display: none;
+  }
   /* Customize Swiper pagination bullets */
   .no-scrollbar::-webkit-scrollbar {
     display: none;
