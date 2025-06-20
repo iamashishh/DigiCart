@@ -96,7 +96,7 @@ const Cards = () => {
 
         </div>
       </Link>
-          <button onClick={()=>{addItemToCart(p._id)}} className="text-[#454443FF] font-semibold text-sm border px-3 lg:px-4 md:px-4 py-1 mt-2 border-[#454443FF] rounded-2xl hover:bg-[#003C26FF] hover:text-[#B8D7CDFF] transition">
+          <button onClick={()=>{addItemToCart(p._id)}} className="text-[#454443FF] font-semibold text-sm border px-2 ml-9 lg:px-4 md:px-4 py-1  border-[#454443FF] rounded-2xl hover:bg-[#003C26FF] hover:text-[#B8D7CDFF] transition">
             Add to Cart
           </button>
       </div>
