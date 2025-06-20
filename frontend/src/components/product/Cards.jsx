@@ -34,10 +34,10 @@ const Cards = () => {
   }, [])
 
   
-  const addItemToCart = async (productId) => {
-    const addedProduct = products.find((p) => p._id === productId);
+  const addItemToCart = async (_id) => {
+    const addedProduct = products.find((p) => p._id === _id);
     try {
-      const response = await Axios.post("/cart",{product:productId,quantity:1,price:addedProduct.price},{
+      const response = await Axios.post("/cart",{product:_id,quantity:1,price:addedProduct.price},{
         headers:{
           Authorization: `Bearer ${localStorage.getItem("authToken")}`
         }
@@ -60,6 +60,7 @@ const Cards = () => {
       <div className="grid max-sm:grid-cols-2 max-md:grid-cols-3 md:grid-cols-3  lg:grid-cols-5 justify-center overflow-hidden px-[-4vw]">
   {products.length > 0 ? (
     products.map((p) => (
+      <div>
       <Link
         key={p._id}
         to={`/details/${p._id}`}
@@ -93,11 +94,12 @@ const Cards = () => {
              </p>
 
 
+        </div>
+      </Link>
           <button onClick={()=>{addItemToCart(p._id)}} className="text-[#454443FF] font-semibold text-sm border px-3 lg:px-4 md:px-4 py-1 mt-2 border-[#454443FF] rounded-2xl hover:bg-[#003C26FF] hover:text-[#B8D7CDFF] transition">
             Add to Cart
           </button>
-        </div>
-      </Link>
+      </div>
     ))
   ) : (
     <div className="w-full text-center py-5 text-lg">No products available</div>
