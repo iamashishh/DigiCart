@@ -43,10 +43,10 @@ const Login = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4 md:px-8">
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 lg:px-4  mt-2 md:px-4">
       <div className="relative">
         {/* Left Section: Sign In Form */}
-        <div className="bg-white p-8 flex flex-col justify-center md:absolute md:w-[25vw] md:h-[70vh] md:top-9 md:-left-40 md:rounded-xl rounded-t-xl shadow-2xl">
+        <div className="bg-white lg:p-8 p-2 flex flex-col justify-center md:absolute md:w-[25vw] md:h-[70vh] md:top-9 md:-left-40 md:rounded-xl rounded-t-xl shadow-2xl">
           <h2 className="text-3xl md:text-4xl font-bold text-[#046664] text-center">
             Sign In
           </h2>
@@ -110,16 +110,16 @@ const Login = () => {
         </div>
 
         {/* Right Section: Welcome Message */}
-        <div className="bg-[url('./bg.jpeg')] bg-cover bg-center flex flex-col items-center justify-center text-white p-8 w-full md:w-[30vw] md:h-[80vh] md:ml-[40%] md:rounded-xl rounded-b-xl shadow-2xl">
+        <div className="bg-[url('./bg.jpeg')] bg-cover bg-center flex flex-col items-center justify-center text-white lg:p-8 p-4 md:p-8 w-full md:w-[30vw] md:h-[80vh] md:ml-[40%] md:rounded-xl rounded-b-xl shadow-2xl">
           <div className="text-center">
             <h2 className="text-2xl md:text-4xl font-bold">Welcome Back!</h2>
-            <p className="md:mt-4 mt-2 mb-8 text-lg font-semibold md:px-6">
+            <p className="md:mt-4 mt-2 mb-4 text-lg font-semibold md:px-6">
               Enter your details to access your account.
             </p>
 
             <Link
               to="/register"
-              className="bg-[#046664]/50 hover:bg-[#046664] text-white font-semibold px-14 py-3 rounded-full shadow-md transition-all duration-300"
+              className="bg-[#046664]/50 hover:bg-[#046664] text-white font-semibold px-14 py-3  rounded-full shadow-md transition-all duration-300"
             >
               Sign Up
             </Link>

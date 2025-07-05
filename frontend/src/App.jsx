@@ -33,7 +33,7 @@ const App = () => {
 
 
   return (
-    <div className="  px-4 lg:px-8">
+    <div className=" max-sm:px-2 px-4 lg:px-8">
       <Toaster position="top-center" reverseOrder={false} />
       <Routes>
 

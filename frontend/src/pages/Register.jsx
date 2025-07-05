@@ -40,10 +40,10 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center  px-4 md:px-8 py-5">
+    <div className="min-h-screen flex items-center justify-center  lg:px-4  md:px-8 ">
       <div className="relative">
         {/* Left Section: Sign Up Form */}
-        <div className="bg-white p-8 flex flex-col justify-center md:absolute md:w-[25vw] md:h-[70vh] md:top-9 md:-left-40 md:rounded-xl rounded-t-xl shadow-2xl">
+        <div className="bg-white lg:p-8 max-sm:p-2 max-md:p-8  p-2 flex flex-col justify-center md:absolute md:w-[25vw] md:h-[70vh] md:top-9 md:-left-40 md:rounded-xl rounded-t-xl shadow-2xl">
           <h2 className="text-3xl md:text-4xl font-bold text-[#046664] text-center">
             Sign Up
           </h2>
@@ -140,7 +140,7 @@ const Register = () => {
         </div>
 
         {/* Right Section: Welcome Back Message */}
-        <div className="bg-[url('./bg.jpeg')] flex flex-col items-center justify-center bg-cover bg-top text-white p-8 w-full md:w-[30vw] md:h-[80vh] md:ml-[40%] md:rounded-xl rounded-b-xl shadow-2xl">
+        <div className="bg-[url('./bg.jpeg')] flex flex-col items-center justify-center bg-cover bg-top text-white lg:p-8 max-sm:p-4 max-md:p-4 w-full md:w-[30vw] md:h-[80vh] md:ml-[40%] md:rounded-xl rounded-b-xl shadow-2xl">
           <div className="text-center">
             <h2 className="text-2xl md:text-4xl font-bold">Welcome Back!</h2>
             <p className="md:mt-4 mt-2 mb-8 text-lg font-semibold md:px-6">
