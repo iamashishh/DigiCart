@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 import swipeImage from "../mobileUi/Slider";
 import Slider from "../mobileUi/Slider";
 import Axios from "../../utils/axios";
-import { selectedProductsAddition } from "../../store/Reducers/ProductsReducer";
+import { getSingleProductData, selectedProductsAddition } from "../../store/Reducers/ProductsReducer";
 
 const ProductDetails = () => {
   const { selectedProduct } = useSelector((state) => state.products) || {
@@ -24,23 +24,12 @@ const ProductDetails = () => {
   
   const { id } = useParams();
   useEffect(()=>{
-   const getSingleProductData = ()=>{
+   const getData = ()=>{
      dispatch(getSingleProductData(id))
    }
-  //  getSingleProductData()
-  },[])
+   getData()
+  },[dispatch])
 
-  
-  
-  // useEffect(() => {
-  //   const fetchproduct = async () => {
-     
-  //   };
-  //   fetchproduct();
-  //   if (selectedProduct) {
-  //     setMainImage(selectedProduct.displayImage?.url);
-  //   }
-  // }, [selectedProduct]);
 
   const [quantity, setQuantity] = useState(1);
   const increaseQuantity = () => setQuantity(quantity + 1);

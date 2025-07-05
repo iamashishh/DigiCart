@@ -10,7 +10,7 @@ import {
 
 const Cards = () => {
   const dispatch = useDispatch();
-  const { products ,selectedProduct} = useSelector((state) => state.products) || {
+  const { products } = useSelector((state) => state.products) || {
     products: [],
   };
 
