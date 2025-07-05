@@ -11,7 +11,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors({
     origin: "http://localhost:5173", // ✅ React App Allowed
     methods: "GET,POST,PUT,DELETE", // ✅ Allowed Methods
-    credentials: true // ✅ Allow Cookies
+    credentials: true, // ✅ Allow Cookies
   }));
 
 //Import Routes

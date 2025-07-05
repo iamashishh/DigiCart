@@ -1,15 +1,15 @@
 import { useState } from "react";
-import { Link, redirect, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Axios from "../utils/axios";
-import { useDispatch, useSelector } from "react-redux";
-import { setUserToken } from "../store/Reducers/AuthReducer";
+import { useDispatch } from "react-redux";
+import { loginUser } from "../store/Reducers/AuthReducer";
 import toast from "react-hot-toast";
 
 const Login = () => {
-  const auth = useSelector((state) => state.auth);
-  const navigat =  useNavigate()
+  // const auth = useSelector((state) => state.auth);
+  const navigat = useNavigate();
   // console.log(auth);
-  
+
   const dispatch = useDispatch();
 
   const [emailData, setEmailData] = useState("");
@@ -19,30 +19,28 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    // console.log("Sending Login Data:", { email: emailData, password: passwordData });
-      setLoading(true);
+    setLoading(true);
 
     try {
-        const response = await Axios.post('/auth/login', { email: emailData, password: passwordData });
+      const formdata = { email: emailData, password: passwordData };
 
-        // console.log("Server Response:", response.data);
-
-        if(response.status === 200) {
-          localStorage.setItem("authToken", response.data.token);
-          dispatch(setUserToken({ user: response.data.user, token: response.data.token }));
+      dispatch(loginUser(formdata)).then((response) => {
+        console.log(response);
+        if ( response.payload.success === true) {
           setLoading(false);
-          toast.success('Login Success');
-          navigat('/')
-          
+          toast.success("Login Success");
+          navigat("/");
         }
-
+      });
     } catch (error) {
-        console.error("Login Error:", error.response ? error.response.data : error.message);
-        toast.error(error.response?.data?.message || "Login Failed");
-        setLoading(false);
+      console.error(
+        "Login Error:",
+        error.response ? error.response.data : error.message
+      );
+      toast.error(error.response?.data?.message || "Login Failed");
+      setLoading(false);
     }
-};
-
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4 md:px-8">
@@ -64,7 +62,9 @@ const Login = () => {
             ))}
           </div>
 
-          <p className="text-gray-500 text-lg text-center mt-2">Or log in with your email:</p>
+          <p className="text-gray-500 text-lg text-center mt-2">
+            Or log in with your email:
+          </p>
 
           <form onSubmit={handleLogin} className="mt-6">
             <div className="mb-4">

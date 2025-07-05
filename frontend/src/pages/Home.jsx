@@ -1,6 +1,3 @@
-import React, { useEffect } from "react";
-
-
 import Cards from "../components/product/Cards";
 import Navbar from "../components/layout/Navbar"
 import Banner from "../components/sections/Banner"
@@ -13,11 +10,6 @@ import MobileBanner from "../components/mobileUi/Mobilebanner";
 
 
 const Home = () => {
-
-
-
-
-  
 
   return (
 

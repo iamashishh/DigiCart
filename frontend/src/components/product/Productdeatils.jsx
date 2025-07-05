@@ -7,57 +7,51 @@ import toast from "react-hot-toast";
 import swipeImage from "../mobileUi/Slider";
 import Slider from "../mobileUi/Slider";
 import Axios from "../../utils/axios";
+import { selectedProductsAddition } from "../../store/Reducers/ProductsReducer";
 
 const ProductDetails = () => {
-  const { id } = useParams();
-  const [product, setproduct] = useState("")
-  const { products } = useSelector((state) => state.products) || {
+  const { selectedProduct } = useSelector((state) => state.products) || {
     products: [],
   };
+  
+  
   const dispatch = useDispatch();
   const navigator = useNavigate();
-
+  
   
   const [liked, setLiked] = useState(false);
   const [mainImage, setMainImage] = useState("");
+  
+  const { id } = useParams();
+  useEffect(()=>{
+   const getSingleProductData = ()=>{
+     dispatch(getSingleProductData(id))
+   }
+  //  getSingleProductData()
+  },[])
 
   
   
-  useEffect(() => {
-    const fetchproduct = async () => {
-      try {
-        const response = await Axios.get(`/products/${id}`, {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-          },
-        });
-        if (response.status === 200) {
-          setproduct(response.data.product);
-          
-          
-          setMainImage(response.data.displayImage?.url);
-        } 
-      } catch (error) {
-        console.error("Error fetching product:", error);
-      }
-    };
-    fetchproduct();
-    if (product) {
-      setMainImage(product.displayImage?.url);
-    }
-  }, [product]);
+  // useEffect(() => {
+  //   const fetchproduct = async () => {
+     
+  //   };
+  //   fetchproduct();
+  //   if (selectedProduct) {
+  //     setMainImage(selectedProduct.displayImage?.url);
+  //   }
+  // }, [selectedProduct]);
 
   const [quantity, setQuantity] = useState(1);
   const increaseQuantity = () => setQuantity(quantity + 1);
   const decreaseQuantity = () => quantity > 1 && setQuantity(quantity - 1);
 
-  if (!product) {
-    return <div className="text-center py-10">Product not found!</div>;
-  }
+  // if (!selectedProduct) {
+  //   return <div className="text-center py-10">Product not found!</div>;
+  // }
 
   const imageList = [
-    product.image,
+    selectedProduct?.image,
     "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
     "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
     "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg",
@@ -89,7 +83,7 @@ const ProductDetails = () => {
           </div>
           <div className="relative w-full    max-sm:w-full max-sm:hidden h-fit max-md:h-[50vh] max-md:w-[50vw] overflow-hidden lg:h-[60vh] md:h-[40vh] flex justify-center items-center p-10 shadow-lg border border-gray-300 rounded-xl">
             <img
-              src={mainImage}
+              src={selectedProduct?.displayImage?.url}
               alt={"Product Image"}
               className="w-full h-full  md:max-w-[400px] rounded-lg object-cover object-center"
             />
@@ -139,10 +133,10 @@ const ProductDetails = () => {
         <div className="w-full h-full max-sm:mt-[-14vw] max-md:mt-[-6vw] md:w-[50%] flex-col items-start flex justify-center">
           <div>
             <h1 className="text-2xl  font-bold text-gray-800">
-              {product.name}
+              {selectedProduct?.name}
             </h1>
             <p className="text-sm sm:text-base font-medium text-gray-500 mt-2">
-              {product.description.slice(0, 200)}...
+              {selectedProduct?.description.slice(0, 200)}...
               <span className="text-blue-600 cursor-pointer ">more</span>
             </p>
             <div className="text-green-500 flex items-center mt-2">
@@ -151,7 +145,7 @@ const ProductDetails = () => {
               <i className="ri-star-s-fill"></i>
               <i className="ri-star-s-fill"></i>
               <span className="text-black ml-1">
-                ({product.rating?.count || 0})
+                ({selectedProduct?.rating?.count || 0})
               </span>
             </div>
           </div>
@@ -159,7 +153,7 @@ const ProductDetails = () => {
           <div className="w-[57%] border-t-2 border-gray-100 my-4"></div>
 
           <div className="text-lg font-bold mt-4 ">
-            ${product.price || "N/A"}
+            ${selectedProduct?.price || "N/A"}
             <p className="text-sm font-medium text-gray-500 mt-1">
               Suggested payment with 6 months special financing
             </p>
@@ -189,7 +183,7 @@ const ProductDetails = () => {
             </div>
             <div>
               <h4 className="text-gray-600 text-sm font-semibold  w-[40vw] lg:w-full">
-                Only <span className="text-orange-500">12 Items</span> Left!
+                Only <span className="text-orange-500">{selectedProduct?.stock} Items</span> Left!
               </h4>
               <h4 className="text-gray-600 text-sm font-semibold w-full">
                 Don’t miss it
@@ -207,10 +201,10 @@ const ProductDetails = () => {
                 dispatch(
                   asyncAddToCart(
                     {
-                      id: product.id,
-                      name: product.name,
-                      price: product.price,
-                      image: product.displayImage,
+                      id: selectedProduct?.id,
+                      name: selectedProduct?.name,
+                      price: selectedProduct?.price,
+                      image: selectedProduct?.displayImage,
                     },
                     // console.log("add to cart")
                     toast.success("Added to cart")
@@ -253,10 +247,10 @@ const ProductDetails = () => {
                 dispatch(
                   asyncAddToCart(
                     {
-                      id: product.id,
-                      name: product.name,
-                      price: product.price,
-                      image: product.image,
+                      id: selectedProduct.id,
+                      name: selectedProduct.name,
+                      price: selectedProduct.price,
+                      image: selectedProduct.image,
                     },
                     // console.log("add to cart")
                     toast.success("Added to cart")

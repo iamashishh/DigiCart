@@ -1,41 +1,46 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
+import { Link,  useNavigate } from "react-router-dom";
 import Axios from "../utils/axios";
 import toast from "react-hot-toast";
+import { registerUser } from "../store/Reducers/AuthReducer";
+import { useDispatch } from "react-redux";
 
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
-  const [role, setrole] = useState("")
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [role, setrole] = useState("");
+  const [loading] = useState(false);
+  const [error] = useState("");
 
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const response = await Axios.post(
-        "/auth/register",
-        { username, email, password, role: "user" }
-      );
+      const formData = {
+        username,
+        email,
+        password,
+        role,
+      };
 
-      // console.log(response.data);
-      if (response.status === 200) {
-        toast.success("Registered successfully");
-        navigate("/login");
-      }
+      dispatch(registerUser(formData)).then((response) => {
+        console.log(response);
+        if (response.payload.success === true) {
+          toast.success("Registered successfully");
+          navigate("/");
+        }
+      });
     } catch (err) {
       console.log(err);
+      toast.error("unable to register");
     }
-    toast.success('Registered successfully');
-    
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#f3f3f3] px-4 md:px-8 py-5">
+    <div className="min-h-screen flex items-center justify-center  px-4 md:px-8 py-5">
       <div className="relative">
         {/* Left Section: Sign Up Form */}
         <div className="bg-white p-8 flex flex-col justify-center md:absolute md:w-[25vw] md:h-[70vh] md:top-9 md:-left-40 md:rounded-xl rounded-t-xl shadow-2xl">
@@ -104,25 +109,25 @@ const Register = () => {
             </div>
 
             <div className="mb-4">
-  <label
-    htmlFor="role"
-    className="font-semibold text-lg text-[#046664] px-1"
-  >
-    Role
-  </label>
-  <select
-    onChange={(e) => setrole(e.target.value)}
-    value={role}
-    name="role"
-    className="w-full px-4 py-2 border border-gray-400 text-sm rounded-lg focus:outline-none focus:ring-1 focus:ring-[#046664]"
-  >
-    <option value="" disabled>Select Role</option>
-    <option value="admin">seller</option>
-    <option value="user">user</option>
-  </select>
-</div>
-
-
+              <label
+                htmlFor="role"
+                className="font-semibold text-lg text-[#046664] px-1"
+              >
+                Role
+              </label>
+              <select
+                onChange={(e) => setrole(e.target.value)}
+                value={role}
+                name="role"
+                className="w-full px-4 py-2 border border-gray-400 text-sm rounded-lg focus:outline-none focus:ring-1 focus:ring-[#046664]"
+              >
+                <option value="" disabled>
+                  Select Role
+                </option>
+                <option value="admin">seller</option>
+                <option value="user">user</option>
+              </select>
+            </div>
 
             <button
               type="submit"

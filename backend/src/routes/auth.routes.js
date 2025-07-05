@@ -6,6 +6,7 @@ const {
   userRegister,
   userLogin,
   userLogout,
+  checkAuth,
 } = require("../controllers/auth.controller");
 
 const {
@@ -22,6 +23,9 @@ router.post("/register", userRegisterValidator, userRegister);
 router.post("/login", userLoginValidator, userLogin);
 
 router.post("/logout", isLogin, userLogout);
+
+router.get("/check-auth", isLogin,checkAuth);
+
 
 
 

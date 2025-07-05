@@ -15,6 +15,8 @@ const Cart = () => {
   const dispatch = useDispatch();
   const navigator = useNavigate();
 
+  
+
   useEffect(() => {
 
     const cartData =async ()=>{

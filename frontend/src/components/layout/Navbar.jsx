@@ -16,22 +16,22 @@ const Navbar = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
 
   // Search Logic
-  useEffect(() => {
-    const fetchProducts = () => {
-      if (query.trim() === "") {
-        setSearchResults([]);
-        return;
-      }
+  // useEffect(() => {
+  //   const fetchProducts = () => {
+  //     if (query.trim() === "") {
+  //       setSearchResults([]);
+  //       return;
+  //     }
 
-      const filteredProducts = products.filter((product) =>
-        product.title.toLowerCase().includes(query.toLowerCase())
-      );
+  //     const filteredProducts = products.filter((product) =>
+  //       product.title.toLowerCase().includes(query.toLowerCase())
+  //     );
 
-      setSearchResults(filteredProducts);
-    };
+  //     setSearchResults(filteredProducts);
+  //   };
 
-    fetchProducts();
-  }, [query, products]); // Fixed dependency array
+  //   fetchProducts();
+  // }, [query, products]); // Fixed dependency array
 
   useEffect(() => {
     const handleScroll = () => {

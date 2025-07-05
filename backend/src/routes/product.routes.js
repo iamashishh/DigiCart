@@ -22,9 +22,9 @@ router.post(
   createProduct
 );
 
-router.get("/all-products", isLogin, getAllProducts);
+router.get("/all-products", getAllProducts);
 
-router.get("/:id", isLogin, getProductById);
+router.get("/:id", getProductById);
 
 router.delete("/:id", isAdmin, isLogin, deleteProduct);
 

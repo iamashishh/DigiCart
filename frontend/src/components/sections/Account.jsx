@@ -6,11 +6,9 @@ import { logout } from "../../store/Reducers/AuthReducer";
 const Account = () => {
   const [isHovered, setIsHovered] = useState(false);
   const dispatch = useDispatch();
-  const auth = useSelector((state) => state.auth?.usertoken);
+  const {user,token} = useSelector((state) => state.auth);
   const userRole = useSelector((state) => state.auth?.usertoken?.user?.role); 
 
-  // console.log(auth);
-  
 
   return (
     <div
@@ -18,11 +16,11 @@ const Account = () => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {auth?.token ? (
+      {token ? (
         <div className="flex items-center gap-2 cursor-pointer">
           <i className="ri-user-3-line text-xl"></i>
           <span className="font-semibold text-green-700">
-            {auth.user?.username || "User"}
+            {user?.username || "unknown"}
           </span>
         </div>
       ) : (
@@ -43,10 +41,10 @@ const Account = () => {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          {auth?.token ? (
+          {token ? (
             <>
               <div className="flex items-center justify-around">
-                <h1 className="text-gray-600">Hello, {auth.user?.name}</h1>
+                <h1 className="text-gray-600">Hello, {user?.name}</h1>
               </div>
               <hr className="border-t-1 my-2 border-zinc-300" />
               <ul className="flex flex-col gap-2 font-semibold text-lg p-2">

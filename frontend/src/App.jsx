@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import Home from './pages/Home'
@@ -13,14 +13,28 @@ import Orders from './pages/orders'
 import Payment from './pages/Payment'
 import ProtectedRoute from './utils/ProtectedRoute'
 import AdminItemPage from './pages/AdminItemsPage'
+import { useDispatch } from 'react-redux'
+import { checkAuth } from './store/Reducers/AuthReducer'
 
 
 const App = () => {
+
+  const dispatch = useDispatch();
+
+    useEffect(() => {
+
+    dispatch(checkAuth()).then((data) => {
+        console.log(data);
+        
+    })
+
+  }, [dispatch])
+
+
+
   return (
-    <div className=" px-4 lg:px-8">
+    <div className="  px-4 lg:px-8">
       <Toaster position="top-center" reverseOrder={false} />
-      
-      <Navbar/>
       <Routes>
 
         <Route path="/login" element={<Login/>} />

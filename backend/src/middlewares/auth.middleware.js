@@ -6,6 +6,8 @@ const ErrorHandler = require("../utils/errorHandler");
 module.exports.isLogin = async (req, res, next) => {
     const token =  req.cookies.token || req.headers.authorization?.split(" ")[1] 
 
+    
+
     if (!token) {
         return next(new ErrorHandler("unauthorized jwt", 401));
     };
